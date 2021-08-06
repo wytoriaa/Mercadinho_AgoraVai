@@ -10,8 +10,10 @@ import Carrossel from './src/Carrossel'
 // import Header from './src/Header';
 //import Produtos from './src/componentes/Produtos';
 //import Login from './src/componentes/Login';
-//import Header from './src/componentes/Header';
 import Acougue from './src/produtos/Acougue';
+//import Header from './src/componentes/Header';
+//import Acougue from './src/componentes/Acougue';
+import Mapa from './src/Mapa';
 
 
 //criar uma funçao para os icones aparecerem na barra de navegação do app
@@ -71,6 +73,18 @@ export default function App() {
               name="shopping-cart"
               size={size}
               color={focused ? '#FFF' : '#ED1C24'}
+            />
+          ),
+        }}
+      />
+      <Drawer.Screen name="Mapa" component={Mapa} 
+        options={{
+          title: 'Mapa',
+          drawerIcon: ({focused, size}) => (
+            <Icons
+              name="home"
+              size={size}
+              color={focused ? '#2E3192' : '#ED1C24'}
             />
           ),
         }}
