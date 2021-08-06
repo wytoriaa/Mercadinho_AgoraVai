@@ -24,7 +24,7 @@ export default function HomeScreen(){
     
         <View style = {{display:'flex', flexDirection:'row', justifyContent: "space-evenly"}}>
         <ImagedCarouselCard  style={styles.item1}
-            width={Dimensions.get('window').width/3.2}
+            width={Dimensions.get('window').width/2.1}
             height={250}
             shadowColor="#051934"
             source={require("./assets/imagens/produtos/produto.png")}
@@ -33,7 +33,7 @@ export default function HomeScreen(){
         />
 
         <ImagedCarouselCard style={styles.item1}
-            width={Dimensions.get('window').width/3.2}
+            width={Dimensions.get('window').width/2.1}
             height={250}
             shadowColor="#051934"
             source={require("./assets/imagens/produtos/produto.png")}
@@ -42,15 +42,6 @@ export default function HomeScreen(){
 
         />
 
-<ImagedCarouselCard style={styles.item1}
-            width={Dimensions.get('window').width/3.2}
-            height={250}
-            shadowColor="#051934"
-            source={require("./assets/imagens/produtos/produto.png")}
-            text={"Nome do produto \n R$20"}
-            overlayBackgroundColor={"#2E3192DD"}
-
-        />
         </View>    
     
 
