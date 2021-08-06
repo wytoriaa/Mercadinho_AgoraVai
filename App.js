@@ -15,7 +15,7 @@ import Acougue from './src/produtos/acougue';
 import Mapa from './src/Mapa';
 import Higiene_Pessoal from './src/produtos/higiene_pessoal';
 import Limpeza from './src/produtos/limpeza';
-import Bebidas_Quentes from './src/produtos/Bebidas/bebidas_quentes';
+import Bebidas_Quentes from './src/produtos/bebidas_quentes';
 import Biscoitos from './src/produtos/biscoitos';
 import Molhos from './src/produtos/molhos';
 import Perfumaria from './src/produtos/perfumaria';
@@ -23,7 +23,7 @@ import Temperos from './src/produtos/temperos';
 import Bomboniere from './src/produtos/bomboniere';
 import Mercearia from './src/produtos/mercearia';
 import Salgadinhos from './src/produtos/salgadinhos';
-import Refrigerantes from './src/produtos/Bebidas/refrigerantes'
+import Refrigerantes from './src/produtos/refrigerantes';
 
 
 
@@ -119,7 +119,7 @@ export default function App() {
 
       <Drawer.Screen name="Bebidas_Quentes" component={Bebidas_Quentes}
         options={{
-          title: 'Bebidas Quentes',
+          title: 'Bebidas_Quentes',
           drawerIcon: ({focused, size}) => (
             <Icons
               name="shopping-cart"
