@@ -21,7 +21,7 @@ export default function HomeScreen(){
                     }}/>
         </View> 
 
-       
+    
         <View style = {{display:'flex', flexDirection:'row', justifyContent: "space-evenly"}}>
         <ImagedCarouselCard  style={styles.item1}
             width={Dimensions.get('window').width/3.2}
@@ -31,7 +31,7 @@ export default function HomeScreen(){
             text={"Nome do produto \n R$60"}
             overlayBackgroundColor={"#2E3192DD"}
         />
-              
+
         <ImagedCarouselCard style={styles.item1}
             width={Dimensions.get('window').width/3.2}
             height={250}
@@ -108,5 +108,5 @@ export default function HomeScreen(){
             
         },
 
-//jjjjj
+//jjjjj adicionei espaço as imagens
     })
