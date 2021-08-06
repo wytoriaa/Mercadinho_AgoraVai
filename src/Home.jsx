@@ -22,7 +22,7 @@ export default function HomeScreen(){
         </View> 
         <View style = {{display:'flex', flexDirection:'row', flexWrap:'wrap', justifyContent: "space-evenly"}}>
         <ImagedCarouselCard
-            width={Dimensions.get('window').width/2}
+            width={Dimensions.get('window').width/2.1}
             height={300}
             shadowColor="#051934"
             source={require("./assets/imagens/produtos/produto.png")}
@@ -31,7 +31,7 @@ export default function HomeScreen(){
         />
               
         <ImagedCarouselCard
-            width={Dimensions.get('window').width/2}
+            width={Dimensions.get('window').width/2.1}
             height={300}
             shadowColor="#051934"
             source={require("./assets/imagens/produtos/produto.png")}
