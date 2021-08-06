@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Text, Image, Dimensions, } from 'react-native';
 import PagerView from 'react-native-pager-view';
-import Header from '../../Header';
+import Header from '../Header';
 
 const MyPager = () => {
   return (
