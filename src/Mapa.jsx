@@ -2,9 +2,12 @@ import React from 'react';
 import { StyleSheet, View, Text, Dimensions, Button } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
 import customStyle from '../customStyle';
+import Header from './Header';
 
 export default function Mapa({ navigation }) {
     return (
+        <>
+        <Header />
         <View style={styles.container}>
             <MapView
                 customMapStyle={customStyle}
@@ -29,6 +32,7 @@ export default function Mapa({ navigation }) {
             </MapView>
             <Text>Localização - Cruzeiro Frios</Text>
         </View>
+        </>
     );
 }
 
@@ -40,7 +44,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     mapStyle: {
-        width: Dimensions.get('window').width,
-        height: '80%'
+        padding: 10,
+        width: Dimensions.get('window').width/1.2,
+        height: Dimensions.get('window').width/1.2,
     }
 });
