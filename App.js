@@ -75,6 +75,18 @@ export default function App() {
           ),
         }}
       />
+      <Drawer.Screen name="Mapa" component={Mapa} 
+        options={{
+          title: 'Mapa',
+          drawerIcon: ({focused, size}) => (
+            <Icons
+              name="home"
+              size={size}
+              color={focused ? '#2E3192' : '#ED1C24'}
+            />
+          ),
+        }}
+      />
       
     </Drawer.Navigator>
     </NavigationContainer>

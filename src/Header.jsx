@@ -2,7 +2,7 @@ import React, {useContext} from 'react';
 import { View, Button, Image, StyleSheet, Text, ImageBackground, Dimensions} from 'react-native';
 //import { ScrollView } from 'react-native-gesture-handler';
 //import styles from '../styles/style'
-
+// comentario
 
 export default function Header({navigation}){
   return(
