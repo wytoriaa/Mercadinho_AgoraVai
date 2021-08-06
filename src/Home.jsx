@@ -108,5 +108,5 @@ export default function HomeScreen(){
             
         },
 
-//jjjjj adicionei espaço as imagens
+//jjjjj adicionei espaço as imagens;;;
     })
