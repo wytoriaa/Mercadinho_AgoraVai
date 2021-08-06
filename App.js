@@ -13,6 +13,19 @@ import Carrossel from './src/Carrossel'
 //import Header from './src/componentes/Header';
 import Acougue from './src/produtos/acougue';
 import Mapa from './src/Mapa';
+import Higiene_Pessoal from './src/produtos/higiene_pessoal';
+import Limpeza from './src/produtos/limpeza';
+import Bebidas_Quentes from './src/produtos/Bebidas/bebidas_quentes';
+import Biscoitos from './src/produtos/biscoitos';
+import Molhos from './src/produtos/molhos';
+import Perfumaria from './src/produtos/perfumaria';
+import Temperos from './src/produtos/temperos';
+import Bomboniere from './src/produtos/bomboniere';
+import Mercearia from './src/produtos/mercearia';
+import Salgadinhos from './src/produtos/salgadinhos';
+import Refrigerantes from './src/produtos/Bebidas/refrigerantes'
+
+
 
 
 
@@ -77,6 +90,150 @@ export default function App() {
           ),
         }}
       />
+
+      <Drawer.Screen name="Higiene_Pessoal" component={Higiene_Pessoal}
+        options={{
+          title: 'Higiene Pessoal',
+          drawerIcon: ({focused, size}) => (
+            <Icons
+              name="shopping-cart"
+              size={size}
+              color={focused ? '#FFF' : '#ED1C24'}
+            />
+          ),
+        }}
+      />
+
+      <Drawer.Screen name="Limpeza" component={Limpeza}
+        options={{
+          title: 'Limpeza',
+          drawerIcon: ({focused, size}) => (
+            <Icons
+              name="shopping-cart"
+              size={size}
+              color={focused ? '#FFF' : '#ED1C24'}
+            />
+          ),
+        }}
+      />
+
+      <Drawer.Screen name="Bebidas_Quentes" component={Bebidas_Quentes}
+        options={{
+          title: 'Bebidas Quentes',
+          drawerIcon: ({focused, size}) => (
+            <Icons
+              name="shopping-cart"
+              size={size}
+              color={focused ? '#FFF' : '#ED1C24'}
+            />
+          ),
+        }}
+      />
+
+     <Drawer.Screen name="Biscoitos" component={Biscoitos}
+        options={{
+          title: 'Biscoitos',
+          drawerIcon: ({focused, size}) => (
+            <Icons
+              name="shopping-cart"
+              size={size}
+              color={focused ? '#FFF' : '#ED1C24'}
+            />
+          ),
+        }}
+      />
+
+     <Drawer.Screen name=" Molhos" component={Molhos}
+        options={{
+          title: 'Molhos',
+          drawerIcon: ({focused, size}) => (
+            <Icons
+              name="shopping-cart"
+              size={size}
+              color={focused ? '#FFF' : '#ED1C24'}
+            />
+          ),
+        }}
+      />
+
+      <Drawer.Screen name="Perfumaria" component={Perfumaria}
+        options={{
+          title: 'Perfumaria',
+          drawerIcon: ({focused, size}) => (
+            <Icons
+              name="shopping-cart"
+              size={size}
+              color={focused ? '#FFF' : '#ED1C24'}
+            />
+          ),
+        }}
+      />
+
+      <Drawer.Screen name="Refrigerantes" component={Refrigerantes}
+        options={{
+          title: 'Refrigerantes',
+          drawerIcon: ({focused, size}) => (
+            <Icons
+              name="shopping-cart"
+              size={size}
+              color={focused ? '#FFF' : '#ED1C24'}
+            />
+          ),
+        }}
+      />
+
+      <Drawer.Screen name="Temperos" component={Temperos}
+        options={{
+          title: 'Temperos',
+          drawerIcon: ({focused, size}) => (
+            <Icons
+              name="shopping-cart"
+              size={size}
+              color={focused ? '#FFF' : '#ED1C24'}
+            />
+          ),
+        }}
+      />
+
+      <Drawer.Screen name="Bomboniere" component={Bomboniere}
+        options={{
+          title: 'Bomboniere',
+          drawerIcon: ({focused, size}) => (
+            <Icons
+              name="shopping-cart"
+              size={size}
+              color={focused ? '#FFF' : '#ED1C24'}
+            />
+          ),
+        }}
+      />
+
+      <Drawer.Screen name="Mercearia" component={Mercearia}
+        options={{
+          title: 'Mercearia',
+          drawerIcon: ({focused, size}) => (
+            <Icons
+              name="shopping-cart"
+              size={size}
+              color={focused ? '#FFF' : '#ED1C24'}
+            />
+          ),
+        }}
+      />
+
+      <Drawer.Screen name="Salgadinhos" component={Salgadinhos}
+        options={{
+          title: 'Salgadinhos',
+          drawerIcon: ({focused, size}) => (
+            <Icons
+              name="shopping-cart"
+              size={size}
+              color={focused ? '#FFF' : '#ED1C24'}
+            />
+          ),
+        }}
+      />
+
       <Drawer.Screen name="Mapa" component={Mapa} 
         options={{
           title: 'Mapa',
