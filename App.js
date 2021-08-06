@@ -15,6 +15,9 @@ import Acougue from './src/produtos/acougue';
 import ListarProdutos from './src/ListarProdutos';
 import CadastroProdutos from './src/CadastroProdutos';
 import EditProdutos from './src/EditProdutos';
+import Mapa from './src/Mapa';
+
+
 
 //criar uma funçao para os icones aparecerem na barra de navegação do app
 //function escolhendoIcone({color, size}){
@@ -73,6 +76,18 @@ export default function App() {
               name="shopping-cart"
               size={size}
               color={focused ? '#FFF' : '#ED1C24'}
+            />
+          ),
+        }}
+      />
+      <Drawer.Screen name="Mapa" component={Mapa} 
+        options={{
+          title: 'Mapa',
+          drawerIcon: ({focused, size}) => (
+            <Icons
+              name="home"
+              size={size}
+              color={focused ? '#2E3192' : '#ED1C24'}
             />
           ),
         }}
