@@ -1,11 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import firebase from '../firebase';
-import {StyleSheet, Button, Text, View, ActivityIndicator, FlatList} from 'react-native';
+import {StyleSheet, Button, Text, View, ActivityIndicator, FlatList, TextInput} from 'react-native';
 
 export default function ListarProdutos({navigation}){
     const [loading, setLoading] = useState(true);
     const [state, setState] = useState([]);
-    
+    const [pesquisa, setPesquisa] = useState('');
+
     useEffect(
         () => navigation.addListener('focus', () => {pegaDados()}),[]
     )
@@ -22,7 +23,12 @@ export default function ListarProdutos({navigation}){
                 })
             }
         )
-        setState(listProdutos)
+
+        var byDate = listProdutos.slice(0);
+        byDate.sort(function(a,b) {
+            return a.codigo - b.codigo;
+        });
+        setState(byDate)
         setLoading(false)
     }
     console.log(state)
@@ -33,11 +39,16 @@ export default function ListarProdutos({navigation}){
         <View style={styles.container}>
             <Text style={styles.h1}>Produtos Cadastrados</Text>
 
-
-
+            <TextInput style={styles.input}
+                    placeholder='Pesquisar'
+                    defaultValue={pesquisa}
+                    onChangeText={(value) => {setPesquisa(value)}}
+                />
+            <Text>{pesquisa}</Text>
             {/* <Button title="Adicionar" onPress={()=>{setLoading(true); navigation.navigate('CadastroProdutos')}}/> */}
+
             <FlatList data={state} renderItem={({item}) => (<View style={styles.container}>
-                <Text>{listProdutos}</Text>
+                <Text>{item.codigo} - {item.nome}</Text>
                 <Text>R$ {parseFloat(item.preco).toFixed(2)}</Text>
                 <Text>{item.grupo}</Text>
                 <Text>{item.descricao}</Text>
