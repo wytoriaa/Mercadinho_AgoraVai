@@ -3,10 +3,13 @@ import { View, Button, Image, StyleSheet, Text, Dimensions} from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import firebase from 'firebase';
 import ImagedCarouselCard from "react-native-imaged-carousel-card";
+import Header from './Header';
 
 export default function HomeScreen(){
     return (
+    
     <View style ={{flex: 1, alignItems:'center', justifyContent:'center'}}>
+        <Header />
         <View style = {styles.container}>
         </View>
         <ScrollView>
@@ -24,7 +27,7 @@ export default function HomeScreen(){
             shadowColor="#051934"
             source={require("./assets/imagens/produtos/produto.png")}
             text={"Nome do produto \n R$60"}
-            overlayBackgroundColor={"#000d"}
+            overlayBackgroundColor={"#2E3192DD"}
         />
               
         <ImagedCarouselCard
@@ -33,7 +36,7 @@ export default function HomeScreen(){
             shadowColor="#051934"
             source={require("./assets/imagens/produtos/produto.png")}
             text={"Nome do produto \n R$20"}
-            overlayBackgroundColor={"#000d"}
+            overlayBackgroundColor={"#2E3192DD"}
 
         />
         </View>       

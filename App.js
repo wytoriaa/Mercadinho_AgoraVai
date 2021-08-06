@@ -27,7 +27,6 @@ export default function App() {
   return (
   <NavigationContainer style={styles.container}>
     <StatusBar/>
-    <Header />
     <Drawer.Navigator initialRouteName={Home}
     drawerContentOptions={{
       activeTintColor: '#FFF',
