@@ -23,7 +23,9 @@ export default function HomeScreen(){
 
     
         <View style = {{display:'flex', flexDirection:'row', justifyContent: "space-evenly"}}>
-        <ImagedCarouselCard  style={styles.item1}
+
+
+<ImagedCarouselCard  style={styles.item1}
             width={Dimensions.get('window').width/2.1}
             height={250}
             shadowColor="#051934"
@@ -32,7 +34,10 @@ export default function HomeScreen(){
             overlayBackgroundColor={"#2E3192DD"}
         />
 
-        <ImagedCarouselCard style={styles.item1}
+
+
+
+<ImagedCarouselCard style={styles.item1}
             width={Dimensions.get('window').width/2.1}
             height={250}
             shadowColor="#051934"
