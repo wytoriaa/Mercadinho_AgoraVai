@@ -1,10 +1,12 @@
 import React from 'react';
 import { StyleSheet, View, Text, Image } from 'react-native';
 import PagerView from 'react-native-pager-view';
+import Header from './Header';
 
 const MyPager = () => {
   return (
     <View style={{ flex: 1 }}>
+      <Header />
       <PagerView style={styles.viewPager} initialPage={0}>
         <View style={styles.page} key="1">
             <Image style={styles.tinyLogo}
