@@ -4,15 +4,12 @@ import {NavigationContainer} from '@react-navigation/native'
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import { StyleSheet, StatusBar, View} from 'react-native';
 import Icons from 'react-native-vector-icons/MaterialIcons';
-//import { Contexto } from './src/componentes/Contexto';
 import Home from './src/Home';
 import Carrossel from './src/Carrossel'
-// import Header from './src/Header';
-//import Produtos from './src/componentes/Produtos';
-//import Login from './src/componentes/Login';
-//import Header from './src/componentes/Header';
+import Login from './src/Login';
 import Acougue from './src/produtos/acougue';
 import Mapa from './src/Mapa';
+
 
 
 //criar uma funçao para os icones aparecerem na barra de navegação do app
@@ -51,7 +48,7 @@ export default function App() {
         }}
       />
 
-      <Drawer.Screen name="Login" component={Carrossel}
+      <Drawer.Screen name="Login" component={Login}
         options={{
           title: 'Login',
           drawerIcon: ({focused, size}) => (
