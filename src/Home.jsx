@@ -3,7 +3,7 @@ import { View, Button, Image, StyleSheet, Text, Dimensions} from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import firebase from 'firebase';
 import ImagedCarouselCard from "react-native-imaged-carousel-card";
-import Header from './Header';
+import Header from './Header'; import PagerView from 'react-native-pager-view';
 
 export default function HomeScreen(){
     return (
@@ -20,26 +20,40 @@ export default function HomeScreen(){
                     uri: 'https://blog.superfilter.com.br/wp-content/uploads/2020/08/vale-a-pena-comprar-agua-de-galao.jpg',
                     }}/>
         </View> 
-        <View style = {{display:'flex', flexDirection:'row', flexWrap:'wrap', justifyContent: "space-evenly"}}>
-        <ImagedCarouselCard
-            width={Dimensions.get('window').width/2}
-            height={300}
+
+       
+        <View style = {{display:'flex', flexDirection:'row', justifyContent: "space-evenly"}}>
+        <ImagedCarouselCard  style={styles.item1}
+            width={Dimensions.get('window').width/3.2}
+            height={250}
             shadowColor="#051934"
             source={require("./assets/imagens/produtos/produto.png")}
             text={"Nome do produto \n R$60"}
             overlayBackgroundColor={"#2E3192DD"}
         />
               
-        <ImagedCarouselCard
-            width={Dimensions.get('window').width/2}
-            height={300}
+        <ImagedCarouselCard style={styles.item1}
+            width={Dimensions.get('window').width/3.2}
+            height={250}
             shadowColor="#051934"
             source={require("./assets/imagens/produtos/produto.png")}
             text={"Nome do produto \n R$20"}
             overlayBackgroundColor={"#2E3192DD"}
 
         />
-        </View>       
+
+<ImagedCarouselCard style={styles.item1}
+            width={Dimensions.get('window').width/3.2}
+            height={250}
+            shadowColor="#051934"
+            source={require("./assets/imagens/produtos/produto.png")}
+            text={"Nome do produto \n R$20"}
+            overlayBackgroundColor={"#2E3192DD"}
+
+        />
+        </View>    
+    
+
         <View>
             <Image style={styles.tinyLogo}
                     source={{
@@ -89,5 +103,10 @@ export default function HomeScreen(){
           height: 200,
           borderRadius: 20,
         },
+        item1:{
+            padding: 5
+            
+        },
+
 
     })

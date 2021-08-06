@@ -11,7 +11,7 @@ import Carrossel from './src/Carrossel'
 //import Produtos from './src/componentes/Produtos';
 //import Login from './src/componentes/Login';
 //import Header from './src/componentes/Header';
-import Acougue from './src/produtos/Acougue';
+import Acougue from './src/produtos/acougue';
 
 
 //criar uma funçao para os icones aparecerem na barra de navegação do app
