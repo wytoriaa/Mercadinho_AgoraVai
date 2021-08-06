@@ -12,7 +12,11 @@ import Carrossel from './src/Carrossel'
 //import Login from './src/componentes/Login';
 //import Header from './src/componentes/Header';
 import Acougue from './src/produtos/acougue';
+import ListarProdutos from './src/ListarProdutos';
+import CadastroProdutos from './src/CadastroProdutos';
+import EditProdutos from './src/EditProdutos';
 import Mapa from './src/Mapa';
+
 
 
 //criar uma funçao para os icones aparecerem na barra de navegação do app
@@ -89,6 +93,51 @@ export default function App() {
         }}
       />
       
+      <Drawer.Screen name="ListarProdutos" component={ListarProdutos}
+        options={{
+          title: 'Produtos',
+          drawerIcon: ({focused, size}) => (
+            <Icons
+              name="shopping-cart"
+              size={size}
+              color={focused ? '#FFF' : '#ED1C24'}
+            />
+          ),
+        }}
+      />
+
+
+     <Drawer.Screen name="CadastroProdutos" component={CadastroProdutos}
+        options={{
+          title: 'Cadastrar Produto',
+          drawerIcon: ({focused, size}) => (
+            <Icons
+              name="shopping-cart"
+              size={size}
+              color={focused ? '#FFF' : '#ED1C24'}
+            />
+          ),
+        }}
+      />
+
+
+
+
+     <Drawer.Screen name="EditProdutos" component={EditProdutos}
+        options={{
+          title: 'Editar Produto',
+          drawerIcon: ({focused, size}) => (
+            <Icons
+              name="shopping-cart"
+              size={size}
+              color={focused ? '#FFF' : '#ED1C24'}
+            />
+          ),
+        }}
+      />
+
+
+
     </Drawer.Navigator>
     </NavigationContainer>
     
