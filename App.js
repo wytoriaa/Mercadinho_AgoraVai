@@ -6,12 +6,13 @@ import { StyleSheet, StatusBar, View} from 'react-native';
 import Icons from 'react-native-vector-icons/MaterialIcons';
 //import { Contexto } from './src/componentes/Contexto';
 import Home from './src/Home';
-import Carrossel from './src/Carrossel'
+import Carrossel from './src/Carrossel';
 // import Header from './src/Header';
 //import Produtos from './src/componentes/Produtos';
 //import Login from './src/componentes/Login';
 //import Header from './src/componentes/Header';
 import Acougue from './src/produtos/Acougue';
+import ListaGeral from './src/ListaGeral';
 
 
 //criar uma funçao para os icones aparecerem na barra de navegação do app
@@ -66,6 +67,19 @@ export default function App() {
       <Drawer.Screen name="Acougue" component={Acougue}
         options={{
           title: 'Açougue',
+          drawerIcon: ({focused, size}) => (
+            <Icons
+              name="shopping-cart"
+              size={size}
+              color={focused ? '#FFF' : '#ED1C24'}
+            />
+          ),
+        }}
+      />
+
+      <Drawer.Screen name="ListaGeral" component={ListaGeral}
+        options={{
+          title: 'Lista de produtos',
           drawerIcon: ({focused, size}) => (
             <Icons
               name="shopping-cart"
