@@ -36,6 +36,7 @@ const styles = StyleSheet.create({
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
+        backgroundColor:"white"
       },
       BackgroundHeader: {
         width: Dimensions.get("window").width,
