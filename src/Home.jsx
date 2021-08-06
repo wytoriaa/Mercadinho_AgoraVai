@@ -3,10 +3,13 @@ import { View, Button, Image, StyleSheet, Text, Dimensions} from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import firebase from 'firebase';
 import ImagedCarouselCard from "react-native-imaged-carousel-card";
+import Header from './Header';
 
 export default function HomeScreen(){
     return (
+    
     <View style ={{flex: 1, alignItems:'center', justifyContent:'center'}}>
+        <Header />
         <View style = {styles.container}>
         </View>
         <ScrollView>
@@ -17,39 +20,25 @@ export default function HomeScreen(){
                     uri: 'https://blog.superfilter.com.br/wp-content/uploads/2020/08/vale-a-pena-comprar-agua-de-galao.jpg',
                     }}/>
         </View> 
-        <View style = {{display:'flex', flexDirection:'row', flexWrap:'wrap'}}>
+        <View style = {{display:'flex', flexDirection:'row', flexWrap:'wrap', justifyContent: "space-evenly"}}>
         <ImagedCarouselCard
             width={Dimensions.get('window').width/2}
-            height={200}
+            height={300}
             shadowColor="#051934"
-            source={{
-                uri: "https://scontent.frec31-1.fna.fbcdn.net/v/t1.6435-9/227436569_4024710797637991_8994688771645762604_n.jpg?_nc_cat=110&ccb=1-3&_nc_sid=730e14&_nc_eui2=AeEjZsXzNi-UMlR5kAXt-UtZZ6SXodPFqPlnpJeh08Wo-dkRYan9SIEw81jbTcVPrVLyRU25uTW8Ta90DqnGKsbc&_nc_ohc=IyXapmxvJsoAX-mFqfM&_nc_ht=scontent.frec31-1.fna&oh=a3887ef9f78b6ec9d05af0256eda560f&oe=612B67B8",
-            }}
-            />
+            source={require("./assets/imagens/produtos/produto.png")}
+            text={"Nome do produto \n R$60"}
+            overlayBackgroundColor={"#2E3192DD"}
+        />
+              
         <ImagedCarouselCard
             width={Dimensions.get('window').width/2}
-            height={200}
+            height={300}
             shadowColor="#051934"
-            source={{
-                uri: "https://scontent.frec31-1.fna.fbcdn.net/v/t1.6435-9/227436569_4024710797637991_8994688771645762604_n.jpg?_nc_cat=110&ccb=1-3&_nc_sid=730e14&_nc_eui2=AeEjZsXzNi-UMlR5kAXt-UtZZ6SXodPFqPlnpJeh08Wo-dkRYan9SIEw81jbTcVPrVLyRU25uTW8Ta90DqnGKsbc&_nc_ohc=IyXapmxvJsoAX-mFqfM&_nc_ht=scontent.frec31-1.fna&oh=a3887ef9f78b6ec9d05af0256eda560f&oe=612B67B8",
-            }}
-            />
-        <ImagedCarouselCard
-            width={Dimensions.get('window').width/2}
-            height={200}
-            shadowColor="#051934"
-            source={{
-                uri: "https://scontent.frec31-1.fna.fbcdn.net/v/t1.6435-9/227436569_4024710797637991_8994688771645762604_n.jpg?_nc_cat=110&ccb=1-3&_nc_sid=730e14&_nc_eui2=AeEjZsXzNi-UMlR5kAXt-UtZZ6SXodPFqPlnpJeh08Wo-dkRYan9SIEw81jbTcVPrVLyRU25uTW8Ta90DqnGKsbc&_nc_ohc=IyXapmxvJsoAX-mFqfM&_nc_ht=scontent.frec31-1.fna&oh=a3887ef9f78b6ec9d05af0256eda560f&oe=612B67B8",
-            }}
-            />        
-        <ImagedCarouselCard
-            width={Dimensions.get('window').width/2}
-            height={200}
-            shadowColor="#051934"
-            source={{
-                uri: "https://scontent.frec31-1.fna.fbcdn.net/v/t1.6435-9/227436569_4024710797637991_8994688771645762604_n.jpg?_nc_cat=110&ccb=1-3&_nc_sid=730e14&_nc_eui2=AeEjZsXzNi-UMlR5kAXt-UtZZ6SXodPFqPlnpJeh08Wo-dkRYan9SIEw81jbTcVPrVLyRU25uTW8Ta90DqnGKsbc&_nc_ohc=IyXapmxvJsoAX-mFqfM&_nc_ht=scontent.frec31-1.fna&oh=a3887ef9f78b6ec9d05af0256eda560f&oe=612B67B8",
-            }}
-            /> 
+            source={require("./assets/imagens/produtos/produto.png")}
+            text={"Nome do produto \n R$20"}
+            overlayBackgroundColor={"#2E3192DD"}
+
+        />
         </View>       
         <View>
             <Image style={styles.tinyLogo}
