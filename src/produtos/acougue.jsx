@@ -1,31 +1,34 @@
 import React from 'react';
-import { StyleSheet, View, Text, Image } from 'react-native';
+import { StyleSheet, View, Text, Image, Dimensions, } from 'react-native';
 import PagerView from 'react-native-pager-view';
+import Header from '../Header';
 
 const MyPager = () => {
   return (
-    <View style={{ flex: 1 }}>
+    <View style={styles.viewPager}>
+      <Header />
+      <View style={styles.bgtitulo}>
+        <Text style={styles.titulo}>Açougue</Text>
+      </View>
       <PagerView style={styles.viewPager} initialPage={0}>
         <View style={styles.page} key="1">
-            <Image style={styles.tinyLogo}
-                    source={{
-                    uri: 'https://scontent.frec31-1.fna.fbcdn.net/v/t1.6435-9/227436569_4024710797637991_8994688771645762604_n.jpg?_nc_cat=110&ccb=1-3&_nc_sid=730e14&_nc_eui2=AeEjZsXzNi-UMlR5kAXt-UtZZ6SXodPFqPlnpJeh08Wo-dkRYan9SIEw81jbTcVPrVLyRU25uTW8Ta90DqnGKsbc&_nc_ohc=IyXapmxvJsoAX-mFqfM&_nc_ht=scontent.frec31-1.fna&oh=a3887ef9f78b6ec9d05af0256eda560f&oe=612B67B8',
-                    }}/>
-            <Image style={styles.tinyLogo}
-                    source={{
-                    uri: 'https://scontent.frec31-1.fna.fbcdn.net/v/t1.6435-9/227436569_4024710797637991_8994688771645762604_n.jpg?_nc_cat=110&ccb=1-3&_nc_sid=730e14&_nc_eui2=AeEjZsXzNi-UMlR5kAXt-UtZZ6SXodPFqPlnpJeh08Wo-dkRYan9SIEw81jbTcVPrVLyRU25uTW8Ta90DqnGKsbc&_nc_ohc=IyXapmxvJsoAX-mFqfM&_nc_ht=scontent.frec31-1.fna&oh=a3887ef9f78b6ec9d05af0256eda560f&oe=612B67B8',
-                    }}/>
-            <Image style={styles.tinyLogo}
-                    source={{
-                    uri: 'https://scontent.frec31-1.fna.fbcdn.net/v/t1.6435-9/227436569_4024710797637991_8994688771645762604_n.jpg?_nc_cat=110&ccb=1-3&_nc_sid=730e14&_nc_eui2=AeEjZsXzNi-UMlR5kAXt-UtZZ6SXodPFqPlnpJeh08Wo-dkRYan9SIEw81jbTcVPrVLyRU25uTW8Ta90DqnGKsbc&_nc_ohc=IyXapmxvJsoAX-mFqfM&_nc_ht=scontent.frec31-1.fna&oh=a3887ef9f78b6ec9d05af0256eda560f&oe=612B67B8',
-                    }}/>
-            <Text style={styles.texto}>Arraste para o lado para ver mais produtos ➡️</Text>        
+            <Image source={require("../assets/imagens/produtos/acougue/contra-file-swift.jpg")} style={styles.img} />
+            <View style={styles.bgtexto}>
+              <Text style={styles.texto}>Contra Filé - Swift</Text>
+            </View>
         </View>
         <View style={styles.page} key="2">
-          <Text>Second page</Text>
+          <Image source={require("../assets/imagens/produtos/acougue/miolo-alcatra-big-carnes.jpg")} style={styles.img} />
+          <View style={styles.bgtexto}>
+            <Text style={styles.texto}>Miolo da Alcatra - Big Carnes</Text>
+          </View>
         </View>
+
         <View style={styles.page} key="3">
-          <Text>Third page</Text>
+        <Image source={require("../assets/imagens/produtos/acougue/picanha-maturatta.jpg")} style={styles.img} />
+          <View style={styles.bgtexto}>
+            <Text style={styles.texto}>Picanha - Maturatta</Text>
+          </View>
         </View>
       </PagerView>
     </View>
@@ -40,18 +43,33 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  tinyLogo: {
-    display: 'flex',
-    flexDirection:'row',  
-    margin:5,  
-    width: 400,
-    height: 200,
-    borderRadius: 20,
+  titulo:{
+    fontSize: 26,
+    textAlign: 'center',
+    padding: 20,
+    fontFamily: "sans-serif-light",
+  },
+  bgtitulo:{
+    width: Dimensions.get('window').width,
+    backgroundColor: "#ED1C2422",
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginVertical: 10,
   },
   texto:{
     fontSize: 15,
-    textAlign: 'center'
-  }
+    textAlign: 'center',
+    padding: 20,
+  },
+  bgtexto:{
+    width: Dimensions.get('window').width,
+    backgroundColor: "#2E319222",
+    marginVertical: 10,
+  },
+  img: {
+    width: Dimensions.get('window').width/1.3,
+    height: Dimensions.get('window').width/1.3,
+  },
 });
 
 export default MyPager;
