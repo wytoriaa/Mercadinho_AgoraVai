@@ -20,4 +20,4 @@ const db = firebase.firestore();
 
 export default {
     db, firebase
-}
+} 
