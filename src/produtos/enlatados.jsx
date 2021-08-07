@@ -8,26 +8,26 @@ const MyPager = () => {
     <View style={styles.viewPager}>
       <Header />
       <View style={styles.bgtitulo}>
-        <Text style={styles.titulo}>Higiene Pessoal</Text>
+        <Text style={styles.titulo}>Enlatados</Text>
       </View>
       <PagerView style={styles.viewPager} initialPage={0}>
         <View style={styles.page} key="1">
-            <Image source={require("./imagens_cruzeiro/sabonete.jpg")} style={styles.img} />
+            <Image source={require("./imagens_cruzeiro/almondega.jpg")} style={styles.img} />
             <View style={styles.bgtexto}>
-              <Text style={styles.texto}>Sabonete</Text>
+              <Text style={styles.texto}>Almondegas - Bordon </Text>
             </View>
         </View>
         <View style={styles.page} key="2">
-          <Image source={require("./imagens_cruzeiro/oralb.jpg")} style={styles.img} />
+          <Image source={require("./imagens_cruzeiro/ervilha.jpg")} style={styles.img} />
           <View style={styles.bgtexto}>
-            <Text style={styles.texto}>Creme Dental</Text>
+            <Text style={styles.texto}>Ervilhas - Quero</Text>
           </View>
         </View>
 
         <View style={styles.page} key="3">
-        <Image source={require("./imagens_cruzeiro/barla.jpg")} style={styles.img} />
+        <Image source={require("./imagens_cruzeiro/feijoada.jpg")} style={styles.img} />
           <View style={styles.bgtexto}>
-            <Text style={styles.texto}>Talco</Text>
+            <Text style={styles.texto}>Feijoada - Bordon</Text>
           </View>
         </View>
       </PagerView>
