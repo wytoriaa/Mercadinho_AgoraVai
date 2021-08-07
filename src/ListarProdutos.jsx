@@ -9,7 +9,7 @@ export default function ListarProdutos({navigation}){
         () => navigation.addListener('focus', () => {pegaDados()}),[]
     )
     const pegaDados = async () => {
-        const product = firebase.db.collection("product");
+        const product = firebase.db.collection("produtos");
         const resposta = await product.get();
         const listProdutos = [];
         resposta.forEach(

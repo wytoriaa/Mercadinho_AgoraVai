@@ -3,13 +3,10 @@ import {View, Text,  StyleSheet, TextInput, Button, ActivityIndicator } from 're
 import firebase from '../firebase';
 import {UserContext} from './UserContext.jsx';
 
-export default function Login() {
+export default function Login({navigation}) {
     const {logado, deslogado} = useContext(UserContext);
-
     const [loading, setLoading] = useState(true);
-
     const [newUser, setNewUser] = useState(false);
-
     const [state, setState] = useState({
         email:'',
         senha:'',
@@ -30,6 +27,7 @@ export default function Login() {
             if(user){
               if(user.emailVerified){
                 logado(user);
+                navigation.navigate("ListarProdutos")
               }else{
                 auth.signOut();
                 deslogado();
