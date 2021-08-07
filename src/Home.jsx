@@ -511,7 +511,7 @@ export default function Home({navigation}){
                                 width={300}
                                 height={300}
                                 shadowColor="#051934"
-                                source={require('./produtos/imagens_cruzeiro/picanha.jpg')}
+                                source={{uri:`${urlImg}`}}
                                 text={`${item.Nome} \nR$: ${item.Preço}`}
                                 overlayBackgroundColor={"#2E3192DD"}
                                 />
