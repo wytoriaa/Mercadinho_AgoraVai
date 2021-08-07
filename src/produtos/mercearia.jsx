@@ -12,20 +12,20 @@ const MyPager = () => {
       </View>
       <PagerView style={styles.viewPager} initialPage={0}>
         <View style={styles.page} key="1">
-            <Image source={require("./imagens_cruzeiro/pao")} style={styles.img} />
+            <Image source={require("./imagens_cruzeiro/pao.jpg")} style={styles.img} />
             <View style={styles.bgtexto}>
               <Text style={styles.texto}>Pão de Forma - Visconti</Text>
             </View>
         </View>
         <View style={styles.page} key="2">
-          <Image source={require("./imagens_cruzeiro/pao_integral")} style={styles.img} />
+          <Image source={require("./imagens_cruzeiro/pao_integral.jpg")} style={styles.img} />
           <View style={styles.bgtexto}>
             <Text style={styles.texto}>Pão Integral - Visconti</Text>
           </View>
         </View>
 
         <View style={styles.page} key="3">
-        <Image source={require("./imagens_cruzeiro/pao")} style={styles.img} />
+        <Image source={require("./imagens_cruzeiro/pao.jpg")} style={styles.img} />
           <View style={styles.bgtexto}>
             <Text style={styles.texto}>Pão de Forma - Visconti</Text>
           </View>
