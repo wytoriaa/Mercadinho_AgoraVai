@@ -1,11 +1,34 @@
-import React from 'react';
-import { View, Button, Image, StyleSheet, Text, Dimensions} from 'react-native';
+import React,{useEffect,useState} from 'react';
+import { View, Button, Image, StyleSheet, Text, Dimensions,FlatList} from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
-import firebase from 'firebase';
+import firebase from '../firebase';
 import ImagedCarouselCard from "react-native-imaged-carousel-card";
 import Header from './Header';
 
-export default function HomeScreen(){
+export default function HomeScreen({navigation}){
+    const [loading, setLoading] = useState(true);
+    const [state, setState] = useState([]);
+    useEffect(
+        () => navigation.addListener('focus', () => {pegaDados()}),[]
+    )
+    const pegaDados = async () => {
+        const product = firebase.db.collection("product");
+        const resposta = await product.where('grupo', '==', 'CARNES').get();
+
+
+        const listProdutos = [];
+        resposta.forEach(
+            doc =>{
+                listProdutos.push({
+                    ...doc.data(),
+                    key: doc.id
+                })
+            }
+        )
+        setState(listProdutos)
+        setLoading(false)
+    }
+    console.log(state)
     return (
     
     <View style ={{flex: 1, alignItems:'center', justifyContent:'center'}}>
@@ -41,10 +64,14 @@ export default function HomeScreen(){
         />
         </View>       
         <View>
-            <Image style={styles.tinyLogo}
-                    source={{
-                    uri: 'https://scontent.frec31-1.fna.fbcdn.net/v/t1.6435-9/227436569_4024710797637991_8994688771645762604_n.jpg?_nc_cat=110&ccb=1-3&_nc_sid=730e14&_nc_eui2=AeEjZsXzNi-UMlR5kAXt-UtZZ6SXodPFqPlnpJeh08Wo-dkRYan9SIEw81jbTcVPrVLyRU25uTW8Ta90DqnGKsbc&_nc_ohc=IyXapmxvJsoAX-mFqfM&_nc_ht=scontent.frec31-1.fna&oh=a3887ef9f78b6ec9d05af0256eda560f&oe=612B67B8',
-                    }}/>
+        <FlatList data={state} renderItem={({item}) => (<View style={styles.tinyLogo}>
+               
+                <Text>Produto: {item.nome}</Text>
+                <Text>R${item.preco}</Text>
+                <Text>{item.status.promocao}</Text>
+                
+               
+            </View>)}/>
         </View> 
         <View>
             <Image style={styles.tinyLogo}
@@ -88,6 +115,7 @@ export default function HomeScreen(){
           width: 400,
           height: 200,
           borderRadius: 20,
+          backgroundColor:'red'
         },
 
     })
