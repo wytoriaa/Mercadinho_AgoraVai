@@ -12,22 +12,22 @@ const MyPager = () => {
       </View>
       <PagerView style={styles.viewPager} initialPage={0}>
         <View style={styles.page} key="1">
-            <Image source={require("../assets/imagens/produtos/acougue/contra-file-swift.jpg")} style={styles.img} />
+            <Image source={require("./imagens_cruzeiro/agua_sanitaria.jpg")} style={styles.img} />
             <View style={styles.bgtexto}>
-              <Text style={styles.texto}>Contra Filé - Swift</Text>
+              <Text style={styles.texto}>Água Sanitária</Text>
             </View>
         </View>
         <View style={styles.page} key="2">
-          <Image source={require("../assets/imagens/produtos/acougue/miolo-alcatra-big-carnes.jpg")} style={styles.img} />
+          <Image source={require("./imagens_cruzeiro/veja.jpg")} style={styles.img} />
           <View style={styles.bgtexto}>
-            <Text style={styles.texto}>Miolo da Alcatra - Big Carnes</Text>
+            <Text style={styles.texto}>Veja - Multi uso</Text>
           </View>
         </View>
 
         <View style={styles.page} key="3">
-        <Image source={require("../assets/imagens/produtos/acougue/picanha-maturatta.jpg")} style={styles.img} />
+        <Image source={require("./imagens_cruzeiro/sabão_tixan.jpg")} style={styles.img} />
           <View style={styles.bgtexto}>
-            <Text style={styles.texto}>Picanha - Maturatta</Text>
+            <Text style={styles.texto}>Sabão em Pó</Text>
           </View>
         </View>
       </PagerView>
