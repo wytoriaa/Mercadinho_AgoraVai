@@ -8,26 +8,26 @@ const MyPager = () => {
     <View style={styles.viewPager}>
       <Header />
       <View style={styles.bgtitulo}>
-        <Text style={styles.titulo}>Higiene Pessoal</Text>
+        <Text style={styles.titulo}>Perfumaria</Text>
       </View>
       <PagerView style={styles.viewPager} initialPage={0}>
         <View style={styles.page} key="1">
-            <Image source={require("../assets/imagens/produtos/acougue/contra-file-swift.jpg")} style={styles.img} />
+            <Image source={require("./imagens_cruzeiro/oralb.jpg")} style={styles.img} />
             <View style={styles.bgtexto}>
-              <Text style={styles.texto}>Contra Filé - Swift</Text>
+              <Text style={styles.texto}>Anti séptico</Text>
             </View>
         </View>
         <View style={styles.page} key="2">
-          <Image source={require("../assets/imagens/produtos/acougue/miolo-alcatra-big-carnes.jpg")} style={styles.img} />
+          <Image source={require("./imagens_cruzeiro/sabonete.jpg")} style={styles.img} />
           <View style={styles.bgtexto}>
-            <Text style={styles.texto}>Miolo da Alcatra - Big Carnes</Text>
+            <Text style={styles.texto}>Sabonetes</Text>
           </View>
         </View>
 
         <View style={styles.page} key="3">
-        <Image source={require("../assets/imagens/produtos/acougue/picanha-maturatta.jpg")} style={styles.img} />
+        <Image source={require("./imagens_cruzeiro/fralda.jpg")} style={styles.img} />
           <View style={styles.bgtexto}>
-            <Text style={styles.texto}>Picanha - Maturatta</Text>
+            <Text style={styles.texto}>Fraldas</Text>
           </View>
         </View>
       </PagerView>
