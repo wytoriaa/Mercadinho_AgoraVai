@@ -5,47 +5,47 @@ import firebase from '../../firebase';
 import ImagedCarouselCard from "react-native-imaged-carousel-card";
 import Header from '../Header';
 
-export default function Limpeza({navigation}) {
+export default function HigienePessoal({navigation}) {
   
-  const [limpeza, setLimpeza] = useState([]);
+  const [higienePessoal, setHigienePessoal] = useState([]);
 
   useEffect(
     () => navigation.addListener('focus', () => {
-        pegaLimpeza()
+        pegaHigienePessoal()
     }),[]
   )
 
-  const  pegaLimpeza = async () => {
+  const  pegaHigienePessoal = async () => {
   const prods = firebase.db.collection("produtos");
-  const querySnapshot = await prods.where('Departamento', '==', 'Limpeza').get();
+  const querySnapshot = await prods.where('Departamento', '==', 'Higiene Pessoal').get();
   const items = querySnapshot.docs;
-  const listLimpeza = [];
+  const listHigienePessoal = [];
   items.forEach(
       doc => {
-        listLimpeza.push({
+        listHigienePessoal.push({
               ...doc.data(),
               key: doc.id
-        })
+          })
       })    
-      setLimpeza(listLimpeza);
+      setHigienePessoal(listHigienePessoal);
   }
 
   return(
     <View>
       <Header />
       <View style={styles.bgtitulo}>
-          <Text style={styles.titulo}>Limpeza</Text>
+          <Text style={styles.titulo}>Higiene Pessoal</Text>
       </View>
       <FlatList
         horizontal
-        data={limpeza}
+        data={higienePessoal}
         renderItem = { ({item}) =>(
           <View style={{paddingHorizontal: 10}}>
             <ImagedCarouselCard
             width={300}
             height={300}
             shadowColor="#051934"
-            source={require('./imagens_cruzeiro/veja.jpg')}
+            source={require('./imagens_cruzeiro/sabonete.jpg')}
             text={`${item.Nome} \nR$: ${item.Preço}`}
             overlayBackgroundColor={"#2E3192DD"}
             />

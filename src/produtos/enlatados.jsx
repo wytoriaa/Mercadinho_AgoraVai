@@ -1,39 +1,91 @@
-import React from 'react';
-import { StyleSheet, View, Text, Image, Dimensions, } from 'react-native';
-import PagerView from 'react-native-pager-view';
+import React, {useState, useEffect} from 'react';
+import { StyleSheet, View, Text, Image, Dimensions, FlatList } from 'react-native';
+import firebase from '../../firebase';
+// import PagerView from 'react-native-pager-view';
+import ImagedCarouselCard from "react-native-imaged-carousel-card";
 import Header from '../Header';
 
-const MyPager = () => {
-  return (
-    <View style={styles.viewPager}>
+export default function Enlatados({navigation}) {
+  
+  const [enlatados, setEnlatados] = useState([]);
+
+  useEffect(
+    () => navigation.addListener('focus', () => {
+        pegaEnlatados()
+    }),[]
+  )
+
+  const  pegaEnlatados = async () => {
+  const prods = firebase.db.collection("produtos");
+  const querySnapshot = await prods.where('Departamento', '==', 'Enlatados').get();
+  const items = querySnapshot.docs;
+  const listEnlatados = [];
+  items.forEach(
+      doc => {
+        listEnlatados.push({
+              ...doc.data(),
+              key: doc.id
+          })
+      })    
+      setEnlatados(listEnlatados);
+  }
+
+  return(
+    <View>
       <Header />
       <View style={styles.bgtitulo}>
-        <Text style={styles.titulo}>Enlatados</Text>
+          <Text style={styles.titulo}>Enlatados</Text>
       </View>
-      <PagerView style={styles.viewPager} initialPage={0}>
-        <View style={styles.page} key="1">
-            <Image source={require("./imagens_cruzeiro/almondega.jpg")} style={styles.img} />
-            <View style={styles.bgtexto}>
-              <Text style={styles.texto}>Almondegas - Bordon </Text>
-            </View>
-        </View>
-        <View style={styles.page} key="2">
-          <Image source={require("./imagens_cruzeiro/ervilha.jpg")} style={styles.img} />
-          <View style={styles.bgtexto}>
-            <Text style={styles.texto}>Ervilhas - Quero</Text>
+      <FlatList
+        horizontal
+        data={enlatados}
+        renderItem = { ({item}) =>(
+          <View style={{paddingHorizontal: 10}}>
+            <ImagedCarouselCard
+            width={300}
+            height={300}
+            shadowColor="#051934"
+            source={require('./imagens_cruzeiro/almondega.jpg')}
+            text={`${item.Nome} \nR$: ${item.Preço}`}
+            overlayBackgroundColor={"#2E3192DD"}
+            />
           </View>
-        </View>
-
-        <View style={styles.page} key="3">
-        <Image source={require("./imagens_cruzeiro/feijoada.jpg")} style={styles.img} />
-          <View style={styles.bgtexto}>
-            <Text style={styles.texto}>Feijoada - Bordon</Text>
-          </View>
-        </View>
-      </PagerView>
+        )}
+      />
     </View>
-  );
-};
+  )
+}
+// const MyPager = () => {
+//   return (
+//     <View style={styles.viewPager}>
+//       <Header />
+//       <View style={styles.bgtitulo}>
+//         <Text style={styles.titulo}>Enlatados</Text>
+//       </View>
+//       <PagerView style={styles.viewPager} initialPage={0}>
+//         <View style={styles.page} key="1">
+//             <Image source={require("./imagens_cruzeiro/almondega.jpg")} style={styles.img} />
+//             <View style={styles.bgtexto}>
+//               <Text style={styles.texto}>Almondegas - Bordon </Text>
+//             </View>
+//         </View>
+//         <View style={styles.page} key="2">
+//           <Image source={require("./imagens_cruzeiro/ervilha.jpg")} style={styles.img} />
+//           <View style={styles.bgtexto}>
+//             <Text style={styles.texto}>Ervilhas - Quero</Text>
+//           </View>
+//         </View>
+
+//         <View style={styles.page} key="3">
+//         <Image source={require("./imagens_cruzeiro/feijoada.jpg")} style={styles.img} />
+//           <View style={styles.bgtexto}>
+//             <Text style={styles.texto}>Feijoada - Bordon</Text>
+//           </View>
+//         </View>
+//       </PagerView>
+//     </View>
+//   );
+// };
 
 const styles = StyleSheet.create({
   viewPager: {
@@ -72,4 +124,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default MyPager;
+// export default MyPager;

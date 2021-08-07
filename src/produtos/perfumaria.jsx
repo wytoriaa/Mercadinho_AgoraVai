@@ -1,39 +1,60 @@
-import React from 'react';
-import { StyleSheet, View, Text, Image, Dimensions, } from 'react-native';
-import PagerView from 'react-native-pager-view';
+import React, {useState, useEffect} from 'react';
+import { StyleSheet, View, Text, Image, Dimensions, FlatList } from 'react-native';
+import firebase from '../../firebase';
+// import PagerView from 'react-native-pager-view';
+import ImagedCarouselCard from "react-native-imaged-carousel-card";
 import Header from '../Header';
 
-const MyPager = () => {
-  return (
-    <View style={styles.viewPager}>
+export default function Perfumaria({navigation}) {
+  
+  const [perfumaria, setPerfumaria] = useState([]);
+
+  useEffect(
+    () => navigation.addListener('focus', () => {
+        pegaPerfumaria()
+    }),[]
+  )
+
+  const  pegaPerfumaria = async () => {
+  const prods = firebase.db.collection("produtos");
+  const querySnapshot = await prods.where('Departamento', '==', 'Perfumaria').get();
+  const items = querySnapshot.docs;
+  const listPerfumaria = [];
+  items.forEach(
+      doc => {
+        listPerfumaria.push({
+              ...doc.data(),
+              key: doc.id
+        })
+      })    
+      setPerfumaria(listPerfumaria);
+  }
+
+  return(
+    <View>
       <Header />
       <View style={styles.bgtitulo}>
-        <Text style={styles.titulo}>Perfumaria</Text>
+          <Text style={styles.titulo}>Perfumaria</Text>
       </View>
-      <PagerView style={styles.viewPager} initialPage={0}>
-        <View style={styles.page} key="1">
-            <Image source={require("./imagens_cruzeiro/oralb.jpg")} style={styles.img} />
-            <View style={styles.bgtexto}>
-              <Text style={styles.texto}>Anti séptico</Text>
-            </View>
-        </View>
-        <View style={styles.page} key="2">
-          <Image source={require("./imagens_cruzeiro/sabonete.jpg")} style={styles.img} />
-          <View style={styles.bgtexto}>
-            <Text style={styles.texto}>Sabonetes</Text>
+      <FlatList
+        horizontal
+        data={perfumaria}
+        renderItem = { ({item}) =>(
+          <View style={{paddingHorizontal: 10}}>
+            <ImagedCarouselCard
+            width={300}
+            height={300}
+            shadowColor="#051934"
+            source={require('./imagens_cruzeiro/veja.jpg')}
+            text={`${item.Nome} \nR$: ${item.Preço}`}
+            overlayBackgroundColor={"#2E3192DD"}
+            />
           </View>
-        </View>
-
-        <View style={styles.page} key="3">
-        <Image source={require("./imagens_cruzeiro/fralda.jpg")} style={styles.img} />
-          <View style={styles.bgtexto}>
-            <Text style={styles.texto}>Fraldas</Text>
-          </View>
-        </View>
-      </PagerView>
+        )}
+      />
     </View>
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   viewPager: {
@@ -71,5 +92,3 @@ const styles = StyleSheet.create({
     height: Dimensions.get('window').width/1.3,
   },
 });
-
-export default MyPager;

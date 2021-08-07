@@ -373,6 +373,7 @@ export default function Home({navigation}){
     <View style ={{flex: 1, alignItems:'center', justifyContent:'center', backgroundColor: "#FFF"}}>
         <Header />
         <ScrollView>
+            
             {/* AÇOUGUE */}
             <View>
                 <View style={styles.bgtitulo}>

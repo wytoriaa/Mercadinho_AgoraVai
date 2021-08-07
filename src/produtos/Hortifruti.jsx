@@ -5,47 +5,47 @@ import firebase from '../../firebase';
 import ImagedCarouselCard from "react-native-imaged-carousel-card";
 import Header from '../Header';
 
-export default function Limpeza({navigation}) {
+export default function Hortifruti({navigation}) {
   
-  const [limpeza, setLimpeza] = useState([]);
+  const [hortifruti, setHortifruti] = useState([]);
 
   useEffect(
     () => navigation.addListener('focus', () => {
-        pegaLimpeza()
+        pegaHortifruti()
     }),[]
   )
 
-  const  pegaLimpeza = async () => {
+  const  pegaHortifruti = async () => {
   const prods = firebase.db.collection("produtos");
-  const querySnapshot = await prods.where('Departamento', '==', 'Limpeza').get();
+  const querySnapshot = await prods.where('Departamento', '==', 'Hortifruti').get();
   const items = querySnapshot.docs;
-  const listLimpeza = [];
+  const listHortifruti = [];
   items.forEach(
       doc => {
-        listLimpeza.push({
+        listHortifruti.push({
               ...doc.data(),
               key: doc.id
         })
       })    
-      setLimpeza(listLimpeza);
+      setHortifruti(listHortifruti);
   }
 
   return(
     <View>
       <Header />
       <View style={styles.bgtitulo}>
-          <Text style={styles.titulo}>Limpeza</Text>
+          <Text style={styles.titulo}>Hortifruti</Text>
       </View>
       <FlatList
         horizontal
-        data={limpeza}
+        data={hortifruti}
         renderItem = { ({item}) =>(
           <View style={{paddingHorizontal: 10}}>
             <ImagedCarouselCard
             width={300}
             height={300}
             shadowColor="#051934"
-            source={require('./imagens_cruzeiro/veja.jpg')}
+            source={require('./imagens_cruzeiro/laranja.jpg')}
             text={`${item.Nome} \nR$: ${item.Preço}`}
             overlayBackgroundColor={"#2E3192DD"}
             />

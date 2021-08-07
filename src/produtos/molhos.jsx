@@ -1,39 +1,60 @@
-import React from 'react';
-import { StyleSheet, View, Text, Image, Dimensions, } from 'react-native';
-import PagerView from 'react-native-pager-view';
+import React, {useState, useEffect} from 'react';
+import { StyleSheet, View, Text, Image, Dimensions, FlatList } from 'react-native';
+import firebase from '../../firebase';
+// import PagerView from 'react-native-pager-view';
+import ImagedCarouselCard from "react-native-imaged-carousel-card";
 import Header from '../Header';
 
-const MyPager = () => {
-  return (
-    <View style={styles.viewPager}>
+export default function Molhos({navigation}) {
+  
+  const [molhos, setMolhos] = useState([]);
+
+  useEffect(
+    () => navigation.addListener('focus', () => {
+        pegaMolhos()
+    }),[]
+  )
+
+  const  pegaMolhos = async () => {
+  const prods = firebase.db.collection("produtos");
+  const querySnapshot = await prods.where('Departamento', '==', 'Molhos').get();
+  const items = querySnapshot.docs;
+  const listMolhos = [];
+  items.forEach(
+      doc => {
+        listMolhos.push({
+              ...doc.data(),
+              key: doc.id
+        })
+      })    
+      setMolhos(listMolhos);
+  }
+
+  return(
+    <View>
       <Header />
       <View style={styles.bgtitulo}>
-        <Text style={styles.titulo}>Molhos</Text>
+          <Text style={styles.titulo}>Molhos</Text>
       </View>
-      <PagerView style={styles.viewPager} initialPage={0}>
-        <View style={styles.page} key="1">
-            <Image source={require("./imagens_cruzeiro/extrato_tomate.jpg")} style={styles.img} />
-            <View style={styles.bgtexto}>
-              <Text style={styles.texto}>Extrato de Tomate - Elefante</Text>
-            </View>
-        </View>
-        <View style={styles.page} key="2">
-          <Image source={require("./imagens_cruzeiro/quero.jpg")} style={styles.img} />
-          <View style={styles.bgtexto}>
-            <Text style={styles.texto}>Ketchup - Quero</Text>
+      <FlatList
+        horizontal
+        data={molhos}
+        renderItem = { ({item}) =>(
+          <View style={{paddingHorizontal: 10}}>
+            <ImagedCarouselCard
+            width={300}
+            height={300}
+            shadowColor="#051934"
+            source={require('./imagens_cruzeiro/extrato_tomate.jpg')}
+            text={`${item.Nome} \nR$: ${item.Preço}`}
+            overlayBackgroundColor={"#2E3192DD"}
+            />
           </View>
-        </View>
-
-        <View style={styles.page} key="3">
-        <Image source={require("./imagens_cruzeiro/extrato_tomate.jpg")} style={styles.img} />
-          <View style={styles.bgtexto}>
-            <Text style={styles.texto}>Extrato de Tomate - Elefante</Text>
-          </View>
-        </View>
-      </PagerView>
+        )}
+      />
     </View>
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   viewPager: {
@@ -71,5 +92,3 @@ const styles = StyleSheet.create({
     height: Dimensions.get('window').width/1.3,
   },
 });
-
-export default MyPager;

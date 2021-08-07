@@ -14,9 +14,9 @@ import CadastroProdutos from './CadastroProdutos';
 import EditProdutos from './EditProdutos';
 //--------------------------------------------
 import Acougue from './produtos/acougue';
-import Higiene_Pessoal from './produtos/higiene_pessoal';
+import HigienePessoal from './produtos/HigienePessoal';
 import Limpeza from './produtos/limpeza';
-import Bebidas_Quentes from './produtos/bebidas_quentes';
+import BebidasQuentes from './produtos/BebidasQuentes';
 import Biscoitos from './produtos/biscoitos';
 import Molhos from './produtos/molhos';
 import Perfumaria from './produtos/perfumaria';
@@ -25,6 +25,8 @@ import Bomboniere from './produtos/bomboniere';
 import Mercearia from './produtos/mercearia';
 import Salgadinhos from './produtos/salgadinhos';
 import Refrigerantes from './produtos/refrigerantes';
+import Enlatados from './produtos/Enlatados';
+import Hortifruti from './produtos/Hortifruti';
 
 //criar uma funçao para os icones aparecerem na barra de navegação do app
 //function escolhendoIcone({color, size}){
@@ -86,7 +88,7 @@ export default function Principal() {
         }}
       />
 
-      <Drawer.Screen name="Higiene_Pessoal" component={Higiene_Pessoal}
+      <Drawer.Screen name="Higiene_Pessoal" component={HigienePessoal}
         options={{
           title: 'Higiene Pessoal',
           drawerIcon: ({focused, size}) => (
@@ -112,7 +114,7 @@ export default function Principal() {
         }}
       />
 
-      <Drawer.Screen name="Bebidas_Quentes" component={Bebidas_Quentes}
+      <Drawer.Screen name="Bebidas_Quentes" component={BebidasQuentes}
         options={{
           title: 'Bebidas_Quentes',
           drawerIcon: ({focused, size}) => (
@@ -228,6 +230,34 @@ export default function Principal() {
           ),
         }}
       />
+
+      <Drawer.Screen name="Enlatados" component={Enlatados}
+        options={{
+          title: 'Enlatados',
+          drawerIcon: ({focused, size}) => (
+            <Icons
+              name="shopping-cart"
+              size={size}
+              color={focused ? '#FFF' : '#ED1C24'}
+            />
+          ),
+        }}
+      />
+
+      
+      <Drawer.Screen name="Hortifruti" component={Hortifruti}
+        options={{
+          title: 'Hortifruti',
+          drawerIcon: ({focused, size}) => (
+            <Icons
+              name="shopping-cart"
+              size={size}
+              color={focused ? '#FFF' : '#ED1C24'}
+            />
+          ),
+        }}
+      />
+
       <Drawer.Screen name="Mapa" component={Mapa} 
         options={{
           title: 'Mapa',
