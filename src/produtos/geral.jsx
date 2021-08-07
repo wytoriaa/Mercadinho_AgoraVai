@@ -1,36 +1,94 @@
-import React from 'react';
-import { StyleSheet, View, Text, Image, Dimensions, } from 'react-native';
-import PagerView from 'react-native-pager-view';
+import React, {useState, useEffect} from 'react';
+import { StyleSheet, View, Text, Image, Dimensions, FlatList } from 'react-native';
+import firebase from '../../firebase';
+// import PagerView from 'react-native-pager-view';
+import ImagedCarouselCard from "react-native-imaged-carousel-card";
 import Header from '../Header';
 
-const MyPager = () => {
-  return (
-    <View style={styles.viewPager}>
+export default function Geral({navigation}) {
+  
+  const [geral, setGeral] = useState([]);
+
+  useEffect(
+    () => navigation.addListener('focus', () => {
+        pegaGeral()
+    }),[]
+  )
+
+  const  pegaGeral = async () => {
+  const prods = firebase.db.collection("produtos");
+  const querySnapshot = await prods.where('Departamento', '==', 'Geral').get();
+  const items = querySnapshot.docs;
+  const listGeral = [];
+  items.forEach(
+      doc => {
+        listGeral.push({
+              ...doc.data(),
+              key: doc.id
+          })
+      })    
+      setGeral(listGeral);
+  }
+
+  return(
+    <View>
       <Header />
       <View style={styles.bgtitulo}>
-        <Text style={styles.titulo}>Geral</Text>
+          <Text style={styles.titulo}>Geral</Text>
       </View>
-      <PagerView style={styles.viewPager} initialPage={0}>
-        <View style={styles.page} key="1">
-            <Image source={require("./imagens_cruzeiro/lanterna.jpg")} style={styles.img} />
-            <View style={styles.bgtexto}>
-              <Text style={styles.texto}>Lanterna</Text>
-            </View>
-        </View>
-        <View style={styles.page} key="2">
-          <Image source={require("./imagens_cruzeiro/fosforo.jpg")} style={styles.img} />
-          <View style={styles.bgtexto}>
-            <Text style={styles.texto}>Fósforo</Text>
+      <FlatList
+        horizontal
+        data={geral}
+        renderItem = { ({item}) =>(
+          <View style={{paddingHorizontal: 10}}>
+            <ImagedCarouselCard
+            width={300}
+            height={300}
+            shadowColor="#051934"
+            source={require('./imagens_cruzeiro/lanterna.jpg')}
+            text={`${item.Nome} \nR$: ${item.Preço}`}
+            overlayBackgroundColor={"#2E3192DD"}
+            />
           </View>
-        </View>
-
-        <View style={styles.page} key="3">
-        <Image source={require("./imagens_cruzeiro/caneta.jpg")} style={styles.img} />
-          <View style={styles.bgtexto}>
-            <Text style={styles.texto}>Caneta - caixa</Text>
-          </View>
-        </View>
-      </PagerView>
+        )}
+      />
     </View>
-  );
-};
+  )
+}
+
+const styles = StyleSheet.create({
+  viewPager: {
+    flex: 1,
+  },
+  page: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  titulo:{
+    fontSize: 26,
+    textAlign: 'center',
+    padding: 20,
+    fontFamily: "sans-serif-light",
+  },
+  bgtitulo:{
+    width: Dimensions.get('window').width,
+    backgroundColor: "#ED1C2422",
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginVertical: 10,
+  },
+  texto:{
+    fontSize: 15,
+    textAlign: 'center',
+    padding: 20,
+  },
+  bgtexto:{
+    width: Dimensions.get('window').width,
+    backgroundColor: "#2E319222",
+    marginVertical: 10,
+  },
+  img: {
+    width: Dimensions.get('window').width/1.3,
+    height: Dimensions.get('window').width/1.3,
+  },
+});
