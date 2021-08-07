@@ -10,6 +10,9 @@ import { UserContext } from './src/UserContext';
 import ListarProdutos from './src/ListarProdutos';
 import EditProdutos from './src/EditProdutos';
 import CadastroProdutos from './src/CadastroProdutos';
+import Principal2 from './src/Principal2';
+import Login_Clientes from './src/Login_Clientes';
+import Cadastro_Clientes from './src/Cadastro_Clientes';
 //criar uma funçao para os icones aparecerem na barra de navegação do app
 //function escolhendoIcone({color, size}){
 
@@ -50,9 +53,21 @@ export default function App() {
       <Stack.Screen name="ListarProdutos" component={ListarProdutos} />
       <Stack.Screen name="EditProdutos" component={EditProdutos} />
       <Stack.Screen name="CadastroProdutos" component={CadastroProdutos} />
+      
+      <Stack.Screen name="Login_Clientes" component={Login_Clientes} />
+      <Stack.Screen name="Cadastro_Clientes" component={Cadastro_Clientes} />
     </Stack.Navigator>
+
+    {/* <Stack.Navigator initialRouteName={Principal}
+    //  navigationOptions: { header: { visible: false } }
+>
+      <Stack.Screen name="Principal" component={Principal} />
+      <Stack.Screen name="Login_Clientes" component={Login_Clientes} />
+      <Stack.Screen name="Cadastro_Clientes" component={Cadastro_Clientes} />
+     
+    </Stack.Navigator> */}
     </UserContext.Provider>
-    </NavigationContainer>
+  </NavigationContainer>
     
   )
 }

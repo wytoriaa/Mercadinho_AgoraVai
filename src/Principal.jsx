@@ -8,6 +8,7 @@ import Icons from 'react-native-vector-icons/MaterialIcons';
 import Login from './Login';
 import Home from './Home';
 import Mapa from './Mapa';
+import Login_Clientes from './Login_Clientes'
 // import Carrossel from './Carrossel'
 import ListarProdutos from './ListarProdutos';
 import CadastroProdutos from './CadastroProdutos';
@@ -73,6 +74,19 @@ export default function Principal() {
             />
           ),
         }}
+      />
+
+      <Drawer.Screen name="Login_Clientes" component={Login_Clientes}
+            options={{
+            title: 'Login Clientes',
+            drawerIcon: ({focused, size}) => (
+                <Icons
+                name="login"
+                size={size}
+                color={focused ? '#FFF' : '#ED1C24'}
+                />
+            ),
+            }}
       />
 
       <Drawer.Screen name="Acougue" component={Acougue}
