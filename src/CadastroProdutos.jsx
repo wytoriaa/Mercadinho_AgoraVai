@@ -26,7 +26,7 @@ export default function CadastroProdutos({navigation}){
 
         
     const cadastro = async()=>{
-        await firebase.db.collection("product").add(state)
+        await firebase.db.collection("produtos").add(state)
         .then(
             ()=>{
                 alert("Produto Cadastrado com Sucesso!");
