@@ -7,122 +7,156 @@ import Header from './Header';
 
 export default function Home({navigation}){
 
-    const [state, setState] = useState([]);
+    // const [state, setState] = useState([]);
+    const [acougue, setAcougue] = useState([]);
+    const [bebidas, setBebidas] = useState([]);
+    const [higiene, setHigiene] = useState([]);
     
     useEffect(
         () => navigation.addListener('focus', () => {
-            pegaDados()
-        }), []
+            // pegaDados()
+            pegaAcougue()
+            pegaBebidas()
+            pegaHigiene()
+
+        }),[]
     )
 
-    //console.log(state);
-    //recebendo todos os docs de users
+    // *********** LISTA TODOS OS ITENS *******************//
     const  pegaDados = async () => {
-        //iniciando a referência do firebase firestore, acessando a collection users
-        const prods = firebase.db.collection("produtos");
-        //constante que armazena o que chamamos de querySnapshot esperando o retorno da função através do await. get() é uma função que retorna o valor  para o querySnapshot
-        const querySnapshot = await prods.get();
-        //dados está recebendo os documentos alinhados no formato de array com várias informações
-        const items = querySnapshot.docs;
-        //forEach irá trazer doc a doc para receber mostrar os dados organizados em object através do comando data()
-        const listItens = [];
-        items.forEach(
+    //iniciando a referência do firebase firestore, acessando a collection users
+    const prods = firebase.db.collection("produtos");
+    //constante que armazena o que chamamos de querySnapshot esperando o retorno da função através do await. get() é uma função que retorna o valor  para o querySnapshot
+    const querySnapshot = await prods.get();
+    //dados está recebendo os documentos alinhados no formato de array com várias informações
+    const items = querySnapshot.docs;
+    //forEach irá trazer doc a doc para receber mostrar os dados organizados em object através do comando data()
+    const listItens = [];
+    items.forEach(
+      doc => {
+          listItens.push({
+              ...doc.data(),
+              key: doc.id
+          })
+      })    
+      setState(listItens);
+        //console.log(listItens)
+    }
+
+    // *********** LISTA ITENS DO ACOUGUE ************/
+    const  pegaAcougue = async () => {
+    const prods = firebase.db.collection("produtos");
+    const querySnapshot = await prods.where('Departamento', '==', 'Açougue').get();
+    const items = querySnapshot.docs;
+    const listAcougue = [];
+    items.forEach(
         doc => {
-            listItens.push({
+            listAcougue.push({
                 ...doc.data(),
                 key: doc.id
             })
         })    
-        setState(listItens);
-        //console.log(listItens)
-      }
-    console.log(state)
-    return (
+    setAcougue(listAcougue);
+    }
+    // *********** LISTA DAS BEBIDAS ************/
+    const  pegaBebidas = async () => {
+    const prods = firebase.db.collection("produtos");
+    const querySnapshot = await prods.where('Departamento', '==', 'Bebidas').get();
+    const items = querySnapshot.docs;
+    const listBebidas = [];
+    items.forEach(
+        doc => {
+            listBebidas.push({
+                ...doc.data(),
+                key: doc.id
+            })
+        })    
+    setBebidas(listBebidas);
+    }
+    // *********** LISTA DOS ITENS DE HIGIENE ************/
+    const  pegaHigiene = async () => {
+    const prods = firebase.db.collection("higiene");
+    const querySnapshot = await prods.where('Departamento', '==', 'Higiene').get();
+    const items = querySnapshot.docs;
+    const lisHigiene = [];
+    items.forEach(
+        doc => {
+            lisHigiene.push({
+                ...doc.data(),
+                key: doc.id
+            })
+        })    
+    setHigiene(lisHigiene);
+    }
+
+    console.log(acougue)
     
+    return (
     <View style ={{flex: 1, alignItems:'center', justifyContent:'center'}}>
         <Header />
-            <>
-            <Text>Açougue</Text>
-                <FlatList
-                    horizontal
-                    data={state}
-                    renderItem = { ({item}) =>(
-                            <ImagedCarouselCard
-                            width={Dimensions.get('window').width/2.1}
-                            height={300}
-                            shadowColor="#051934"
-                            source={require("./assets/imagens/produtos/produto.png")}
-                            text={`${item.Nome} \n ${item.Preço}`}
-                            overlayBackgroundColor={"#2E3192DD"}
-                            />
-
-                    )}
-                />
-            </>
-         {/*<ScrollView>
-        <View style = {styles.container}/>
-        <View>
-            <Image style={styles.tinyLogo}
-                    source={{
-                    uri: 'https://blog.superfilter.com.br/wp-content/uploads/2020/08/vale-a-pena-comprar-agua-de-galao.jpg',
-                    }}/>
-        </View>  */}
-        {/* <View style = {{display:'flex', flexDirection:'row', flexWrap:'wrap', justifyContent: "space-evenly"}}>
-        <ImagedCarouselCard
-            width={Dimensions.get('window').width/2.1}
-            height={300}
-            shadowColor="#051934"
-            source={require("./assets/imagens/produtos/produto.png")}
-            text={state.nome}
-            overlayBackgroundColor={"#2E3192DD"}
-        />
-              
-        <ImagedCarouselCard
-            width={Dimensions.get('window').width/2.1}
-            height={300}
-            shadowColor="#051934"
-            source={require("./assets/imagens/produtos/produto.png")}
-            text={"Nome do produto \n R$20"}
-            overlayBackgroundColor={"#2E3192DD"}
-
-        />
-        </View>       
-        <View>
-            <Image style={styles.tinyLogo}
-                    source={{
-                    uri: 'https://scontent.frec31-1.fna.fbcdn.net/v/t1.6435-9/227436569_4024710797637991_8994688771645762604_n.jpg?_nc_cat=110&ccb=1-3&_nc_sid=730e14&_nc_eui2=AeEjZsXzNi-UMlR5kAXt-UtZZ6SXodPFqPlnpJeh08Wo-dkRYan9SIEw81jbTcVPrVLyRU25uTW8Ta90DqnGKsbc&_nc_ohc=IyXapmxvJsoAX-mFqfM&_nc_ht=scontent.frec31-1.fna&oh=a3887ef9f78b6ec9d05af0256eda560f&oe=612B67B8',
-                    }}/>
-        </View> 
-        <View>
-            <Image style={styles.tinyLogo}
-                    source={{
-                    uri: 'https://scontent.frec31-1.fna.fbcdn.net/v/t1.6435-9/217524237_4024710930971311_908679880742604397_n.jpg?_nc_cat=111&ccb=1-3&_nc_sid=730e14&_nc_eui2=AeH2IhmxcUbUOznkuAAnZu_VJH0cyG8uuKMkfRzIby64o4vVXHfPTcbXlmG9UHDAvnhMfi59fYY96uFPyBotX68L&_nc_ohc=YgDAva4Pux8AX_CR01q&tn=72GiimqC7QX0-X-C&_nc_ht=scontent.frec31-1.fna&oh=4a294789e1973278e055f9a38c14bbf6&oe=612D3031',
-                    }}/>
-        </View> 
-        <View>
-            <Image style={styles.tinyLogo}
-                    source={{
-                    uri: 'https://scontent.frec31-1.fna.fbcdn.net/v/t1.6435-9/228101983_4024710924304645_1531546530766385967_n.jpg?_nc_cat=103&ccb=1-3&_nc_sid=730e14&_nc_eui2=AeGoSELEduExJ-HpkPrOaQGrhosMOTBfi1CGiww5MF-LUA7dXX39ASeX-5YrlxZ3jjDhj0VaifQpp-G9_dJb1Whk&_nc_ohc=zvA-Hfuyd7cAX9ypKCJ&_nc_ht=scontent.frec31-1.fna&oh=bd6987cea0eef0ae1f811e945bc499f5&oe=612C904E',
-                    }}/>
-        </View> 
-        <View>
-            <Image style={styles.tinyLogo}
-                    source={{
-                    uri: 'https://scontent.frec31-1.fna.fbcdn.net/v/t1.6435-9/227795002_4024744920967912_2992368347733141832_n.jpg?_nc_cat=110&ccb=1-3&_nc_sid=730e14&_nc_eui2=AeFXRtx_e_E3vNE0rVGLCJsqP5EUOYICg9Q_kRQ5ggKD1HtH08HBuxrQ8a4OjUruaFcbroqphQbRdtk1DI0w6L9Y&_nc_ohc=dpbjI0myznQAX_3jxqD&_nc_ht=scontent.frec31-1.fna&oh=f7201c3bd34ff80e28e445b4a450d772&oe=61298629',
-                    }}/>
-        </View> 
-        <View>
-            <Image style={styles.tinyLogo}
-                    source={{
-                    uri: 'https://scontent.frec31-1.fna.fbcdn.net/v/t1.6435-9/229193115_4024744950967909_1392087484166642906_n.jpg?_nc_cat=108&ccb=1-3&_nc_sid=730e14&_nc_eui2=AeF1gesPdjdNRTsIz0a0umhK9f5dErqT2Kr1_l0SupPYqrZMBJ7R3GzaeBAR2IFNQlsAu9ss4v3qC5zG4iJuxrPW&_nc_ohc=eTCeCn3oC3sAX-8X6vC&_nc_ht=scontent.frec31-1.fna&oh=143fefce8ebf145013a7c7c2a51e28ad&oe=612D290F',
-                    }}/>
-        </View> 
-            </ScrollView> */}
-    </View>
-    
+        <ScrollView>
+            {/* AÇOUGUE */}
+            <View>
+                <Text>Açougue</Text>
+                    <FlatList
+                        horizontal
+                        data={acougue}
+                        renderItem = { ({item}) =>(
+                                <ImagedCarouselCard
+                                width={Dimensions.get('window').width/2.1}
+                                height={300}
+                                shadowColor="#051934"
+                                source={`${item.urlImg}`}
+                                text={`${item.Nome} \n R$:${item.Preço}`}
+                                overlayBackgroundColor={"#2E3192DD"}
+                                />
+                        )}
+                    />
+            </View>
             
-        )
-    }
+            {/* <View>
+                <Text>Bebidas</Text>
+                    <FlatList
+                        horizontal
+                        data={bebidas}
+                        renderItem = { ({item}) =>(
+                                <ImagedCarouselCard
+                                width={Dimensions.get('window').width/2.1}
+                                height={300}
+                                shadowColor="#051934"
+                                source={require(item.urlImg)}
+                                text={`${item.Nome} \n ${item.Preço}`}
+                                overlayBackgroundColor={"#2E3192DD"}
+                                />
+
+                        )}
+                    />
+            </View>
+            
+            <View>
+                <Text>Higiene</Text>
+                    <FlatList
+                        horizontal
+                        data={higiene}
+                        renderItem = { ({item}) =>(
+                                <ImagedCarouselCard
+                                width={Dimensions.get('window').width/2.1}
+                                height={300}
+                                shadowColor="#051934"
+                                source={require(item.urlImg)}
+                                text={`${item.Nome} \n ${item.Preço}`}
+                                overlayBackgroundColor={"#2E3192DD"}
+                                />
+
+                        )}
+                    />
+            </View> */}
+
+        </ScrollView>
+    </View>            
+    )
+}
+
     const styles = StyleSheet.create({
         container: {
           paddingTop: 5,
