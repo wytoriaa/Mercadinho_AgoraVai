@@ -52,7 +52,7 @@ export default function Home({navigation}){
                             height={300}
                             shadowColor="#051934"
                             source={require("./assets/imagens/produtos/produto.png")}
-                            text={`${item.Nome} \n ${item.Preco}`}
+                            text={`${item.Nome} \n ${item.Preço}`}
                             overlayBackgroundColor={"#2E3192DD"}
                             />
 
