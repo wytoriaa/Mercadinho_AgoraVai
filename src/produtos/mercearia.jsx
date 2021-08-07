@@ -12,22 +12,22 @@ const MyPager = () => {
       </View>
       <PagerView style={styles.viewPager} initialPage={0}>
         <View style={styles.page} key="1">
-            <Image source={require("../assets/imagens/produtos/acougue/contra-file-swift.jpg")} style={styles.img} />
+            <Image source={require("./imagens_cruzeiro/pao")} style={styles.img} />
             <View style={styles.bgtexto}>
-              <Text style={styles.texto}>Contra Filé - Swift</Text>
+              <Text style={styles.texto}>Pão de Forma - Visconti</Text>
             </View>
         </View>
         <View style={styles.page} key="2">
-          <Image source={require("../assets/imagens/produtos/acougue/miolo-alcatra-big-carnes.jpg")} style={styles.img} />
+          <Image source={require("./imagens_cruzeiro/pao_integral")} style={styles.img} />
           <View style={styles.bgtexto}>
-            <Text style={styles.texto}>Miolo da Alcatra - Big Carnes</Text>
+            <Text style={styles.texto}>Pão Integral - Visconti</Text>
           </View>
         </View>
 
         <View style={styles.page} key="3">
-        <Image source={require("../assets/imagens/produtos/acougue/picanha-maturatta.jpg")} style={styles.img} />
+        <Image source={require("./imagens_cruzeiro/pao")} style={styles.img} />
           <View style={styles.bgtexto}>
-            <Text style={styles.texto}>Picanha - Maturatta</Text>
+            <Text style={styles.texto}>Pão de Forma - Visconti</Text>
           </View>
         </View>
       </PagerView>
