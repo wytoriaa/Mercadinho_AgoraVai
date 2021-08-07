@@ -1,17 +1,66 @@
-import React from 'react';
-import { View, Button, Image, StyleSheet, Text, Dimensions} from 'react-native';
+import React, {useState, useEffect} from 'react';
+import { View, Button, Image, StyleSheet, Text, Dimensions, FlatList} from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
-import firebase from 'firebase';
+import firebase from '../firebase';
 import ImagedCarouselCard from "react-native-imaged-carousel-card";
 import Header from './Header';
 
-export default function HomeScreen(){
+export default function Home({navigation}){
+
+    const [state, setState] = useState([]);
+    
+    useEffect(
+        () => navigation.addListener('focus', () => {
+            pegaDados()
+        }), []
+    )
+
+    //console.log(state);
+    //recebendo todos os docs de users
+    const  pegaDados = async () => {
+        //iniciando a referência do firebase firestore, acessando a collection users
+        const prods = firebase.db.collection("produtos");
+        //constante que armazena o que chamamos de querySnapshot esperando o retorno da função através do await. get() é uma função que retorna o valor  para o querySnapshot
+        const querySnapshot = await prods.get();
+        //dados está recebendo os documentos alinhados no formato de array com várias informações
+        const items = querySnapshot.docs;
+        //forEach irá trazer doc a doc para receber mostrar os dados organizados em object através do comando data()
+        const listItens = [];
+        items.forEach(
+        doc => {
+            listItens.push({
+                ...doc.data(),
+                key: doc.id
+            })
+        })    
+        setState(listItens);
+        //console.log(listItens)
+      }
+    console.log(state)
     return (
     
     <View style ={{flex: 1, alignItems:'center', justifyContent:'center'}}>
         <Header />
         <View style = {styles.container}>
         </View>
+        <FlatList
+        horizontal
+        data={state}
+        renderItem = { ({item}) =>(
+            <ImagedCarouselCard
+            width={Dimensions.get('window').width/2.1}
+            height={300}
+            shadowColor="#051934"
+            source={require("./assets/imagens/produtos/produto.png")}
+            text={item.nome}
+            overlayBackgroundColor={"#2E3192DD"}
+        />
+        // <View>
+        //         <Text>{item.departamento}</Text>
+        //         <Text>{item.fabricante}</Text>
+        //     </View>
+        )}
+            />
         <ScrollView>
         <View style = {styles.container}/>
         <View>
@@ -26,7 +75,7 @@ export default function HomeScreen(){
             height={300}
             shadowColor="#051934"
             source={require("./assets/imagens/produtos/produto.png")}
-            text={"Nome do produto \n R$60"}
+            text={state.nome}
             overlayBackgroundColor={"#2E3192DD"}
         />
               
