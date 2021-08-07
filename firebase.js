@@ -14,7 +14,11 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
+//porta de entrada para a base de dados do projeto
 const db = firebase.firestore();
+
+//Constante que permite o uso das funções do auth
+const auth = firebase.auth();
 
 export default {
     db, firebase, auth
