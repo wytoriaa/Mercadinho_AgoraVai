@@ -1,9 +1,11 @@
+
 import React,{useEffect,useState} from 'react';
 import { View, Button, Image, StyleSheet, Text, Dimensions,FlatList} from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import firebase from '../firebase';
 import ImagedCarouselCard from "react-native-imaged-carousel-card";
 import Header from './Header';
+
 
 export default function HomeScreen({navigation}){
     const [loading, setLoading] = useState(true);
@@ -28,6 +30,7 @@ export default function HomeScreen({navigation}){
         setState(listProdutos)
         setLoading(false)
     }
+
     console.log(state)
     return (
     
@@ -35,6 +38,24 @@ export default function HomeScreen({navigation}){
         <Header />
         <View style = {styles.container}>
         </View>
+        <FlatList
+        horizontal
+        data={state}
+        renderItem = { ({item}) =>(
+            <ImagedCarouselCard
+            width={Dimensions.get('window').width/2.1}
+            height={300}
+            shadowColor="#051934"
+            source={require("./assets/imagens/produtos/produto.png")}
+            text={item.nome}
+            overlayBackgroundColor={"#2E3192DD"}
+        />
+        // <View>
+        //         <Text>{item.departamento}</Text>
+        //         <Text>{item.fabricante}</Text>
+        //     </View>
+        )}
+            />
         <ScrollView>
         <View style = {styles.container}/>
         <View>
@@ -49,7 +70,7 @@ export default function HomeScreen({navigation}){
             height={300}
             shadowColor="#051934"
             source={require("./assets/imagens/produtos/produto.png")}
-            text={"Nome do produto \n R$60"}
+            text={state.nome}
             overlayBackgroundColor={"#2E3192DD"}
         />
               
