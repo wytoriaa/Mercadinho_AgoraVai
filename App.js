@@ -40,7 +40,9 @@ export default function App() {
   <NavigationContainer style={styles.container}>
     <StatusBar/>
     <UserContext.Provider value={{user, logado, deslogado}}>
-    <Stack.Navigator initialRouteName={Principal}
+    <Stack.Navigator initialRouteName={Principal} screenOptions={{
+      headerShown: false
+    }}
     //  navigationOptions: { header: { visible: false } }
 >
       <Stack.Screen name="Principal" component={Principal} />
