@@ -1,70 +1,73 @@
-
-import React,{useEffect,useState} from 'react';
-import { View, Button, Image, StyleSheet, Text, Dimensions,FlatList} from 'react-native';
+import React, {useState, useEffect} from 'react';
+import { View, Button, Image, StyleSheet, Text, Dimensions, FlatList} from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import firebase from '../firebase';
 import ImagedCarouselCard from "react-native-imaged-carousel-card";
 import Header from './Header';
 
+export default function Home({navigation}){
 
-export default function HomeScreen({navigation}){
-    const [loading, setLoading] = useState(true);
     const [state, setState] = useState([]);
+    
     useEffect(
-        () => navigation.addListener('focus', () => {pegaDados()}),[]
+        () => navigation.addListener('focus', () => {
+            pegaDados()
+        }), []
     )
-    const pegaDados = async () => {
-        const product = firebase.db.collection("product");
-        const resposta = await product.where('grupo', '==', 'CARNES').get();
 
-
-        const listProdutos = [];
-        resposta.forEach(
-            doc =>{
-                listProdutos.push({
-                    ...doc.data(),
-                    key: doc.id
-                })
-            }
-        )
-        setState(listProdutos)
-        setLoading(false)
-    }
-
+    //console.log(state);
+    //recebendo todos os docs de users
+    const  pegaDados = async () => {
+        //iniciando a referência do firebase firestore, acessando a collection users
+        const prods = firebase.db.collection("produtos");
+        //constante que armazena o que chamamos de querySnapshot esperando o retorno da função através do await. get() é uma função que retorna o valor  para o querySnapshot
+        const querySnapshot = await prods.get();
+        //dados está recebendo os documentos alinhados no formato de array com várias informações
+        const items = querySnapshot.docs;
+        //forEach irá trazer doc a doc para receber mostrar os dados organizados em object através do comando data()
+        const listItens = [];
+        items.forEach(
+        doc => {
+            listItens.push({
+                ...doc.data(),
+                key: doc.id
+            })
+        })    
+        setState(listItens);
+        //console.log(listItens)
+      }
     console.log(state)
     return (
     
     <View style ={{flex: 1, alignItems:'center', justifyContent:'center'}}>
         <Header />
-        <View style = {styles.container}>
-        </View>
-        <FlatList
-        horizontal
-        data={state}
-        renderItem = { ({item}) =>(
-            <ImagedCarouselCard
-            width={Dimensions.get('window').width/2.1}
-            height={300}
-            shadowColor="#051934"
-            source={require("./assets/imagens/produtos/produto.png")}
-            text={item.nome}
-            overlayBackgroundColor={"#2E3192DD"}
-        />
-        // <View>
-        //         <Text>{item.departamento}</Text>
-        //         <Text>{item.fabricante}</Text>
-        //     </View>
-        )}
-            />
-        <ScrollView>
+            <>
+            <Text>Açougue</Text>
+                <FlatList
+                    horizontal
+                    data={state}
+                    renderItem = { ({item}) =>(
+                            <ImagedCarouselCard
+                            width={Dimensions.get('window').width/2.1}
+                            height={300}
+                            shadowColor="#051934"
+                            source={require("./assets/imagens/produtos/produto.png")}
+                            text={`${item.nome} \n ${item.preco}`}
+                            overlayBackgroundColor={"#2E3192DD"}
+                            />
+
+                    )}
+                />
+            </>
+         {/*<ScrollView>
         <View style = {styles.container}/>
         <View>
             <Image style={styles.tinyLogo}
                     source={{
                     uri: 'https://blog.superfilter.com.br/wp-content/uploads/2020/08/vale-a-pena-comprar-agua-de-galao.jpg',
                     }}/>
-        </View> 
-        <View style = {{display:'flex', flexDirection:'row', flexWrap:'wrap', justifyContent: "space-evenly"}}>
+        </View>  */}
+        {/* <View style = {{display:'flex', flexDirection:'row', flexWrap:'wrap', justifyContent: "space-evenly"}}>
         <ImagedCarouselCard
             width={Dimensions.get('window').width/2.1}
             height={300}
@@ -85,14 +88,10 @@ export default function HomeScreen({navigation}){
         />
         </View>       
         <View>
-        <FlatList data={state} renderItem={({item}) => (<View style={styles.tinyLogo}>
-               
-                <Text>Produto: {item.nome}</Text>
-                <Text>R${item.preco}</Text>
-                <Text>{item.status.promocao}</Text>
-                
-               
-            </View>)}/>
+            <Image style={styles.tinyLogo}
+                    source={{
+                    uri: 'https://scontent.frec31-1.fna.fbcdn.net/v/t1.6435-9/227436569_4024710797637991_8994688771645762604_n.jpg?_nc_cat=110&ccb=1-3&_nc_sid=730e14&_nc_eui2=AeEjZsXzNi-UMlR5kAXt-UtZZ6SXodPFqPlnpJeh08Wo-dkRYan9SIEw81jbTcVPrVLyRU25uTW8Ta90DqnGKsbc&_nc_ohc=IyXapmxvJsoAX-mFqfM&_nc_ht=scontent.frec31-1.fna&oh=a3887ef9f78b6ec9d05af0256eda560f&oe=612B67B8',
+                    }}/>
         </View> 
         <View>
             <Image style={styles.tinyLogo}
@@ -118,8 +117,8 @@ export default function HomeScreen({navigation}){
                     uri: 'https://scontent.frec31-1.fna.fbcdn.net/v/t1.6435-9/229193115_4024744950967909_1392087484166642906_n.jpg?_nc_cat=108&ccb=1-3&_nc_sid=730e14&_nc_eui2=AeF1gesPdjdNRTsIz0a0umhK9f5dErqT2Kr1_l0SupPYqrZMBJ7R3GzaeBAR2IFNQlsAu9ss4v3qC5zG4iJuxrPW&_nc_ohc=eTCeCn3oC3sAX-8X6vC&_nc_ht=scontent.frec31-1.fna&oh=143fefce8ebf145013a7c7c2a51e28ad&oe=612D290F',
                     }}/>
         </View> 
-            </ScrollView>
-        </View>
+            </ScrollView> */}
+    </View>
     
             
         )
@@ -136,7 +135,6 @@ export default function HomeScreen({navigation}){
           width: 400,
           height: 200,
           borderRadius: 20,
-          backgroundColor:'red'
         },
 
     })
