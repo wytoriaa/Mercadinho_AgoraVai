@@ -12,10 +12,16 @@ var firebaseConfig = {
   appId: "1:762492731560:web:16ce3eaa4d79a5d49e429d",
   measurementId: "G-S24L02M755"
 };
+
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
+
+//porta de entrada para a base de dados do projeto
 const db = firebase.firestore();
+
+//Constante que permite o uso das funções do auth
 const auth = firebase.auth();
+
 export default {
     db, firebase, auth
 }
