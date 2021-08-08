@@ -4,6 +4,7 @@ import { ScrollView } from 'react-native-gesture-handler';
 import firebase from '../firebase';
 import ImagedCarouselCard from "react-native-imaged-carousel-card";
 import Header from './Header';
+import Footer from './Footer';
 
 export default function Home({navigation}){
 
@@ -836,7 +837,7 @@ export default function Home({navigation}){
                     )}
                 />
             </View>
-
+            <Footer />
         </ScrollView>
     </View>            
     )
