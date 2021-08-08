@@ -41,10 +41,13 @@ export default function Principal() {
       activeTintColor: '#2E3192',
       inactiveTintColor: '#2E3192',
       itemStyle: { alignItems:'flex-start',},
-    }} drawerStyle={{
-      backgroundColor:  '#2E3192',
-    }}>
-      
+    }}
+    screenOptions={{
+      drawerStyle:{
+        backgroundColor:  '#CCC',
+      },
+    }}
+    >
       <Drawer.Screen name="Home" component={Home} 
         options={{
           title: 'Home',
@@ -167,7 +170,7 @@ export default function Principal() {
 
       <Drawer.Screen name="Bebidas_Quentes" component={BebidasQuentes}
         options={{
-          title: 'Bebidas_Quentes',
+          title: 'Bebidas Quentes',
           drawerIcon: ({focused, size}) => (
             <Icons
               name="shopping-cart"
