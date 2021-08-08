@@ -3,6 +3,7 @@ import { StyleSheet, View, Text, Dimensions, Button, ScrollView } from 'react-na
 import MapView, { Marker } from 'react-native-maps';
 import customStyle from '../customStyle';
 import Header from './Header';
+import Footer from './Footer';
 
 export default function Mapa({ navigation }) {
     return (
@@ -38,8 +39,8 @@ export default function Mapa({ navigation }) {
                     {"\n"}Cruzeiro
                     {"\n"}Camocim - CE
                     {"\n"}62400-000</Text>
-                {/* <Text>{"\n"}</Text> */}
             </View>
+            <Footer />
         </ScrollView>
         </>
     );

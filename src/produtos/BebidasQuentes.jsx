@@ -3,6 +3,7 @@ import { StyleSheet, View, Text, Image, Dimensions, FlatList } from 'react-nativ
 import firebase from '../../firebase';
 import ImagedCarouselCard from "react-native-imaged-carousel-card";
 import Header from '../Header';
+import Footer from '../Footer';
 
 export default function BebidasQuentes({navigation}) {
   
@@ -30,7 +31,7 @@ export default function BebidasQuentes({navigation}) {
   }
 
   return(
-    <View>
+    <View style={{backgroundColor: "#FFF"}}>
       <Header />
       <View style={styles.bgtitulo}>
           <Text style={styles.titulo}>Bebidas Quentes</Text>
@@ -52,6 +53,7 @@ export default function BebidasQuentes({navigation}) {
           </View>
         )}
       />
+      <Footer />
     </View>
   )
 }

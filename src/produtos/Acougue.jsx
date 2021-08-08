@@ -3,6 +3,7 @@ import { StyleSheet, View, Text, Image, Dimensions, FlatList } from 'react-nativ
 import firebase from '../../firebase';
 import ImagedCarouselCard from "react-native-imaged-carousel-card";
 import Header from '../Header';
+import Footer from '../Footer';
 
 export default function Acougue({navigation}) {
   
@@ -30,7 +31,7 @@ export default function Acougue({navigation}) {
   }
 // console.log(acougue)
   return(
-    <View>
+    <View style={{backgroundColor: "#FFF"}}>
       <Header />
       <View style={styles.bgtitulo}>
           <Text style={styles.titulo}>Açougue</Text>
@@ -52,47 +53,15 @@ export default function Acougue({navigation}) {
           </View>
         )}
       />
+    <Footer />
     </View>
   )
 }
 
-// const MyPager = () => {
-//   return (
-//     <View style={styles.viewPager}>
-//       <Header />
-//       <View style={styles.bgtitulo}>
-//         <Text style={styles.titulo}>Açougue</Text>
-//       </View>
-//       <PagerView style={styles.viewPager} initialPage={0}>
-//         <View style={styles.page} key="1">
-//             <Image source={require("../assets/imagens/produtos/acougue/contra-file-swift.jpg")} style={styles.img} />
-//             <View style={styles.bgtexto}>
-//               <Text style={styles.texto}>Contra Filé - Swift</Text>
-//             </View>
-//         </View>
-//         <View style={styles.page} key="2">
-//           <Image source={require("../assets/imagens/produtos/acougue/miolo-alcatra-big-carnes.jpg")} style={styles.img} />
-//           <View style={styles.bgtexto}>
-//             <Text style={styles.texto}>Miolo da Alcatra - Big Carnes</Text>
-//           </View>
-//         </View>
-
-//         <View style={styles.page} key="3">
-//         <Image source={require("../assets/imagens/produtos/acougue/picanha-maturatta.jpg")} style={styles.img} />
-//           <View style={styles.bgtexto}>
-//             <Text style={styles.texto}>Picanha - Maturatta</Text>
-//           </View>
-//         </View>
-//       </PagerView>
-//     </View>
-//   );
-// };
-
 const styles = StyleSheet.create({
   viewPager: {
     flex: 1,
-  },
-  page: {
+    backgroundColor: "#FFF",
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -124,5 +93,3 @@ const styles = StyleSheet.create({
     height: Dimensions.get('window').width/1.3,
   },
 });
-
-// export default MyPager;
