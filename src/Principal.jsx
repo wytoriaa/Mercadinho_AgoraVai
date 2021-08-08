@@ -13,17 +13,21 @@ import Login_Clientes from './Login_Clientes'
 import Acougue from './produtos/Acougue';
 import HigienePessoal from './produtos/HigienePessoal';
 import Limpeza from './produtos/Limpeza';
-import BebidasQuentes from './produtos/BebidasQuentes';
-import Biscoitos from './produtos/Biscoitos';
-import Molhos from './produtos/Molhos';
-import Perfumaria from './produtos/Perfumaria';
-import Temperos from './produtos/Temperos';
+import Bebidas from './produtos/Bebidas';
+import Matinais from './produtos/Matinais';
+import CondimentosTemperos from './produtos/CondimentosTemperos';
 import Bomboniere from './produtos/Bomboniere';
 import Mercearia from './produtos/Mercearia';
-import Salgadinhos from './produtos/Salgadinhos';
-import Refrigerantes from './produtos/Refrigerantes';
 import Enlatados from './produtos/Enlatados';
-import Hortifruti from './produtos/Hortifruti';
+import HortiFruti from './produtos/HortiFruti';
+import Massas from './produtos/Massas';
+import Descartaveis from './produtos/Descartaveis';
+import Padaria from './produtos/Padaria';
+import Laticinios from './produtos/Laticinios';
+import Vestuario from './produtos/Vestuario';
+import Geral from './produtos/Geral';
+import Pet from './produtos/Pet';
+
 
 //criar uma funçao para os icones aparecerem na barra de navegação do app
 //function escolhendoIcone({color, size}){
@@ -168,9 +172,9 @@ export default function Principal() {
         }}
       />
 
-      <Drawer.Screen name="Bebidas_Quentes" component={BebidasQuentes}
+      <Drawer.Screen name="Bebidas" component={Bebidas}
         options={{
-          title: 'Bebidas Quentes',
+          title: 'Bebidas',
           drawerIcon: ({focused, size}) => (
             <Icons
               name="shopping-cart"
@@ -188,9 +192,9 @@ export default function Principal() {
         }}
       />
 
-     <Drawer.Screen name="Biscoitos" component={Biscoitos}
+     <Drawer.Screen name="Matinais" component={Matinais}
         options={{
-          title: 'Biscoitos',
+          title: 'Matinais',
           drawerIcon: ({focused, size}) => (
             <Icons
               name="shopping-cart"
@@ -208,69 +212,9 @@ export default function Principal() {
         }}
       />
 
-     <Drawer.Screen name=" Molhos" component={Molhos}
+     <Drawer.Screen name="CondimentosTemperos" component={CondimentosTemperos}
         options={{
-          title: 'Molhos',
-          drawerIcon: ({focused, size}) => (
-            <Icons
-              name="shopping-cart"
-              size={size}
-              color={focused ? '#2E3192' : '#ED1C24'}
-            />
-          ),
-          headerStyle: {
-            backgroundColor: '#2E3192',
-          },
-          headerTintColor: '#fff',
-          headerTitleStyle: {
-            fontWeight: 'bold',
-          },
-        }}
-      />
-
-      <Drawer.Screen name="Perfumaria" component={Perfumaria}
-        options={{
-          title: 'Perfumaria',
-          drawerIcon: ({focused, size}) => (
-            <Icons
-              name="shopping-cart"
-              size={size}
-              color={focused ? '#2E3192' : '#ED1C24'}
-            />
-          ),
-          headerStyle: {
-            backgroundColor: '#2E3192',
-          },
-          headerTintColor: '#fff',
-          headerTitleStyle: {
-            fontWeight: 'bold',
-          },
-        }}
-      />
-
-      <Drawer.Screen name="Refrigerantes" component={Refrigerantes}
-        options={{
-          title: 'Refrigerantes',
-          drawerIcon: ({focused, size}) => (
-            <Icons
-              name="shopping-cart"
-              size={size}
-              color={focused ? '#2E3192' : '#ED1C24'}
-            />
-          ),
-          headerStyle: {
-            backgroundColor: '#2E3192',
-          },
-          headerTintColor: '#fff',
-          headerTitleStyle: {
-            fontWeight: 'bold',
-          },
-        }}
-      />
-
-      <Drawer.Screen name="Temperos" component={Temperos}
-        options={{
-          title: 'Temperos',
+          title: 'CondimentosTemperos',
           drawerIcon: ({focused, size}) => (
             <Icons
               name="shopping-cart"
@@ -328,26 +272,6 @@ export default function Principal() {
         }}
       />
 
-      <Drawer.Screen name="Salgadinhos" component={Salgadinhos}
-        options={{
-          title: 'Salgadinhos',
-          drawerIcon: ({focused, size}) => (
-            <Icons
-              name="shopping-cart"
-              size={size}
-              color={focused ? '#2E3192' : '#ED1C24'}
-            />
-          ),
-          headerStyle: {
-            backgroundColor: '#2E3192',
-          },
-          headerTintColor: '#fff',
-          headerTitleStyle: {
-            fontWeight: 'bold',
-          },
-        }}
-      />
-
       <Drawer.Screen name="Enlatados" component={Enlatados}
         options={{
           title: 'Enlatados',
@@ -368,10 +292,9 @@ export default function Principal() {
         }}
       />
 
-      
-      <Drawer.Screen name="Hortifruti" component={Hortifruti}
+      <Drawer.Screen name="HortiFruti" component={HortiFruti}
         options={{
-          title: 'Hortifruti',
+          title: 'HortiFruti',
           drawerIcon: ({focused, size}) => (
             <Icons
               name="shopping-cart"
@@ -389,9 +312,70 @@ export default function Principal() {
         }}
       />
 
-      <Drawer.Screen name="Mapa" component={Mapa} 
+      <Drawer.Screen name="Massas" component={Massas}
         options={{
-          title: 'Endereço',
+          title: 'Massas',
+          drawerIcon: ({focused, size}) => (
+            <Icons
+              name="shopping-cart"
+              size={size}
+              color={focused ? '#2E3192' : '#ED1C24'}
+            />
+          ),
+          headerStyle: {
+            backgroundColor: '#2E3192',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
+        }}
+      />
+
+      <Drawer.Screen name="Descartaveis" component={Descartaveis}
+        options={{
+          title: 'Descartaveis',
+          drawerIcon: ({focused, size}) => (
+            <Icons
+              name="shopping-cart"
+              size={size}
+              color={focused ? '#2E3192' : '#ED1C24'}
+            />
+          ),
+          headerStyle: {
+            backgroundColor: '#2E3192',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
+        }}
+      />
+
+      
+      <Drawer.Screen name="Padaria" component={Padaria}
+        options={{
+          title: 'Padaria',
+          drawerIcon: ({focused, size}) => (
+            <Icons
+              name="shopping-cart"
+              size={size}
+              color={focused ? '#2E3192' : '#ED1C24'}
+            />
+          ),
+          headerStyle: {
+            backgroundColor: '#2E3192',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
+        }}
+      />
+
+      <Drawer.Screen name="Laticinios" component={Laticinios} 
+        options={{
+          title: 'Laticinios',
           drawerIcon: ({focused, size}) => (
             <Icons
               name="place"
@@ -409,6 +393,74 @@ export default function Principal() {
         }}
         
       />
+
+      <Drawer.Screen name="Vestuario" component={Vestuario}
+        options={{
+          title: 'Vestuario',
+          drawerIcon: ({focused, size}) => (
+            <Icons
+              name="shopping-cart"
+              size={size}
+              color={focused ? '#2E3192' : '#ED1C24'}
+            />
+          ),
+          headerStyle: {
+            backgroundColor: '#2E3192',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
+        }}
+      />
+
+      <Drawer.Screen name="Geral" component={Geral}
+        options={{
+          title: 'Geral',
+          drawerIcon: ({focused, size}) => (
+            <Icons
+              name="shopping-cart"
+              size={size}
+              color={focused ? '#2E3192' : '#ED1C24'}
+            />
+          ),
+          headerStyle: {
+            backgroundColor: '#2E3192',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
+        }}
+      />
+
+      <Drawer.Screen name="Pet" component={Pet}
+        options={{
+          title: 'Pet',
+          drawerIcon: ({focused, size}) => (
+            <Icons
+              name="shopping-cart"
+              size={size}
+              color={focused ? '#2E3192' : '#ED1C24'}
+            />
+          ),
+          headerStyle: {
+            backgroundColor: '#2E3192',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
+        }}
+      />
+
+
+
+
+
+
+
+
     </Drawer.Navigator>
   )
 }
