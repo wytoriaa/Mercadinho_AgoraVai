@@ -694,7 +694,7 @@ export default function Home({navigation}){
             {/* HORTIFRUTI */}
             <View>
             <View style={styles.bgtitulo}>
-                <Text style={styles.titulo}>Horti-Fruti</Text>
+                <Text style={styles.titulo}>Hortifruti</Text>
             </View>
                 <FlatList
                     horizontal
