@@ -27,7 +27,6 @@ import Laticinios from './produtos/Laticinios';
 import Vestuario from './produtos/Vestuario';
 import Geral from './produtos/Geral';
 import Pet from './produtos/Pet';
-import Promocoes from './produtos/Promocoes';
 
 //criar uma funçao para os icones aparecerem na barra de navegação do app
 //function escolhendoIcone({color, size}){
@@ -110,26 +109,6 @@ export default function Principal() {
               fontWeight: 'bold',
             },
           }}
-      />
-
-      <Drawer.Screen name="Promocoes" component={Promocoes}
-        options={{
-          title: 'Promoções',
-          drawerIcon: ({focused, size}) => (
-            <Icons
-              name="shopping-cart"
-              size={size}
-              color={focused ? '#2E3192' : '#ED1C24'}
-            />
-          ),
-          headerStyle: {
-            backgroundColor: '#2E3192',
-          },
-          headerTintColor: '#fff',
-          headerTitleStyle: {
-            fontWeight: 'bold',
-          },
-        }}
       />
 
       <Drawer.Screen name="Acougue" component={Acougue}
@@ -398,7 +377,7 @@ export default function Principal() {
           title: 'Laticinios',
           drawerIcon: ({focused, size}) => (
             <Icons
-              name="place"
+              name="shopping-cart"
               size={size}
               color={focused ? '#2E3192' : '#ED1C24'}
             />
@@ -474,12 +453,26 @@ export default function Principal() {
         }}
       />
 
-
-
-
-
-
-
+      <Drawer.Screen name="Mapa" component={Mapa} 
+        options={{
+          title: 'Localização',
+          drawerIcon: ({focused, size}) => (
+            <Icons
+              name="place"
+              size={size}
+              color={focused ? '#2E3192' : '#ED1C24'}
+            />
+          ),
+          headerStyle: {
+            backgroundColor: '#2E3192',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
+        }}
+        
+      />
 
     </Drawer.Navigator>
   )
