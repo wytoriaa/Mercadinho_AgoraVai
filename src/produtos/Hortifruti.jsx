@@ -22,7 +22,7 @@ export default function HortiFruti({navigation}) {
   const listHortiFruti = [];
   items.forEach(
       doc => {
-        listHortifruti.push({
+        listHortifruti.push({ 
               ...doc.data(),
               key: doc.id
         })
