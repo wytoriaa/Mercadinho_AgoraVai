@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import firebase from '../firebase';
-import { StyleSheet, TextInput, Text, View, Button } from 'react-native';
+import { StyleSheet, TextInput, Text, View, Button,ScrollView} from 'react-native';
 
 export default function AddUsers({navigation}){
      //constante de verificação que será usada para realizar o retorno a página principal do app. enquanto for false veremos a renderização de confirmação. Quando for true, direciona para o inicio. 
@@ -48,91 +48,116 @@ export default function AddUsers({navigation}){
 
     console.log(state);
     return(
-        <View style={styles.container}>
-            <Text style={styles.h1}>Cadastro</Text>
-            {/**campo  Nome*/}
-            {/* <Text>{state.nome}</Text>
-            <Text>{state.email}</Text> */}
-            <TextInput
-                style={styles.input}
-                placeholder='Nome'
-                defaultValue={state.nome}
-                onChangeText={
-                    (value)=>handleInputChange('nome', value)
-                }
-            />
-            <TextInput
-                style={styles.input}
-                placeholder='email'
-                textContentType='emailAddress'
-                defaultValue={state.email}
-                onChangeText={
-                    (value)=>handleInputChange('email', value)
-                }
-            />
-            <TextInput
-                style={styles.input}
-                placeholder='Endereço'
-                defaultValue={state.endereco}
-                onChangeText={
-                    (value)=>handleInputChange('endereco', value)
-                }
-            />
-            <TextInput
-                style={styles.input}
-                placeholder='Numero'
-                defaultValue={state.numero}
-                onChangeText={
-                    (value)=>handleInputChange('numero', value)
-                }
-            />
-            <TextInput
-                style={styles.input}
-                placeholder='Cep'
-                defaultValue={state.cep}
-                onChangeText={
-                    (value)=>handleInputChange('cep', value)
-                }
-            />
-            <TextInput
-                style={styles.input}
-                placeholder='Bairro'
-                defaultValue={state.bairro}
-                onChangeText={
-                    (value)=>handleInputChange('bairro', value)
-                }
-            />
-            <TextInput
-                style={styles.input}
-                placeholder='Complemento'
-                defaultValue={state.complemento}
-                onChangeText={
-                    (value)=>handleInputChange('complemento', value)
-                }
-            />
-             <TextInput
-                style={styles.input}
-                placeholder='Referência'
-                defaultValue={state.referencia}
-                onChangeText={
-                    (value)=>handleInputChange('referencia', value)
-                }
-            />
-            <TextInput
-                style={styles.input}
-                placeholder='Fone'
-                defaultValue={state.telefone}
-                onChangeText={
-                    (value)=>handleInputChange('telefone', value)
-                }
-            />
+        
+        <ScrollView >
+            <View style={styles.container}>
+                <Text style={styles.h1}>Cadastro</Text>
+                {/**campo  Nome*/}
+                {/* <Text>{state.nome}</Text>
+                <Text>{state.email}</Text> */}
+                <TextInput
+                    style={styles.input}
+                    placeholder='Nome'
+                    defaultValue={state.nome}
+                    onChangeText={
+                        (value)=>handleInputChange('nome', value)
+                    }
+                />
+                <TextInput
+                    style={styles.input}
+                    placeholder='email'
+                    textContentType='emailAddress'
+                    defaultValue={state.email}
+                    onChangeText={
+                        (value)=>handleInputChange('email', value)
+                    }
+                />
+                <TextInput
+                    style={styles.input}
+                    placeholder='Endereço'
+                    defaultValue={state.endereco}
+                    onChangeText={
+                        (value)=>handleInputChange('endereco', value)
+                    }
+                />
+                <TextInput
+                    style={styles.input}
+                    placeholder='Numero'
+                    defaultValue={state.numero}
+                    onChangeText={
+                        (value)=>handleInputChange('numero', value)
+                    }
+                />
+                <TextInput
+                    style={styles.input}
+                    placeholder='Cep'
+                    defaultValue={state.cep}
+                    onChangeText={
+                        (value)=>handleInputChange('cep', value)
+                    }
+                />
+                <TextInput
+                    style={styles.input}
+                    placeholder='Bairro'
+                    defaultValue={state.bairro}
+                    onChangeText={
+                        (value)=>handleInputChange('bairro', value)
+                    }
+                />
+                <TextInput
+                    style={styles.input}
+                    placeholder='Complemento'
+                    defaultValue={state.complemento}
+                    onChangeText={
+                        (value)=>handleInputChange('complemento', value)
+                    }
+                />
+                <TextInput
+                    style={styles.input}
+                    placeholder='Referência'
+                    defaultValue={state.referencia}
+                    onChangeText={
+                        (value)=>handleInputChange('referencia', value)
+                    }
+                />
+                <TextInput
+                    style={styles.input}
+                    placeholder='Fone'
+                    defaultValue={state.telefone}
+                    onChangeText={
+                        (value)=>handleInputChange('telefone', value)
+                    }
+                />
 
-            <Button
-                style={styles.input}
-                title="Adicionar"
-                onPress={addUser}
-            />
-        </View>
+                <Button
+                    style={styles.input}
+                    title="Adicionar"
+                    onPress={addUser}
+                />
+            </View>
+        </ScrollView>
+        
         
     )
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems:'center',
+    padding:12
+  },
+  h1:{
+      fontSize:20,
+      fontWeight:'bold',
+      padding:12
+  }, 
+  input:{
+    height:60, 
+    width:'90%',
+    borderWidth:1, 
+    padding:10,
+    marginTop:5
+  }
+});
