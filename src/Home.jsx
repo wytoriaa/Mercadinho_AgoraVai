@@ -368,7 +368,6 @@ export default function Home({navigation}){
         setGeral(listGeral);
         }
         
-
     return (
     <View style ={{flex: 1, alignItems:'center', justifyContent:'center', backgroundColor: "#FFF"}}>
         <Header />
