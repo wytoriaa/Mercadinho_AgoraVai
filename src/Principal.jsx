@@ -38,12 +38,11 @@ export default function Principal() {
   return (
     <Drawer.Navigator initialRouteName={Home}
     drawerContentOptions={{
-      activeTintColor: '#FFF',
-      inactiveTintColor: '#FFF',
+      activeTintColor: '#2E3192',
+      inactiveTintColor: '#2E3192',
       itemStyle: { alignItems:'flex-start',},
     }} drawerStyle={{
       backgroundColor:  '#2E3192',
-      alignItems: "center",
     }}>
       
       <Drawer.Screen name="Home" component={Home} 
@@ -56,6 +55,13 @@ export default function Principal() {
               color={focused ? '#2E3192' : '#ED1C24'}
             />
           ),
+          headerStyle: {
+            backgroundColor: '#2E3192',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
         }}
       />
 
@@ -66,9 +72,16 @@ export default function Principal() {
             <Icons
               name="login"
               size={size}
-              color={focused ? '#FFF' : '#ED1C24'}
+              color={focused ? '#2E3192' : '#ED1C24'}
             />
           ),
+          headerStyle: {
+            backgroundColor: '#2E3192',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
         }}
       />
 
@@ -79,10 +92,17 @@ export default function Principal() {
                 <Icons
                 name="login"
                 size={size}
-                color={focused ? '#FFF' : '#ED1C24'}
+                color={focused ? '#2E3192' : '#ED1C24'}
                 />
             ),
-            }}
+            headerStyle: {
+              backgroundColor: '#2E3192',
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+              fontWeight: 'bold',
+            },
+          }}
       />
 
       <Drawer.Screen name="Acougue" component={Acougue}
@@ -92,9 +112,16 @@ export default function Principal() {
             <Icons
               name="shopping-cart"
               size={size}
-              color={focused ? '#FFF' : '#ED1C24'}
+              color={focused ? '#2E3192' : '#ED1C24'}
             />
           ),
+          headerStyle: {
+            backgroundColor: '#2E3192',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
         }}
       />
 
@@ -105,9 +132,16 @@ export default function Principal() {
             <Icons
               name="shopping-cart"
               size={size}
-              color={focused ? '#FFF' : '#ED1C24'}
+              color={focused ? '#2E3192' : '#ED1C24'}
             />
           ),
+          headerStyle: {
+            backgroundColor: '#2E3192',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
         }}
       />
 
@@ -118,9 +152,16 @@ export default function Principal() {
             <Icons
               name="shopping-cart"
               size={size}
-              color={focused ? '#FFF' : '#ED1C24'}
+              color={focused ? '#2E3192' : '#ED1C24'}
             />
           ),
+          headerStyle: {
+            backgroundColor: '#2E3192',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
         }}
       />
 
@@ -131,9 +172,16 @@ export default function Principal() {
             <Icons
               name="shopping-cart"
               size={size}
-              color={focused ? '#FFF' : '#ED1C24'}
+              color={focused ? '#2E3192' : '#ED1C24'}
             />
           ),
+          headerStyle: {
+            backgroundColor: '#2E3192',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
         }}
       />
 
@@ -144,9 +192,16 @@ export default function Principal() {
             <Icons
               name="shopping-cart"
               size={size}
-              color={focused ? '#FFF' : '#ED1C24'}
+              color={focused ? '#2E3192' : '#ED1C24'}
             />
           ),
+          headerStyle: {
+            backgroundColor: '#2E3192',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
         }}
       />
 
@@ -157,9 +212,16 @@ export default function Principal() {
             <Icons
               name="shopping-cart"
               size={size}
-              color={focused ? '#FFF' : '#ED1C24'}
+              color={focused ? '#2E3192' : '#ED1C24'}
             />
           ),
+          headerStyle: {
+            backgroundColor: '#2E3192',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
         }}
       />
 
@@ -170,9 +232,16 @@ export default function Principal() {
             <Icons
               name="shopping-cart"
               size={size}
-              color={focused ? '#FFF' : '#ED1C24'}
+              color={focused ? '#2E3192' : '#ED1C24'}
             />
           ),
+          headerStyle: {
+            backgroundColor: '#2E3192',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
         }}
       />
 
@@ -183,9 +252,16 @@ export default function Principal() {
             <Icons
               name="shopping-cart"
               size={size}
-              color={focused ? '#FFF' : '#ED1C24'}
+              color={focused ? '#2E3192' : '#ED1C24'}
             />
           ),
+          headerStyle: {
+            backgroundColor: '#2E3192',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
         }}
       />
 
@@ -196,9 +272,16 @@ export default function Principal() {
             <Icons
               name="shopping-cart"
               size={size}
-              color={focused ? '#FFF' : '#ED1C24'}
+              color={focused ? '#2E3192' : '#ED1C24'}
             />
           ),
+          headerStyle: {
+            backgroundColor: '#2E3192',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
         }}
       />
 
@@ -209,9 +292,16 @@ export default function Principal() {
             <Icons
               name="shopping-cart"
               size={size}
-              color={focused ? '#FFF' : '#ED1C24'}
+              color={focused ? '#2E3192' : '#ED1C24'}
             />
           ),
+          headerStyle: {
+            backgroundColor: '#2E3192',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
         }}
       />
 
@@ -222,9 +312,16 @@ export default function Principal() {
             <Icons
               name="shopping-cart"
               size={size}
-              color={focused ? '#FFF' : '#ED1C24'}
+              color={focused ? '#2E3192' : '#ED1C24'}
             />
           ),
+          headerStyle: {
+            backgroundColor: '#2E3192',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
         }}
       />
 
@@ -235,9 +332,16 @@ export default function Principal() {
             <Icons
               name="shopping-cart"
               size={size}
-              color={focused ? '#FFF' : '#ED1C24'}
+              color={focused ? '#2E3192' : '#ED1C24'}
             />
           ),
+          headerStyle: {
+            backgroundColor: '#2E3192',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
         }}
       />
 
@@ -248,9 +352,16 @@ export default function Principal() {
             <Icons
               name="shopping-cart"
               size={size}
-              color={focused ? '#FFF' : '#ED1C24'}
+              color={focused ? '#2E3192' : '#ED1C24'}
             />
           ),
+          headerStyle: {
+            backgroundColor: '#2E3192',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
         }}
       />
 
@@ -262,23 +373,38 @@ export default function Principal() {
             <Icons
               name="shopping-cart"
               size={size}
-              color={focused ? '#FFF' : '#ED1C24'}
+              color={focused ? '#2E3192' : '#ED1C24'}
             />
           ),
+          headerStyle: {
+            backgroundColor: '#2E3192',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
         }}
       />
 
       <Drawer.Screen name="Mapa" component={Mapa} 
         options={{
-          title: 'Mapa',
+          title: 'Endereço',
           drawerIcon: ({focused, size}) => (
             <Icons
-              name="home"
+              name="place"
               size={size}
               color={focused ? '#2E3192' : '#ED1C24'}
             />
           ),
+          headerStyle: {
+            backgroundColor: '#2E3192',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
         }}
+        
       />
     </Drawer.Navigator>
   )
@@ -287,7 +413,7 @@ export default function Principal() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#2E3192',
     alignItems: 'center',
     justifyContent: 'center',
   },
