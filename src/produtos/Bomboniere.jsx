@@ -4,41 +4,40 @@ import firebase from '../../firebase';
 import ImagedCarouselCard from "react-native-imaged-carousel-card";
 import Header from '../Header';
 
-export default function BebidasQuentes({navigation}) {
+export default function Bomboniere({navigation}) {
   
-  const [bebidasQuentes, setBebidasQuentes] = useState([]);
+  const [bomboniere, setBomboniere] = useState([]);
 
   useEffect(
     () => navigation.addListener('focus', () => {
-        pegaBebidasQuentes()
+        pegaBomboniere()
     }),[]
   )
-  
-  const  pegaBebidasQuentes = async () => {
+
+  const  pegaBomboniere = async () => {
   const prods = firebase.db.collection("produtos");
-  const querySnapshot = await prods.where('Departamento', '==', 'BebidasQuentes').get();
+  const querySnapshot = await prods.where('Departamento', '==', 'Bomboniere').get();
   const items = querySnapshot.docs;
-  const listBebidasQuentes = [];
+  const listBomboniere = [];
   items.forEach(
       doc => {
-        listBebidasQuentes.push({
+        listBomboniere.push({
               ...doc.data(),
               key: doc.id
           })
       })    
-  setBebidasQuentes(listBebidasQuentes);
+      setBomboniere(listBomboniere);
   }
 
   return(
     <View>
       <Header />
       <View style={styles.bgtitulo}>
-          <Text style={styles.titulo}>Bebidas Quentes</Text>
+          <Text style={styles.titulo}>Bomboniere</Text>
       </View>
-      {console.log(bebidasQuentes)}
       <FlatList
         horizontal
-        data={bebidasQuentes}
+        data={bomboniere}
         renderItem = { ({item}) =>(
           <View style={{paddingHorizontal: 10}}>
             <ImagedCarouselCard
@@ -55,6 +54,37 @@ export default function BebidasQuentes({navigation}) {
     </View>
   )
 }
+// const MyPager = () => {
+//   return (
+//     <View style={styles.viewPager}>
+//       <Header />
+//       <View style={styles.bgtitulo}>
+//         <Text style={styles.titulo}>Bomboniere</Text>
+//       </View>
+//       <PagerView style={styles.viewPager} initialPage={0}>
+//         <View style={styles.page} key="1">
+//             <Image source={require("./imagens_cruzeiro/bis.jpg")} style={styles.img} />
+//             <View style={styles.bgtexto}>
+//               <Text style={styles.texto}>Chocolate - biss</Text>
+//             </View>
+//         </View>
+//         <View style={styles.page} key="2">
+//           <Image source={require("./imagens_cruzeiro/halls.jpg")} style={styles.img} />
+//           <View style={styles.bgtexto}>
+//             <Text style={styles.texto}>Balas - Halls</Text>
+//           </View>
+//         </View>
+
+//         <View style={styles.page} key="3">
+//         <Image source={require("./imagens_cruzeiro/bis.jpg")} style={styles.img} />
+//           <View style={styles.bgtexto}>
+//             <Text style={styles.texto}>Chocolate - biss</Text>
+//           </View>
+//         </View>
+//       </PagerView>
+//     </View>
+//   );
+// };
 
 const styles = StyleSheet.create({
   viewPager: {
@@ -92,3 +122,5 @@ const styles = StyleSheet.create({
     height: Dimensions.get('window').width/1.3,
   },
 });
+
+// export default MyPager;

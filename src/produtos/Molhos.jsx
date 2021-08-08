@@ -4,41 +4,40 @@ import firebase from '../../firebase';
 import ImagedCarouselCard from "react-native-imaged-carousel-card";
 import Header from '../Header';
 
-export default function BebidasQuentes({navigation}) {
+export default function Molhos({navigation}) {
   
-  const [bebidasQuentes, setBebidasQuentes] = useState([]);
+  const [molhos, setMolhos] = useState([]);
 
   useEffect(
     () => navigation.addListener('focus', () => {
-        pegaBebidasQuentes()
+        pegaMolhos()
     }),[]
   )
-  
-  const  pegaBebidasQuentes = async () => {
+
+  const  pegaMolhos = async () => {
   const prods = firebase.db.collection("produtos");
-  const querySnapshot = await prods.where('Departamento', '==', 'BebidasQuentes').get();
+  const querySnapshot = await prods.where('Departamento', '==', 'Molhos').get();
   const items = querySnapshot.docs;
-  const listBebidasQuentes = [];
+  const listMolhos = [];
   items.forEach(
       doc => {
-        listBebidasQuentes.push({
+        listMolhos.push({
               ...doc.data(),
               key: doc.id
-          })
+        })
       })    
-  setBebidasQuentes(listBebidasQuentes);
+      setMolhos(listMolhos);
   }
 
   return(
     <View>
       <Header />
       <View style={styles.bgtitulo}>
-          <Text style={styles.titulo}>Bebidas Quentes</Text>
+          <Text style={styles.titulo}>Molhos</Text>
       </View>
-      {console.log(bebidasQuentes)}
       <FlatList
         horizontal
-        data={bebidasQuentes}
+        data={molhos}
         renderItem = { ({item}) =>(
           <View style={{paddingHorizontal: 10}}>
             <ImagedCarouselCard
