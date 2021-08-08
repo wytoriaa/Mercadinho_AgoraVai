@@ -47,7 +47,7 @@ export default function Promocoes({navigation}) {
             height={300}
             shadowColor="#051934"
             source={{uri: `${item.urlImg}`}}
-            text={`${item.Nome} \nR$: ${item.Preço}`}
+            text={(item.Nome) + "\n" + "De R$:" + (item.Preço) + " por R$" + parseInt(item.Preço*.8).toFixed(2)}
             overlayBackgroundColor={"#2E3192DD"}
             />
           </View>
