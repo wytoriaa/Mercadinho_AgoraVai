@@ -19,7 +19,7 @@ import CondimentosTemperos from './produtos/CondimentosTemperos';
 import Bomboniere from './produtos/Bomboniere';
 import Mercearia from './produtos/Mercearia';
 import Enlatados from './produtos/Enlatados';
-import HortiFruti from './produtos/HortiFruti';
+import HortiFruti from './produtos/Hortifruti';
 import Massas from './produtos/Massas';
 import Descartaveis from './produtos/Descartaveis';
 import Padaria from './produtos/Padaria';
