@@ -14,18 +14,18 @@ import ListarProdutos from './ListarProdutos';
 import CadastroProdutos from './CadastroProdutos';
 import EditProdutos from './EditProdutos';
 //--------------------------------------------
-import Acougue from './produtos/acougue';
+import Acougue from './produtos/Acougue';
 import HigienePessoal from './produtos/HigienePessoal';
-import Limpeza from './produtos/limpeza';
+import Limpeza from './produtos/Limpeza';
 import BebidasQuentes from './produtos/BebidasQuentes';
-import Biscoitos from './produtos/biscoitos';
-import Molhos from './produtos/molhos';
-import Perfumaria from './produtos/perfumaria';
-import Temperos from './produtos/temperos';
-import Bomboniere from './produtos/bomboniere';
-import Mercearia from './produtos/mercearia';
-import Salgadinhos from './produtos/salgadinhos';
-import Refrigerantes from './produtos/refrigerantes';
+import Biscoitos from './produtos/Biscoitos';
+import Molhos from './produtos/Molhos';
+import Perfumaria from './produtos/Perfumaria';
+import Temperos from './produtos/Temperos';
+import Bomboniere from './produtos/Bomboniere';
+import Mercearia from './produtos/Mercearia';
+import Salgadinhos from './produtos/Salgadinhos';
+import Refrigerantes from './produtos/Refrigerantes';
 import Enlatados from './produtos/Enlatados';
 import Hortifruti from './produtos/Hortifruti';
 
