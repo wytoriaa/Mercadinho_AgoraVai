@@ -368,6 +368,7 @@ export default function Home({navigation}){
         setGeral(listGeral);
         }
         
+
     return (
     <View style ={{flex: 1, alignItems:'center', justifyContent:'center', backgroundColor: "#FFF"}}>
         <Header />
@@ -510,7 +511,7 @@ export default function Home({navigation}){
                                 width={300}
                                 height={300}
                                 shadowColor="#051934"
-                                source={{uri:`${urlImg}`}}
+                                source={require('./produtos/imagens_cruzeiro/picanha.jpg')}
                                 text={`${item.Nome} \nR$: ${item.Preço}`}
                                 overlayBackgroundColor={"#2E3192DD"}
                                 />
