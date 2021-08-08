@@ -46,7 +46,7 @@ export default function Acougue({navigation}) {
             width={300}
             height={300}
             shadowColor="#051934"
-            source={require('./imagens_cruzeiro/picanha.jpg')}
+            source={{uri: `${item.urlImg}`}}
             text={`${item.Nome} \nR$: ${item.Preço} Kg`}
             overlayBackgroundColor={"#2E3192DD"}
             />
