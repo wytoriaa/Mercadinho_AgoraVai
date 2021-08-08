@@ -4,41 +4,40 @@ import firebase from '../../firebase';
 import ImagedCarouselCard from "react-native-imaged-carousel-card";
 import Header from '../Header';
 
-export default function BebidasQuentes({navigation}) {
+export default function Refrigerantes({navigation}) {
   
-  const [bebidasQuentes, setBebidasQuentes] = useState([]);
+  const [refrigerantes, setRefrigerantes] = useState([]);
 
   useEffect(
     () => navigation.addListener('focus', () => {
-        pegaBebidasQuentes()
+        pegaRefrigerantes()
     }),[]
   )
-  
-  const  pegaBebidasQuentes = async () => {
+
+  const  pegaRefrigerantes = async () => {
   const prods = firebase.db.collection("produtos");
-  const querySnapshot = await prods.where('Departamento', '==', 'BebidasQuentes').get();
+  const querySnapshot = await prods.where('Departamento', '==', 'Refrigerantes').get();
   const items = querySnapshot.docs;
-  const listBebidasQuentes = [];
+  const listRefrigerantes = [];
   items.forEach(
       doc => {
-        listBebidasQuentes.push({
+        listRefrigerantes.push({
               ...doc.data(),
               key: doc.id
-          })
+        })
       })    
-  setBebidasQuentes(listBebidasQuentes);
+      setRefrigerantes(listRefrigerantes);
   }
 
   return(
     <View>
       <Header />
       <View style={styles.bgtitulo}>
-          <Text style={styles.titulo}>Bebidas Quentes</Text>
+          <Text style={styles.titulo}>Refrigerantes</Text>
       </View>
-      {console.log(bebidasQuentes)}
       <FlatList
         horizontal
-        data={bebidasQuentes}
+        data={refrigerantes}
         renderItem = { ({item}) =>(
           <View style={{paddingHorizontal: 10}}>
             <ImagedCarouselCard
