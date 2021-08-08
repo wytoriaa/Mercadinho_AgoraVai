@@ -1,21 +1,18 @@
-import React, {useEffect, useState} from 'react';
+import React, { useState} from 'react';
 import firebase from '../firebase';
-import { StyleSheet, TextInput, Text, View, Button, Switch, TouchableOpacity } from 'react-native';
-// import {Picker} from '@react-native-picker/picker';
+import { StyleSheet, Text, View, TouchableOpacity, Switch, TextInput} from 'react-native';
 
 export default function CadastroProdutos({navigation}){
     const[ok, setOk] = useState(false);
+   
     const[state, setState] = useState({
-        codigo:'',
-        grupo:'',
-        descricao:'',
-        nome:'',
-        preco:'',
-        status:{
-            porcentagem:'',
-            promocao:false,
-        },
-        quantidade:''
+        Departamento: '',
+        Descrição: '',
+        Nome: '',
+        Preço:'',
+        Promoção:false,
+        Quantidade:'',
+        urlImg:''
     })
 
     const handleInputChange = (name, value) =>{
@@ -24,9 +21,9 @@ export default function CadastroProdutos({navigation}){
         })
     }
 
-        
+          
     const cadastro = async()=>{
-        await firebase.db.collection("product").add(state)
+        await firebase.db.collection("prod").add(state)
         .then(
             ()=>{
                 alert("Produto Cadastrado com Sucesso!");
@@ -44,28 +41,23 @@ export default function CadastroProdutos({navigation}){
     return(
         <View style={styles.container}>
             <Text style={styles.h1}>Cadastro dos Produtos</Text>
-            <TextInput placeholder="Codigo" defaultValue={state.codigo}
-                        onChangeText={(value)=>handleInputChange('codigo', value)} style={styles.input}/>
-            <TextInput placeholder="Produto" defaultValue={state.nome}
-                        onChangeText={(value)=>handleInputChange('nome', value)} style={styles.input}/>
-            <TextInput placeholder="Grupo" defaultValue={state.grupo}
-                        onChangeText={(value)=>handleInputChange('grupo', value)} style={styles.input}/>            
-            <TextInput placeholder="Descrição" defaultValue={state.descricao}
-                        onChangeText={(value)=>handleInputChange('descricao', value)} style={styles.input}/>
-            <TextInput placeholder="Preço" defaultValue={state.preco}
-                        onChangeText={(value)=>handleInputChange('preco', value)} style={styles.input}/>
-            <TextInput placeholder="Quantidade" defaultValue={state.quantidade}
-                        onChangeText={(value)=>handleInputChange('quantidade', value)} style={styles.input}/>              
+            <TextInput placeholder="Produto" defaultValue={state.Nome}
+                        onChangeText={(value)=>handleInputChange('Nome', value)} style={styles.input}/>
+            <TextInput placeholder="Grupo" defaultValue={state.Departamento}
+                        onChangeText={(value)=>handleInputChange('Departamento', value)} style={styles.input}/>            
+            <TextInput placeholder="Descrição" defaultValue={state.Descrição}
+                        onChangeText={(value)=>handleInputChange('Descrição', value)} style={styles.input}/>
+            <TextInput placeholder="Preço" defaultValue={state.Preço}
+                        onChangeText={(value)=>handleInputChange('Preço', value)} style={styles.input}/>
+            <TextInput placeholder="Quantidade" defaultValue={state.Quantidade}
+                        onChangeText={(value)=>handleInputChange('Quantidade', value)} style={styles.input}/>              
             <Text>Promoção:</Text>
-            <Switch value={state.status.promocao} onValueChange={(valorSwitch)=> setState({...state, promocao: valorSwitch})}/> 
-            <TextInput placeholder="Porcentagem" defaultValue={state.status.porcentagem}
-                        onChangeText={(value)=>handleInputChange('porcentagem', Number(value))} style={styles.input}/> 
-             {/* <Picker selectedValue={state.Promoção} onValueChange={(itemValue, itemIndex) =>  setState({...state, Promoção: itemValue})}>
-                    <Picker.Item label="Off" value={Boolean(false)} />
-                    <Picker.Item label="On" value={Boolean(true)}  /> 
-            </Picker>  */}
-            {/* <TextInput placeholder="Promoção" defaultValue={state.Promoção}
-                        onChangeText={(value)=>handleInputChange('Promoção', value)} />   */}
+
+           
+
+            
+            <Switch value={state.Promoção} onValueChange={(value)=> setState({...state, Promoção: value})}/>   
+           
             
             <TouchableOpacity style={styles.botao} onPress={()=>cadastro()}><Text>Cadastrar</Text></TouchableOpacity>                                
             
@@ -95,8 +87,10 @@ const styles = StyleSheet.create({
         borderColor:'grey'
     },
     botao:{
-        backgroundColor:'blue',
-        padding: 10
+        backgroundColor:'#3bbdc2',
+        margin:10,
+        padding: 10,
+        borderRadius: 10
     }
 
     
