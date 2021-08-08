@@ -3,6 +3,7 @@ import { StyleSheet, View, Text, Image, Dimensions, FlatList } from 'react-nativ
 import firebase from '../../firebase';
 import ImagedCarouselCard from "react-native-imaged-carousel-card";
 import Header from '../Header';
+import Footer from '../Footer';
 
 export default function Molhos({navigation}) {
   
@@ -30,7 +31,7 @@ export default function Molhos({navigation}) {
   }
 
   return(
-    <View>
+    <View style={{backgroundColor: "#FFF"}}>
       <Header />
       <View style={styles.bgtitulo}>
           <Text style={styles.titulo}>Molhos</Text>
@@ -51,6 +52,7 @@ export default function Molhos({navigation}) {
           </View>
         )}
       />
+      <Footer />
     </View>
   )
 }
