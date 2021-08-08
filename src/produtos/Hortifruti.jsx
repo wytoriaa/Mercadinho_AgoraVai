@@ -5,21 +5,21 @@ import ImagedCarouselCard from "react-native-imaged-carousel-card";
 import Header from '../Header';
 import Footer from '../Footer';
 
-export default function Hortifruti({navigation}) {
+export default function HortiFruti({navigation}) {
   
-  const [hortifruti, setHortifruti] = useState([]);
+  const [hortiFruti, setHortiFruti] = useState([]);
 
   useEffect(
     () => navigation.addListener('focus', () => {
-        pegaHortifruti()
+        pegaHortiFruti()
     }),[]
   )
 
-  const  pegaHortifruti = async () => {
+  const  pegaHortiFruti = async () => {
   const prods = firebase.db.collection("produtos");
-  const querySnapshot = await prods.where('Departamento', '==', 'Hortifruti').get();
+  const querySnapshot = await prods.where('Departamento', '==', 'HortiFruti').get();
   const items = querySnapshot.docs;
-  const listHortifruti = [];
+  const listHortiFruti = [];
   items.forEach(
       doc => {
         listHortifruti.push({
@@ -27,18 +27,18 @@ export default function Hortifruti({navigation}) {
               key: doc.id
         })
       })    
-      setHortifruti(listHortifruti);
+      setHortiFruti(listHortiFruti);
   }
 
   return(
     <View style={{backgroundColor: "#FFF"}}>
       <Header />
       <View style={styles.bgtitulo}>
-          <Text style={styles.titulo}>Hortifruti</Text>
+          <Text style={styles.titulo}>HortiFruti</Text>
       </View>
       <FlatList
         horizontal
-        data={hortifruti}
+        data={hortiFruti}
         renderItem = { ({item}) =>(
           <View style={{paddingHorizontal: 10}}>
             <ImagedCarouselCard
