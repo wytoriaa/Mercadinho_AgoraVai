@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { StyleSheet, View, Text, Image, Dimensions, FlatList } from 'react-native';
 import firebase from '../../firebase';
-// import PagerView from 'react-native-pager-view';
 import ImagedCarouselCard from "react-native-imaged-carousel-card";
 import Header from '../Header';
 

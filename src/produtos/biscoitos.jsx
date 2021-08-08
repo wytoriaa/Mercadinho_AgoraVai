@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { StyleSheet, View, Text, Image, Dimensions, FlatList } from 'react-native';
 import firebase from '../../firebase';
-// import PagerView from 'react-native-pager-view';
 import ImagedCarouselCard from "react-native-imaged-carousel-card";
 import Header from '../Header';
 
@@ -45,7 +44,7 @@ export default function Biscoitos({navigation}) {
             width={300}
             height={300}
             shadowColor="#051934"
-            source={require('./imagens_cruzeiro/biscoitos.jpg')}
+            source={{uri: `${item.urlImg}`}}
             text={`${item.Nome} \nR$: ${item.Preço}`}
             overlayBackgroundColor={"#2E3192DD"}
             />
@@ -55,37 +54,6 @@ export default function Biscoitos({navigation}) {
     </View>
   )
 }
-// const MyPager = () => {
-//   return (
-//     <View style={styles.viewPager}>
-//       <Header />
-//       <View style={styles.bgtitulo}>
-//         <Text style={styles.titulo}>Biscoitos</Text>
-//       </View>
-//       <PagerView style={styles.viewPager} initialPage={0}>
-//         <View style={styles.page} key="1">
-//             <Image source={require("./imagens_cruzeiro/biscoitos.jpg")} style={styles.img} />
-//             <View style={styles.bgtexto}>
-//               <Text style={styles.texto}>Bicoitos</Text>
-//             </View>
-//         </View>
-//         <View style={styles.page} key="2">
-//           <Image source={require("./imagens_cruzeiro/biscoitos.jpg")} style={styles.img} />
-//           <View style={styles.bgtexto}>
-//             <Text style={styles.texto}>Biscoitos</Text>
-//           </View>
-//         </View>
-
-//         <View style={styles.page} key="3">
-//         <Image source={require("./imagens_cruzeiro/biscoitos.jpg")} style={styles.img} />
-//           <View style={styles.bgtexto}>
-//             <Text style={styles.texto}>Biscoitos</Text>
-//           </View>
-//         </View>
-//       </PagerView>
-//     </View>
-//   );
-// };
 
 const styles = StyleSheet.create({
   viewPager: {
@@ -123,5 +91,3 @@ const styles = StyleSheet.create({
     height: Dimensions.get('window').width/1.3,
   },
 });
-
-// export default MyPager;

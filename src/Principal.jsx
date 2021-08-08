@@ -1,8 +1,7 @@
 import React from 'react';
 import 'react-native-gesture-handler';
-import {NavigationContainer} from '@react-navigation/native'
 import {createDrawerNavigator} from '@react-navigation/drawer';
-import { StyleSheet, StatusBar, View} from 'react-native';
+import { StyleSheet} from 'react-native';
 import Icons from 'react-native-vector-icons/MaterialIcons';
 // COMPONENTES
 import Login from './Login';
@@ -10,9 +9,6 @@ import Home from './Home';
 import Mapa from './Mapa';
 import Login_Clientes from './Login_Clientes'
 // import Carrossel from './Carrossel'
-import ListarProdutos from './ListarProdutos';
-import CadastroProdutos from './CadastroProdutos';
-import EditProdutos from './EditProdutos';
 //--------------------------------------------
 import Acougue from './produtos/Acougue';
 import HigienePessoal from './produtos/HigienePessoal';
