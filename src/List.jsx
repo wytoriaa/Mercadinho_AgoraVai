@@ -94,7 +94,7 @@ export default function ListarProdutos({navigation}){
                 <Text>{item.Departamento}</Text>
                 <Text>{item.Descrição}</Text>
                 <Text>{item.Promoção}</Text>
-                <Text>{item.key}</Text>
+
                
 
             </View>)}/>
