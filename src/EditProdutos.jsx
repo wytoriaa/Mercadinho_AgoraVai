@@ -7,14 +7,14 @@ export default function EditProdutos({ route, navigation }) {
 
     const [ok, setOk] = useState(false);
 
-    const key = route.params;
+    const [key, setKey] = useState(route.params);
 
     const[state, setState] = useState({
         Departamento: '',
         Descrição: '',
         Nome: '',
-        Preço:0,
-        Codigo:0,
+        Preço:'',
+        Codigo:'',
         Promoção:false,
         ValorPromoção:'',
         Quantidade:'',
@@ -24,7 +24,8 @@ export default function EditProdutos({ route, navigation }) {
 
     useEffect(
         () => navigation.addListener('focus', () => {
-            userById(key);
+            userById(key).then(setState);
+            // console.log(key)
         }), []
     );
 
@@ -35,8 +36,9 @@ export default function EditProdutos({ route, navigation }) {
         const produtos = firebase.db.collection('prod');
         //através da função doc() iremos passar como parâmetro o id do documento.
         const doc = await produtos.doc(id).get();
+        // produtos.doc(id).get().then(()=>{},console.log)
         //doc.data() irá mostrar os dados no formato de objeto.
-        setState(doc.data());
+        return doc.data();
     }
 
 
@@ -61,6 +63,7 @@ export default function EditProdutos({ route, navigation }) {
                 // alert("Produto editado com sucesso!")
                 //quando ocorre a deleção o estado ok é alterado para true e renderizado
                 setOk(true);
+                setKey('');
             }
         ).catch(
             () => alert("Não foi possível editar.")
@@ -68,7 +71,8 @@ export default function EditProdutos({ route, navigation }) {
     }
    
     if(ok){
-        navigation.navigate("ListarProdutos");
+
+        navigation.popToTop();
     }
 
 

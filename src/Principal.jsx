@@ -521,6 +521,14 @@ export default function Principal() {
         }}
       />
 
+
+
+
+
+
+
+
+
       <Drawer.Screen name="Mapa" component={Mapa} 
         options={{
           title: 'Localização',
@@ -543,29 +551,7 @@ export default function Principal() {
         
       />
 
-
-      <Drawer.Screen name="ListarProdutos" component={ListarProdutos}
-          options={{
-            title: 'Listar Produtos',
-            drawerIcon: ({focused, size}) => (
-              <Icons
-                name="list"
-                size={size}
-                color={focused ? '#2E3192' : '#ED1C24'}
-              />
-            ),
-            headerStyle: {
-              backgroundColor: '#2E3192',
-            },
-            headerTintColor: '#fff',
-            headerTitleStyle: {
-              fontWeight: 'bold',
-            },
-          drawerItemStyle: {marginLeft: 30}
-          }}
-      />
-
-      <Drawer.Screen name='EditProdutos'component={EditProdutos}
+      {/* <Drawer.Screen name='EditProdutos'component={EditProdutos}
             options={{
               title: 'EditProdutos',
               drawerIcon: ({focused, size}) => (
@@ -584,9 +570,9 @@ export default function Principal() {
               },
             drawerItemStyle: {marginLeft: 30, borderBottomWidth: 1, borderBottomColor: "#aaa5"}
             }}
-        />
+        /> */}
 
-      <Drawer.Screen name='CadastroProdutos'component={CadastroProdutos}
+      {/* <Drawer.Screen name='CadastroProdutos'component={CadastroProdutos}
             options={{
               title: 'CadastroProdutos',
               drawerIcon: ({focused, size}) => (

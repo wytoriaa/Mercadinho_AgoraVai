@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import firebase from '../firebase';
 import {StyleSheet, Button, Text, View, ActivityIndicator, FlatList, TextInput} from 'react-native';
 
+
 export default function ListarProdutos({navigation}){
     const [loading, setLoading] = useState(true);
     const [state, setState] = useState([]);
@@ -24,7 +25,6 @@ export default function ListarProdutos({navigation}){
 
         var byDate = listProdutos.slice(0);
         byDate.sort(function(a,b) {
-            console.log(typeof(a.Codigo))
             return a.Codigo - b.Codigo;
         });
         setState(byDate)
@@ -45,14 +45,14 @@ export default function ListarProdutos({navigation}){
         for(var key in local) {
             var controle= '';
             var controleT= '';
-            console.log(typeof(local[key].Nome))
+
             for(var c = 0;c < escrito.length; c++){
                 controle = controle + local[key].Nome[c]
                 controleT = controleT + local[key].Departamento[c]
                 // console.log(local[key].nome[c])
             }
 
-            console.log(local.key)
+
             if(escrito.toUpperCase() == controle.toUpperCase() || escrito.toUpperCase() == controleT.toUpperCase()){
                 allDados.push({
                     Nome:local[key].Nome,
@@ -95,13 +95,17 @@ export default function ListarProdutos({navigation}){
                 <Text>{item.Departamento}</Text>
                 <Text>{item.Descriçao}</Text>
                 <Text>{item.Promoção}</Text>
-                <Text>{item.key}</Text>
+                <Text>{item.key} - {console.log(item.key)}
+                
+                </Text>
                
                 <Text>{item.Quantidade}</Text>
                 <View style={ {flex: 1, flexDirection:'row'}}>
                     <Button title="editar"  onPress={()=>{navigation.navigate("EditProdutos", item.key)}}/>
-                    <Button title=" X " color="red" onPress={()=>navigation.navigate("DeleteProdutos", item.key)}/>
+                    <Text>{console.log(item.key, typeof(item.key))}</Text>
+                    <Button title=" X " color="red" onPress={()=>{navigation.navigate("DeleteProdutos", item.key)}}/>
                 </View>
+                
 
             </View>)}/>
         </View>
