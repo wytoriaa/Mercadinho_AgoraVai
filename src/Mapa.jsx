@@ -41,7 +41,10 @@ export default function Mapa({ navigation }) {
                 <Text style={{textAlign: "left", color: "#ED1C24", fontSize: 16,}}>R. Quintino Bocaiúva, 972
                     {"\n"}Cruzeiro
                     {"\n"}Camocim - CE
-                    {"\n"}62400-000</Text>
+                    {"\n"}62400-000
+                    {"\n"}Fones: (88) 9.9218-7710
+                    {"\n"}             (88) 9.9746-0189
+                    </Text>
             </View>
             <Footer />
         </ScrollView>
