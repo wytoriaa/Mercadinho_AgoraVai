@@ -36,7 +36,6 @@ import Promocoes from "./produtos/Promocoes";
 //const Stack = createStackNavigator();
 //const Tab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
-const Seperator = () => <View style={styles.separator} />; 
 
 export default function Principal() {
   return (
@@ -220,7 +219,7 @@ export default function Principal() {
 
      <Drawer.Screen name="CondimentosTemperos" component={CondimentosTemperos}
         options={{
-          title: 'CondimentosTemperos',
+          title: 'Condimentos',
           drawerIcon: ({focused, size}) => (
             <Icons
               name="shopping-cart"
@@ -504,10 +503,5 @@ const styles = StyleSheet.create({
     backgroundColor: '#2E3192',
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  separator: {
-    marginVertical: 8,
-    borderBottomColor: "#737373",
-    borderBottomWidth: StyleSheet.hairlineWidth,
-  },
+  },  
 });
