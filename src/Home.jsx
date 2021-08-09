@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { View, Button, Image, StyleSheet, Text, Dimensions, FlatList} from 'react-native';
+import { View, Button, Image, StyleSheet, Text, Dimensions, FlatList, TouchableOpacity} from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import firebase from '../firebase';
 import ImagedCarouselCard from "react-native-imaged-carousel-card";
@@ -38,34 +38,44 @@ export default function Home({navigation}){
       <View style={{backgroundColor: "#FFF"}}>
         <Header />
 
-    <View style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center',  paddingVertical: 20}}>
-      <View>
-        <Image style={{width:90, height: 150, padding: 20}} source={ require('./produtos/imagens_cruzeiro/agua.jpg')}/>
-      </View>
-      <View style={{padding: 20, display:'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <Text style={{fontSize: 22}}>Peça sua água</Text>
-        <Image style={{width:60, height: 60, }} source={ require('./produtos/imagens_cruzeiro/whats.jpg')}/>
-        <Text>OBS: entregamos apenas no {'\n'} bairro do Cruzeiro.</Text>
-      </View> 
-    </View>
-
-
-        <View style={styles.bgtitulo}>
-            <Text style={styles.titulo}>Promoções</Text>
+        <View style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center',  paddingVertical: 10}}>
+          <View>
+          <TouchableOpacity onPress={()=> navigation.navigate("Compra_Agua")}>
+            <Image style={{width:60, height: 110, paddingHorizontal: 20}} source={ require('./produtos/imagens_cruzeiro/agua.jpg')}/>
+          </TouchableOpacity>
+          </View>
+          <View style={{paddingHorizontal: 20, display:'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <TouchableOpacity onPress={()=> navigation.navigate("Compra_Agua")}>
+            <Text style={{fontSize: 22}}>Peça sua água</Text>
+            <Text>OBS: entregamos apenas no {'\n'} bairro do Cruzeiro.</Text>
+          </TouchableOpacity>
+          </View> 
+          <View>
+          <TouchableOpacity onPress={()=> navigation.navigate("Compra_Agua")}>
+            <Image style={{width:60, height: 60, }} source={ require('./produtos/imagens_cruzeiro/whats.jpg')}/>
+            </TouchableOpacity>
+          </View>
         </View>
-        {console.log(promocoes)}
+        
+        
+
         <FlatList
           vertical
           data={promocoes}
           renderItem = { ({item}) =>(
             <View style={{padding: 10, display: "flex", justifyContent: "center", alignItems: "center",}}>
+            
+            <View style={styles.bgtitulo}>
+          <Text style={styles.titulo}>Promoções</Text>
+        </View>
+
               <ImagedCarouselCard
-              width={300}
-              height={300}
-              shadowColor="#051934"
-              source={{uri: `${item.urlImg}`}}
-              text={(item.Nome) + "\n" + "De R$:" + (item.Preço) + " por R$" + (item.Preço*.8).toFixed(2)}
-              overlayBackgroundColor={"#2E3192DD"}
+                width={300}
+                height={300}
+                shadowColor="#051934"
+                source={{uri: `${item.urlImg}`}}
+                text={(item.Nome) + "\n" + "De R$:" + (item.Preço) + " por R$" + (item.Preço*.8).toFixed(2)}
+                overlayBackgroundColor={"#2E3192DD"}
               />
             </View>
           )}
