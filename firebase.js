@@ -72,7 +72,8 @@ import "firebase/auth";
 
 
 
-//----------- BANCO ORIGINAL ------------------
+
+// //----------- BANCO ORIGINAL ------------------
 var firebaseConfig = {
   apiKey: "AIzaSyC2BRtP6nAlxdb4KypnEGgaLhjqEzPLRgM",
   authDomain: "mercearia-62d1b.firebaseapp.com",
@@ -84,6 +85,7 @@ var firebaseConfig = {
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
+
 //porta de entrada para a base de dados do projeto
 const db = firebase.firestore();
 //Constante que permite o uso das funções do auth
@@ -92,6 +94,7 @@ const auth = firebase.auth();
 export default {
     db, firebase, auth
 }
+
 
 
 

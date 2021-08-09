@@ -77,14 +77,15 @@ export default function AddUsers({navigation}){
     console.log(state);
 
     function Entrega (){
-        if (state.bairro == "Cruzeiro" || state.bairro == "cruzeiro"){
-            <Button
+        console.log(state.bairro);
+        if (state.bairro == "Cruzeiro" || state.bairro == "cruzeiro" || state.bairro == "CRUZEIRO"){
+         return   <Button
                 style={styles.input}
                 title="Realizar Pedido"
-                onPress={addUser}
+                onPress={handleWhatsAppPress}
             />
         }else{
-            <Text>Desculpe, só fazemos entregas no bairro Cruzeiro</Text>
+           return <Text> Só fazemos entregas no bairro Cruzeiro</Text>
         }
     }
     return(
@@ -194,9 +195,7 @@ export default function AddUsers({navigation}){
                 {/* <TouchableOpacity style={styles.botao} 
                 onPress={()=>AddUser()}><Text>Realizar Pedido</Text></TouchableOpacity>   */}
 
-                <TouchableOpacity style={styles.botao}
-
-                onPress={handleWhatsAppPress}><Text>Realizar Pedido</Text></TouchableOpacity>
+                
 
             </View>
         </ScrollView>
