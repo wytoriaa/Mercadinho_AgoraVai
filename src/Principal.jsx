@@ -522,7 +522,7 @@ export default function Principal() {
       />
 
 
-
+{/* 
       <Drawer.Screen name="ListarProdutos" component={ListarProdutos}
               options={{
                 title: 'Listar Produtos',
@@ -542,7 +542,7 @@ export default function Principal() {
                 },
               drawerItemStyle: {marginLeft: 30}
               }}
-            />
+            /> */}
 
 
 
@@ -575,7 +575,7 @@ export default function Principal() {
 
 
 
-      <Drawer.Screen name='EditProdutos'component={EditProdutos}
+      {/* <Drawer.Screen name='EditProdutos'component={EditProdutos}
             options={{
               title: 'EditProdutos',
               headerStyle: {
@@ -587,9 +587,9 @@ export default function Principal() {
               },
             drawerItemStyle: {marginLeft: 30, borderBottomWidth: 1, borderBottomColor: "#aaa5"}
             }}
-        />
+        /> */}
 
-      <Drawer.Screen name='CadastroProdutos'component={CadastroProdutos}
+      {/* <Drawer.Screen name='CadastroProdutos'component={CadastroProdutos}
             options={{
               title: 'CadastroProdutos',
               headerStyle: {
@@ -618,7 +618,7 @@ export default function Principal() {
               },
             drawerItemStyle: {marginLeft: 30, borderBottomWidth: 1, borderBottomColor: "#aaa5"}
             }}
-        />
+        /> */}
 
     </Drawer.Navigator>
 
