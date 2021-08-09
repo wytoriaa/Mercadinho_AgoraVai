@@ -124,7 +124,7 @@ export default function Principal() {
             title: 'Comprar Água',
             drawerIcon: ({focused, size}) => (
                 <Icons
-                name="login"
+                name="shopping-cart"
                 size={size}
                 color={focused ? '#2E3192' : '#ED1C24'}
                 />
@@ -522,27 +522,6 @@ export default function Principal() {
       />
 
 
-{/* 
-      <Drawer.Screen name="ListarProdutos" component={ListarProdutos}
-              options={{
-                title: 'Listar Produtos',
-                drawerIcon: ({focused, size}) => (
-                  <Icons
-                    name="list"
-                    size={size}
-                    color={focused ? '#2E3192' : '#ED1C24'}
-                  />
-                ),
-                headerStyle: {
-                  backgroundColor: '#2E3192',
-                },
-                headerTintColor: '#fff',
-                headerTitleStyle: {
-                  fontWeight: 'bold',
-                },
-              drawerItemStyle: {marginLeft: 30}
-              }}
-            /> */}
 
 
 
@@ -572,12 +551,16 @@ export default function Principal() {
         
       />
 
-
-
-
       {/* <Drawer.Screen name='EditProdutos'component={EditProdutos}
             options={{
               title: 'EditProdutos',
+              drawerIcon: ({focused, size}) => (
+                <Icons
+                  name="list"
+                  size={size}
+                  color={focused ? '#2E3192' : '#ED1C24'}
+                />
+              ),
               headerStyle: {
                 backgroundColor: '#2E3192',
               },
@@ -592,6 +575,13 @@ export default function Principal() {
       {/* <Drawer.Screen name='CadastroProdutos'component={CadastroProdutos}
             options={{
               title: 'CadastroProdutos',
+              drawerIcon: ({focused, size}) => (
+                <Icons
+                  name="list"
+                  size={size}
+                  color={focused ? '#2E3192' : '#ED1C24'}
+                />
+              ),
               headerStyle: {
                 backgroundColor: '#2E3192',
               },
@@ -603,7 +593,7 @@ export default function Principal() {
             }}
         />
       
-      <Drawer.Screen name='DeleteProdutos'component={DeleteProdutos}
+      {/* <Drawer.Screen name='DeleteProdutos'component={DeleteProdutos}
             options={{
               drawerLabel: () => null,
                 title: null,

@@ -134,14 +134,14 @@ export default function AddUsers({navigation}){
                
                 
 
-                {/* <Button
+                <Button
                     style={styles.input}
                     title="Cadastrar"
                     onPress={addUser}
-                /> */}
+                />
 
-                <TouchableOpacity style={styles.botao} 
-                onPress={()=>AddUser()}><Text>Cadastrar</Text></TouchableOpacity>   
+                {/* <TouchableOpacity style={styles.botao} 
+                onPress={()=>AddUser()}><Text>Cadastrar</Text></TouchableOpacity>    */}
             </View>
         </ScrollView>
         

@@ -1,9 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import firebase from '../firebase';
-import { StyleSheet, TextInput, Text, View, Button,ScrollView , TouchableOpacity} from 'react-native';
+import { StyleSheet, TextInput, Text, View, Button,ScrollView , TouchableOpacity , Linking} from 'react-native';
 
 export default function AddUsers({navigation}){
     
+    
+
     const [ok,setOk] = useState(false);
     
     const [state, setState] = useState({
@@ -14,12 +16,24 @@ export default function AddUsers({navigation}){
         cep:'',
         bairro:'',
         complemento:'',
-        referencia:'',
         telefone:'',
         pedido:'',
         quantidade:'',
+        pagamento:'',
         
     });
+
+    const handleWhatsAppPress = async () => {
+        let mensagem = "?text=* Olá Sr. Santana, segue os dados do cliente para venda %0A Nome: " + state.nome +  " %0A E-mail: " + state.email + " %0A Endereço: " + state.endereco + " %0A Número:" + state.número + " %0A Cep: " + state.cep + " %0A Complemento: " + state.complemento + " %0A Quantidade: " + state.quantidade + " %0A Forma de pagamento: " + state.pagamento;
+
+        await Linking.openURL("https://wa.me/+5511960232774/" + mensagem)
+        
+
+
+        // await Linking.openURL(https://wa.me/+5511960232774/?text='Olá Sr. Santana, segue os dados do cliente para venda %0A Nome: %0A ' + nome +  ' %0A E-mail: %0A ' + state.email + ' %0A Endereço: %0A ' + state.endereco + ' %0A Número: %0A ' + state.número + ' %0A Cep: %0A ' + state.cep + ' %0A Complemento: %0A ' + state.complemento + ' %0A Quantidade: %0A ' + state.quantidade `)
+        
+    };
+
 
     // const useState = ({ bairro }) => {
     //     if (bairro == 'Cruzeiro') {
@@ -43,7 +57,7 @@ export default function AddUsers({navigation}){
  
     const addUser = async () => {
        
-        await firebase.db.collection('cadastro').add(state).then(
+        await firebase.db.collection('compra').add(state).then(
             ()=>{
                 alert("salved");
                
@@ -55,12 +69,24 @@ export default function AddUsers({navigation}){
     }
    
     if(ok){
-        alert("cadastrado");
+        alert("Compra Realizada");
         navigation.popToTop();
     }
 
    
     console.log(state);
+
+    function Entrega (){
+        if (state.bairro == "Cruzeiro" || state.bairro == "cruzeiro"){
+            <Button
+                style={styles.input}
+                title="Realizar Pedido"
+                onPress={addUser}
+            />
+        }else{
+            <Text>Desculpe, só fazemos entregas no bairro Cruzeiro</Text>
+        }
+    }
     return(
         
         <ScrollView >
@@ -131,10 +157,10 @@ export default function AddUsers({navigation}){
                 />
                 <TextInput
                     style={styles.input}
-                    placeholder='Referência'
-                    defaultValue={state.referencia}
+                    placeholder='Forma de pagamento'
+                    defaultValue={state.pagamento}
                     onChangeText={
-                        (value)=>handleInputChange('referencia', value)
+                        (value)=>handleInputChange('pagamento', value)
                     }
                 />
                 <TextInput
@@ -145,33 +171,33 @@ export default function AddUsers({navigation}){
                         (value)=>handleInputChange('telefone', value)
                     }
                 />
-                <TextInput
+                {/* <TextInput
                     style={styles.input}
                     placeholder='Pedido'
                     defaultValue={state.pedido}
                     onChangeText={
                         (value)=>handleInputChange('pedido', value)
                     }
-                />
+                /> */}
                 <TextInput
                     style={styles.input}
                     placeholder='Quantidade'
-                    keyboardType='numeric'
+                  
                     defaultValue={state.quantidade}
                     onChangeText={
                         (value)=>handleInputChange('quantidade', value)
                     }
                 />
                 
-{/* 
-                <Button
-                    style={styles.input}
-                    title="Realizar Pedido"
-                    onPress={addUser}
-                /> */}
+                <Entrega />
 
-                <TouchableOpacity style={styles.botao} 
-                onPress={()=>AddUser()}><Text>Realizar Pedido</Text></TouchableOpacity>  
+                {/* <TouchableOpacity style={styles.botao} 
+                onPress={()=>AddUser()}><Text>Realizar Pedido</Text></TouchableOpacity>   */}
+
+                <TouchableOpacity style={styles.botao}
+
+                onPress={handleWhatsAppPress}><Text>Realizar Pedido</Text></TouchableOpacity>
+
             </View>
         </ScrollView>
         
