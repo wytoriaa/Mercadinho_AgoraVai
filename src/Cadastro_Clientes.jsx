@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import firebase from '../firebase';
-import { StyleSheet, TextInput, Text, View, Button,ScrollView} from 'react-native';
+import { StyleSheet, TextInput, Text, View, Button,ScrollView , TouchableOpacity} from 'react-native';
 
 export default function AddUsers({navigation}){
     
@@ -101,7 +101,7 @@ export default function AddUsers({navigation}){
                 />
                 <TextInput
                     style={styles.input}
-                    placeholder='Bairro : Cruzeiro'
+                    placeholder='Bairro'
                     defaultValue={state.bairro}
                     onChangeText={
                         (value)=>handleInputChange('bairro', value)
@@ -134,11 +134,14 @@ export default function AddUsers({navigation}){
                
                 
 
-                <Button
+                {/* <Button
                     style={styles.input}
                     title="Cadastrar"
                     onPress={addUser}
-                />
+                /> */}
+
+                <TouchableOpacity style={styles.botao} 
+                onPress={()=>AddUser()}><Text>Cadastrar</Text></TouchableOpacity>   
             </View>
         </ScrollView>
         
@@ -147,22 +150,30 @@ export default function AddUsers({navigation}){
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems:'center',
-    padding:12
-  },
-  h1:{
-      fontSize:20,
-      fontWeight:'bold',
-      padding:12
-  }, 
-  input:{
-    height:50, 
-    width:'90%',
-    borderWidth:1, 
-    padding:10,
-    marginTop:5
-  }
-});
+    container:{
+        flex:1,
+        backgroundColor: '#fff',
+        alignItems: 'center',
+        padding:12
+    }, 
+    h1:{
+        fontSize:20,
+        fontWeight:'bold',
+        padding:12
+    },
+    input:{
+        height: 40,
+        width:'90%',
+        borderWidth:2,
+        padding:10,
+        margin:8,
+        borderRadius:10,
+        borderColor:'grey'
+    },
+    botao:{
+        backgroundColor:'blue',
+        padding: 10
+    }
+
+    
+})
