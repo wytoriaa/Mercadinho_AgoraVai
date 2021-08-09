@@ -86,23 +86,16 @@ export default function ListarProdutos({navigation}){
                     onChangeText={(valor)=> handleInputChange2((valor))}
                 />
             <Text> </Text>
-            <Button title="Home" onPress={()=>{setLoading(true); navigation.navigate('Home')}}/>
-            <Button title="Adicionar" onPress={()=>{setLoading(true); navigation.navigate('CadastroProdutos')}}/>
           
             <FlatList data={dados} renderItem={({item}) => (<View style={styles.container}>
                
                 <Text>{item.Codigo} - {item.Nome}</Text>
                 <Text>Preço: R$ {parseFloat(item.Preço).toFixed(2)}</Text>
                 <Text>{item.Departamento}</Text>
-                <Text>{item.Descriçao}</Text>
+                <Text>{item.Descrição}</Text>
                 <Text>{item.Promoção}</Text>
                 <Text>{item.key}</Text>
                
-                <Text>{item.Quantidade}</Text>
-                <View style={ {flex: 1, flexDirection:'row'}}>
-                    <Button title="editar"  onPress={()=>{navigation.navigate("EditProdutos", item.key)}}/>
-                    <Button title=" X " color="red" onPress={()=>navigation.navigate("DeleteProdutos", item.key)}/>
-                </View>
 
             </View>)}/>
         </View>

@@ -7,6 +7,7 @@ import Icons from 'react-native-vector-icons/MaterialIcons';
 import Login from './Login';
 import Home from './Home';
 import Mapa from './Mapa';
+import List from './List';
 import Login_Clientes from './Login_Clientes';
 import Login_Compra_Agua from './Login_Compra_Agua';
 // import Carrossel from './Carrossel'
@@ -160,7 +161,26 @@ export default function Principal() {
       /> */}
 
 
-
+    <Drawer.Screen name="Lista" component={List}
+            options={{
+              title: 'Lista de produtos',
+              drawerIcon: ({focused, size}) => (
+                <Icons
+                  name="list"
+                  size={size}
+                  color={focused ? '#2E3192' : '#ED1C24'}
+                />
+              ),
+              headerStyle: {
+                backgroundColor: '#2E3192',
+              },
+              headerTintColor: '#fff',
+              headerTitleStyle: {
+                fontWeight: 'bold',
+              },
+              drawerItemStyle: {marginLeft: 30, borderBottomWidth: 1, borderBottomColor: "#aaa5"}
+            }}
+          />  
 
       <Drawer.Screen name="Acougue" component={Acougue}
         options={{
