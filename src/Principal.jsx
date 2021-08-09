@@ -568,6 +568,13 @@ export default function Principal() {
       <Drawer.Screen name='EditProdutos'component={EditProdutos}
             options={{
               title: 'EditProdutos',
+              drawerIcon: ({focused, size}) => (
+                <Icons
+                  name="list"
+                  size={size}
+                  color={focused ? '#2E3192' : '#ED1C24'}
+                />
+              ),
               headerStyle: {
                 backgroundColor: '#2E3192',
               },
@@ -582,6 +589,13 @@ export default function Principal() {
       <Drawer.Screen name='CadastroProdutos'component={CadastroProdutos}
             options={{
               title: 'CadastroProdutos',
+              drawerIcon: ({focused, size}) => (
+                <Icons
+                  name="list"
+                  size={size}
+                  color={focused ? '#2E3192' : '#ED1C24'}
+                />
+              ),
               headerStyle: {
                 backgroundColor: '#2E3192',
               },
@@ -593,7 +607,7 @@ export default function Principal() {
             }}
         />
       
-      <Drawer.Screen name='DeleteProdutos'component={DeleteProdutos}
+      {/* <Drawer.Screen name='DeleteProdutos'component={DeleteProdutos}
             options={{
               drawerLabel: () => null,
                 title: null,
@@ -608,7 +622,7 @@ export default function Principal() {
               },
             drawerItemStyle: {marginLeft: 30, borderBottomWidth: 1, borderBottomColor: "#aaa5"}
             }}
-        />
+        /> */}
 
     </Drawer.Navigator>
 
