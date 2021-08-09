@@ -16,15 +16,15 @@ export default function AddUsers({navigation}){
         cep:'',
         bairro:'',
         complemento:'',
-        referencia:'',
         telefone:'',
-        // pedido:'',
+        pedido:'',
         quantidade:'',
+        pagamento:'',
         
     });
 
     const handleWhatsAppPress = async () => {
-        let mensagem = "?text=* Olá Sr. Santana, segue os dados do cliente para venda %0A Nome: %0A " + state.nome +  " %0A E-mail: %0A " + state.email + " %0A Endereço: %0A " + state.endereco + " %0A Número: %0A " + state.número + " %0A Cep: %0A " + state.cep + " %0A Complemento: %0A " + state.complemento + " %0A Quantidade: %0A " + state.quantidade;
+        let mensagem = "?text=* Olá Sr. Santana, segue os dados do cliente para venda %0A Nome: " + state.nome +  " %0A E-mail: " + state.email + " %0A Endereço: " + state.endereco + " %0A Número:" + state.número + " %0A Cep: " + state.cep + " %0A Complemento: " + state.complemento + " %0A Quantidade: " + state.quantidade + " %0A Forma de pagamento: " + state.pagamento;
 
         await Linking.openURL("https://wa.me/+5511960232774/" + mensagem)
         
@@ -75,6 +75,18 @@ export default function AddUsers({navigation}){
 
    
     console.log(state);
+
+    function Entrega (){
+        if (state.bairro == "Cruzeiro" || state.bairro == "cruzeiro"){
+            <Button
+                style={styles.input}
+                title="Realizar Pedido"
+                onPress={addUser}
+            />
+        }else{
+            <Text>Desculpe, só fazemos entregas no bairro Cruzeiro</Text>
+        }
+    }
     return(
         
         <ScrollView >
@@ -145,10 +157,10 @@ export default function AddUsers({navigation}){
                 />
                 <TextInput
                     style={styles.input}
-                    placeholder='Referência'
-                    defaultValue={state.referencia}
+                    placeholder='Forma de pagamento'
+                    defaultValue={state.pagamento}
                     onChangeText={
-                        (value)=>handleInputChange('referencia', value)
+                        (value)=>handleInputChange('pagamento', value)
                     }
                 />
                 <TextInput
@@ -177,12 +189,7 @@ export default function AddUsers({navigation}){
                     }
                 />
                 
-
-                <Button
-                    style={styles.input}
-                    title="Realizar Pedido"
-                    onPress={addUser}
-                />
+                <Entrega />
 
                 {/* <TouchableOpacity style={styles.botao} 
                 onPress={()=>AddUser()}><Text>Realizar Pedido</Text></TouchableOpacity>   */}
