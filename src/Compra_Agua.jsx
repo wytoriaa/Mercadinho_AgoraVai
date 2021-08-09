@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import firebase from '../firebase';
 import { StyleSheet, TextInput, Text, View, Button,ScrollView , TouchableOpacity , Linking} from 'react-native';
+import Footer from "./Footer";
 
 export default function AddUsers({navigation}){
     
@@ -54,7 +55,6 @@ export default function AddUsers({navigation}){
     }
 
  
- 
     const addUser = async () => {
        
         await firebase.db.collection('compra').add(state).then(
@@ -72,7 +72,7 @@ export default function AddUsers({navigation}){
         alert("Compra Realizada");
         navigation.popToTop();
     }
-
+    
    
     console.log(state);
 
@@ -90,7 +90,7 @@ export default function AddUsers({navigation}){
     }
     return(
         
-        <ScrollView >
+        <ScrollView styles={{backgroundColor: "#fff"}} >
             <View style={styles.container}>
                 <Text style={styles.h1}>Pedido Água</Text>
                
@@ -198,6 +198,7 @@ export default function AddUsers({navigation}){
                 
 
             </View>
+            <Footer />
         </ScrollView>
         
         
@@ -228,7 +229,6 @@ const styles = StyleSheet.create({
     botao:{
         backgroundColor:'blue',
         padding: 10
-    }
-
-    
+    },
+   
 })

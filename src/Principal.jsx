@@ -7,9 +7,12 @@ import Icons from 'react-native-vector-icons/MaterialIcons';
 import Login from './Login';
 import Home from './Home';
 import Mapa from './Mapa';
+
 import List from './List';
 import Login_Clientes from './Login_Clientes';
 import Login_Compra_Agua from './Login_Compra_Agua';
+import Cadastro_Clientes from './Cadastro_Clientes';
+import Compra_Agua from './Compra_Agua';
 // import Carrossel from './Carrossel'
 //--------------------------------------------
 import Acougue from './produtos/Acougue';
@@ -98,9 +101,9 @@ export default function Principal() {
         }}
       />
 
-      <Drawer.Screen name="Login_Clientes" component={Login_Clientes}
+      <Drawer.Screen name="Cadastrese" component={Cadastro_Clientes}
             options={{
-            title: 'Login Clientes',
+            title: 'Cadastre-se',
             drawerIcon: ({focused, size}) => (
                 <Icons
                 name="login"
@@ -120,7 +123,7 @@ export default function Principal() {
       />
 
 
-<Drawer.Screen name="Login_Compra_Agua" component={Login_Compra_Agua}
+<Drawer.Screen name="Login_Compra_Agua" component={Compra_Agua}
             options={{
             title: 'Comprar Água',
             drawerIcon: ({focused, size}) => (
@@ -567,65 +570,6 @@ export default function Principal() {
         }}
         
       />
-
-      {/* <Drawer.Screen name='EditProdutos'component={EditProdutos}
-            options={{
-              title: 'EditProdutos',
-              drawerIcon: ({focused, size}) => (
-                <Icons
-                  name="list"
-                  size={size}
-                  color={focused ? '#2E3192' : '#ED1C24'}
-                />
-              ),
-              headerStyle: {
-                backgroundColor: '#2E3192',
-              },
-              headerTintColor: '#fff',
-              headerTitleStyle: {
-                fontWeight: 'bold',
-              },
-            drawerItemStyle: {marginLeft: 30, borderBottomWidth: 1, borderBottomColor: "#aaa5"}
-            }}
-        /> */}
-
-      {/* <Drawer.Screen name='CadastroProdutos'component={CadastroProdutos}
-            options={{
-              title: 'CadastroProdutos',
-              drawerIcon: ({focused, size}) => (
-                <Icons
-                  name="list"
-                  size={size}
-                  color={focused ? '#2E3192' : '#ED1C24'}
-                />
-              ),
-              headerStyle: {
-                backgroundColor: '#2E3192',
-              },
-              headerTintColor: '#fff',
-              headerTitleStyle: {
-                fontWeight: 'bold',
-              },
-            drawerItemStyle: {marginLeft: 30, borderBottomWidth: 1, borderBottomColor: "#aaa5"}
-            }}
-        />
-      
-      {/* <Drawer.Screen name='DeleteProdutos'component={DeleteProdutos}
-            options={{
-              drawerLabel: () => null,
-                title: null,
-                drawerIcon: () => null,
-              // title: null,
-              headerStyle: {
-                backgroundColor: '#2E3192',
-              },
-              headerTintColor: '#fff',
-              headerTitleStyle: {
-                fontWeight: 'bold',
-              },
-            drawerItemStyle: {marginLeft: 30, borderBottomWidth: 1, borderBottomColor: "#aaa5"}
-            }}
-        /> */}
 
     </Drawer.Navigator>
 
