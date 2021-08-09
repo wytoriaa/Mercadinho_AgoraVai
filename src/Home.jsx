@@ -37,7 +37,7 @@ export default function Home({navigation}){
         <View style={styles.bgtitulo}>
             <Text style={styles.titulo}>Promoções</Text>
         </View>
-        {console.log(Promocoes)}
+        {console.log(promocoes)}
         <FlatList
           vertical
           data={promocoes}

@@ -1,6 +1,6 @@
 import React from 'react';
 import 'react-native-gesture-handler';
-import {createDrawerNavigator} from '@react-navigation/drawer';
+import {createDrawerNavigator, DrawerContentScrollView} from '@react-navigation/drawer';
 import { StyleSheet} from 'react-native';
 import Icons from 'react-native-vector-icons/MaterialIcons';
 // COMPONENTES
@@ -27,7 +27,7 @@ import Laticinios from './produtos/Laticinios';
 import Vestuario from './produtos/Vestuario';
 import Geral from './produtos/Geral';
 import Pet from './produtos/Pet';
-
+import Promocoes from "./produtos/Promocoes";
 //criar uma funçao para os icones aparecerem na barra de navegação do app
 //function escolhendoIcone({color, size}){
 
@@ -36,19 +36,18 @@ import Pet from './produtos/Pet';
 //const Stack = createStackNavigator();
 //const Tab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
+const Seperator = () => <View style={styles.separator} />; 
 
 export default function Principal() {
   return (
     <Drawer.Navigator initialRouteName={Home}
-    drawerContentOptions={{
-      activeTintColor: '#2E3192',
-      inactiveTintColor: '#2E3192',
-      itemStyle: { alignItems:'flex-start',},
-    }}
     screenOptions={{
       drawerStyle:{
         backgroundColor:  '#CCC',
-      },
+      }, 
+      activeTintColor: '#2E3192',
+      inactiveTintColor: '#2E3192',
+      itemStyle: { alignItems:'flex-start',},
     }}
     >
       <Drawer.Screen name="Home" component={Home} 
@@ -108,8 +107,11 @@ export default function Principal() {
             headerTitleStyle: {
               fontWeight: 'bold',
             },
+            drawerItemStyle: {borderBottomWidth: 1, borderBottomColor: "#aaa"}
           }}
       />
+
+
 
       <Drawer.Screen name="Acougue" component={Acougue}
         options={{
@@ -128,8 +130,9 @@ export default function Principal() {
           headerTitleStyle: {
             fontWeight: 'bold',
           },
+          drawerItemStyle: {marginLeft: 30, borderBottomWidth: 1, borderBottomColor: "#aaa5"}
         }}
-      />
+      />  
 
       <Drawer.Screen name="Higiene_Pessoal" component={HigienePessoal}
         options={{
@@ -148,6 +151,7 @@ export default function Principal() {
           headerTitleStyle: {
             fontWeight: 'bold',
           },
+         drawerItemStyle: {marginLeft: 30, borderBottomWidth: 1, borderBottomColor: "#aaa5"}
         }}
       />
 
@@ -168,6 +172,7 @@ export default function Principal() {
           headerTitleStyle: {
             fontWeight: 'bold',
           },
+         drawerItemStyle: {marginLeft: 30, borderBottomWidth: 1, borderBottomColor: "#aaa5"}
         }}
       />
 
@@ -188,6 +193,7 @@ export default function Principal() {
           headerTitleStyle: {
             fontWeight: 'bold',
           },
+         drawerItemStyle: {marginLeft: 30, borderBottomWidth: 1, borderBottomColor: "#aaa5"}
         }}
       />
 
@@ -208,6 +214,7 @@ export default function Principal() {
           headerTitleStyle: {
             fontWeight: 'bold',
           },
+         drawerItemStyle: {marginLeft: 30, borderBottomWidth: 1, borderBottomColor: "#aaa5"}
         }}
       />
 
@@ -228,6 +235,7 @@ export default function Principal() {
           headerTitleStyle: {
             fontWeight: 'bold',
           },
+         drawerItemStyle: {marginLeft: 30, borderBottomWidth: 1, borderBottomColor: "#aaa5"}
         }}
       />
 
@@ -248,6 +256,7 @@ export default function Principal() {
           headerTitleStyle: {
             fontWeight: 'bold',
           },
+         drawerItemStyle: {marginLeft: 30, borderBottomWidth: 1, borderBottomColor: "#aaa5"}
         }}
       />
 
@@ -268,6 +277,7 @@ export default function Principal() {
           headerTitleStyle: {
             fontWeight: 'bold',
           },
+         drawerItemStyle: {marginLeft: 30, borderBottomWidth: 1, borderBottomColor: "#aaa5"}
         }}
       />
 
@@ -288,6 +298,7 @@ export default function Principal() {
           headerTitleStyle: {
             fontWeight: 'bold',
           },
+         drawerItemStyle: {marginLeft: 30, borderBottomWidth: 1, borderBottomColor: "#aaa5"}
         }}
       />
 
@@ -308,6 +319,7 @@ export default function Principal() {
           headerTitleStyle: {
             fontWeight: 'bold',
           },
+         drawerItemStyle: {marginLeft: 30, borderBottomWidth: 1, borderBottomColor: "#aaa5"}
         }}
       />
 
@@ -328,6 +340,7 @@ export default function Principal() {
           headerTitleStyle: {
             fontWeight: 'bold',
           },
+         drawerItemStyle: {marginLeft: 30, borderBottomWidth: 1, borderBottomColor: "#aaa5"}
         }}
       />
 
@@ -348,6 +361,7 @@ export default function Principal() {
           headerTitleStyle: {
             fontWeight: 'bold',
           },
+         drawerItemStyle: {marginLeft: 30, borderBottomWidth: 1, borderBottomColor: "#aaa5"}
         }}
       />
 
@@ -369,6 +383,7 @@ export default function Principal() {
           headerTitleStyle: {
             fontWeight: 'bold',
           },
+         drawerItemStyle: {marginLeft: 30, borderBottomWidth: 1, borderBottomColor: "#aaa5"}
         }}
       />
 
@@ -389,6 +404,7 @@ export default function Principal() {
           headerTitleStyle: {
             fontWeight: 'bold',
           },
+         drawerItemStyle: {marginLeft: 30, borderBottomWidth: 1, borderBottomColor: "#aaa5"}
         }}
         
       />
@@ -410,6 +426,7 @@ export default function Principal() {
           headerTitleStyle: {
             fontWeight: 'bold',
           },
+         drawerItemStyle: {marginLeft: 30, borderBottomWidth: 1, borderBottomColor: "#aaa5"}
         }}
       />
 
@@ -430,6 +447,7 @@ export default function Principal() {
           headerTitleStyle: {
             fontWeight: 'bold',
           },
+         drawerItemStyle: {marginLeft: 30, borderBottomWidth: 1, borderBottomColor: "#aaa5"}
         }}
       />
 
@@ -450,6 +468,7 @@ export default function Principal() {
           headerTitleStyle: {
             fontWeight: 'bold',
           },
+         drawerItemStyle: {marginLeft: 30}
         }}
       />
 
@@ -470,6 +489,7 @@ export default function Principal() {
           headerTitleStyle: {
             fontWeight: 'bold',
           },
+          drawerItemStyle: {borderTopWidth: 1, borderTopColor: "#aaa", marginBottom: 20,}
         }}
         
       />
@@ -484,5 +504,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#2E3192',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  separator: {
+    marginVertical: 8,
+    borderBottomColor: "#737373",
+    borderBottomWidth: StyleSheet.hairlineWidth,
   },
 });
