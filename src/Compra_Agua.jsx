@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import firebase from '../firebase';
-import { StyleSheet, TextInput, Text, View, Button,ScrollView} from 'react-native';
+import { StyleSheet, TextInput, Text, View, Button,ScrollView , TouchableOpacity} from 'react-native';
 
 export default function AddUsers({navigation}){
     
@@ -163,12 +163,15 @@ export default function AddUsers({navigation}){
                     }
                 />
                 
-
+{/* 
                 <Button
                     style={styles.input}
                     title="Realizar Pedido"
                     onPress={addUser}
-                />
+                /> */}
+
+                <TouchableOpacity style={styles.botao} 
+                onPress={()=>AddUser()}><Text>Realizar Pedido</Text></TouchableOpacity>  
             </View>
         </ScrollView>
         
@@ -177,22 +180,30 @@ export default function AddUsers({navigation}){
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
+    container:{
+        flex:1,
         backgroundColor: '#fff',
-        alignItems:'center',
+        alignItems: 'center',
         padding:12
-      },
-      h1:{
-          fontSize:20,
-          fontWeight:'bold',
-          padding:12
-      }, 
-      input:{
-        height:50, 
+    }, 
+    h1:{
+        fontSize:20,
+        fontWeight:'bold',
+        padding:12
+    },
+    input:{
+        height: 40,
         width:'90%',
-        borderWidth:1, 
+        borderWidth:2,
         padding:10,
-        marginTop:5
-      }
-});
+        margin:8,
+        borderRadius:10,
+        borderColor:'grey'
+    },
+    botao:{
+        backgroundColor:'blue',
+        padding: 10
+    }
+
+    
+})
