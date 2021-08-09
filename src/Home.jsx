@@ -7,6 +7,8 @@ import Header from './Header';
 import Footer from './Footer';
 
 export default function Home({navigation}){
+
+  
     
     const [promocoes, setPromocoes] = useState([]);
 
@@ -32,8 +34,22 @@ export default function Home({navigation}){
     }
   
     return(
+      
       <View style={{backgroundColor: "#FFF"}}>
         <Header />
+
+    <View style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center',  paddingVertical: 20}}>
+      <View>
+        <Image style={{width:90, height: 150, padding: 20}} source={ require('./produtos/imagens_cruzeiro/agua.jpg')}/>
+      </View>
+      <View style={{padding: 20, display:'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <Text style={{fontSize: 22}}>Peça sua água</Text>
+        <Image style={{width:60, height: 60, }} source={ require('./produtos/imagens_cruzeiro/whats.jpg')}/>
+        <Text>OBS: entregamos apenas no {'\n'} bairro do Cruzeiro.</Text>
+      </View> 
+    </View>
+
+
         <View style={styles.bgtitulo}>
             <Text style={styles.titulo}>Promoções</Text>
         </View>
@@ -74,7 +90,8 @@ export default function Home({navigation}){
     },
     bgtitulo:{
       width: Dimensions.get('window').width,
-      backgroundColor: "#ED1C2422",
+      // backgroundColor: "#ED1C2422",
+      backgroundColor: "#CCC",
       justifyContent: 'center',
       alignItems: 'center',
       marginVertical: 10,
