@@ -42,8 +42,8 @@ export default function Mapa({ navigation }) {
                     {"\n"}Cruzeiro
                     {"\n"}Camocim - CE
                     {"\n"}62400-000
-                    {"\n"}Cel: (88) 9.9218-7710
-                    {"\n"}Cel: (88) 9.9746-0189
+                    {"\n"}Fones: (88) 9.9218-7710
+                    {"\n"}             (88) 9.9746-0189
                     </Text>
             </View>
             <Footer />
