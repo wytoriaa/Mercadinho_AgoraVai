@@ -32,7 +32,7 @@ export default function EditProdutos({ route, navigation }) {
     //recebendo um doc através do id
     const userById = async (id) => {
         //iniciando a referência do firebase firestore, acessando a collection users
-        const produtos = firebase.db.collection('prod');
+        const produtos = firebase.db.collection('produtos');
         //através da função doc() iremos passar como parâmetro o id do documento.
         const doc = await produtos.doc(id).get();
         //doc.data() irá mostrar os dados no formato de objeto.
@@ -55,7 +55,7 @@ export default function EditProdutos({ route, navigation }) {
  
     const editarProduto = async () => {
       
-        const produtos = firebase.db.collection('prod');
+        const produtos = firebase.db.collection('produtos');
         //através da função assincrona com await ele irá executar o comando de update() realizando a alteração no doc com a key. O state com os valores atualizados serão usados para dar o update. A função then irá mostrar uma mensagem de alerta dizendo edited, caso não consiga editar, será acionado catch.
         await produtos.doc(key).update(state).then(
             () => {

@@ -28,6 +28,9 @@ import Vestuario from './produtos/Vestuario';
 import Geral from './produtos/Geral';
 import Pet from './produtos/Pet';
 import Promocoes from "./produtos/Promocoes";
+import LIstarProdutos from "./ListarProdutos"
+
+
 //criar uma funçao para os icones aparecerem na barra de navegação do app
 //function escolhendoIcone({color, size}){
 
@@ -470,6 +473,35 @@ export default function Principal() {
          drawerItemStyle: {marginLeft: 30}
         }}
       />
+
+
+
+<Drawer.Screen name="ListarProdutos" component={LIstarProdutos}
+        options={{
+          title: 'ListarProdutos',
+          drawerIcon: ({focused, size}) => (
+            <Icons
+              name="ListarProdutos"
+              size={size}
+              color={focused ? '#2E3192' : '#ED1C24'}
+            />
+          ),
+          headerStyle: {
+            backgroundColor: '#2E3192',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
+         drawerItemStyle: {marginLeft: 30}
+        }}
+      />
+
+
+
+
+
+
 
       <Drawer.Screen name="Mapa" component={Mapa} 
         options={{
