@@ -72,6 +72,7 @@ export default function App() {
       <Stack.Screen name="Cadastro_Clientes" component={Cadastro_Clientes} />
      
     </Stack.Navigator> */}
+    
     </UserContext.Provider>
   </NavigationContainer>
     

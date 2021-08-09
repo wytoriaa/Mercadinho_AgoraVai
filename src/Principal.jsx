@@ -29,8 +29,10 @@ import Vestuario from './produtos/Vestuario';
 import Geral from './produtos/Geral';
 import Pet from './produtos/Pet';
 import Promocoes from "./produtos/Promocoes";
-import LIstarProdutos from "./ListarProdutos"
-
+import ListarProdutos from "./ListarProdutos";
+import EditProdutos from './EditProdutos';
+import CadastroProdutos from './CadastroProdutos';
+import DeleteProdutos from './DeleteProdutos';
 
 
 //criar uma funçao para os icones aparecerem na barra de navegação do app
@@ -41,6 +43,7 @@ import LIstarProdutos from "./ListarProdutos"
 //const Stack = createStackNavigator();
 //const Tab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
+
 
 export default function Principal() {
   return (
@@ -520,26 +523,26 @@ export default function Principal() {
 
 
 
-<Drawer.Screen name="ListarProdutos" component={LIstarProdutos}
-        options={{
-          title: 'ListarProdutos',
-          drawerIcon: ({focused, size}) => (
-            <Icons
-              name="ListarProdutos"
-              size={size}
-              color={focused ? '#2E3192' : '#ED1C24'}
+      <Drawer.Screen name="ListarProdutos" component={ListarProdutos}
+              options={{
+                title: 'Listar Produtos',
+                drawerIcon: ({focused, size}) => (
+                  <Icons
+                    name="list"
+                    size={size}
+                    color={focused ? '#2E3192' : '#ED1C24'}
+                  />
+                ),
+                headerStyle: {
+                  backgroundColor: '#2E3192',
+                },
+                headerTintColor: '#fff',
+                headerTitleStyle: {
+                  fontWeight: 'bold',
+                },
+              drawerItemStyle: {marginLeft: 30}
+              }}
             />
-          ),
-          headerStyle: {
-            backgroundColor: '#2E3192',
-          },
-          headerTintColor: '#fff',
-          headerTitleStyle: {
-            fontWeight: 'bold',
-          },
-         drawerItemStyle: {marginLeft: 30}
-        }}
-      />
 
 
 
@@ -569,7 +572,57 @@ export default function Principal() {
         
       />
 
+
+
+
+      <Drawer.Screen name='EditProdutos'component={EditProdutos}
+            options={{
+              title: 'EditProdutos',
+              headerStyle: {
+                backgroundColor: '#2E3192',
+              },
+              headerTintColor: '#fff',
+              headerTitleStyle: {
+                fontWeight: 'bold',
+              },
+            drawerItemStyle: {marginLeft: 30, borderBottomWidth: 1, borderBottomColor: "#aaa5"}
+            }}
+        />
+
+      <Drawer.Screen name='CadastroProdutos'component={CadastroProdutos}
+            options={{
+              title: 'CadastroProdutos',
+              headerStyle: {
+                backgroundColor: '#2E3192',
+              },
+              headerTintColor: '#fff',
+              headerTitleStyle: {
+                fontWeight: 'bold',
+              },
+            drawerItemStyle: {marginLeft: 30, borderBottomWidth: 1, borderBottomColor: "#aaa5"}
+            }}
+        />
+      
+      <Drawer.Screen name='DeleteProdutos'component={DeleteProdutos}
+            options={{
+              drawerLabel: () => null,
+                title: null,
+                drawerIcon: () => null,
+              // title: null,
+              headerStyle: {
+                backgroundColor: '#2E3192',
+              },
+              headerTintColor: '#fff',
+              headerTitleStyle: {
+                fontWeight: 'bold',
+              },
+            drawerItemStyle: {marginLeft: 30, borderBottomWidth: 1, borderBottomColor: "#aaa5"}
+            }}
+        />
+
     </Drawer.Navigator>
+
+    
   )
 }
 

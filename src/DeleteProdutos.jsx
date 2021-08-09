@@ -12,7 +12,7 @@ export default function DeleteProdutos({route, navigation}){
     
     const deleteProdutos = async () =>{
    
-    const produtos = firebase.db.collection('produtos');
+    const produtos = firebase.db.collection('prod');
     
     await produtos.doc(key).delete()
     .then(
