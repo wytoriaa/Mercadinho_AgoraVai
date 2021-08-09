@@ -164,7 +164,7 @@ export default function Principal() {
       /> */}
 
 
-    {/* <Drawer.Screen name="Lista" component={List}
+    <Drawer.Screen name="Lista" component={List}
             options={{
               title: 'Lista de produtos',
               drawerIcon: ({focused, size}) => (
@@ -183,7 +183,7 @@ export default function Principal() {
               },
               drawerItemStyle: {marginLeft: 30, borderBottomWidth: 1, borderBottomColor: "#aaa5"}
             }}
-          />   */}
+          />   
 
       <Drawer.Screen name="Acougue" component={Acougue}
         options={{
