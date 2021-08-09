@@ -526,9 +526,6 @@ export default function Principal() {
 
 
 
-
-
-
       <Drawer.Screen name="Mapa" component={Mapa} 
         options={{
           title: 'Localização',

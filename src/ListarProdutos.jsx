@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import firebase from '../firebase';
-import {StyleSheet, Button, Text, View, ActivityIndicator, FlatList, TextInput} from 'react-native';
+import {StyleSheet, Button, Text, View, ActivityIndicator, FlatList, TextInput, TouchableOpacity} from 'react-native';
 
 
 export default function ListarProdutos({navigation}){
@@ -11,7 +11,7 @@ export default function ListarProdutos({navigation}){
         () => navigation.addListener('focus', () => {pegaDados()}),[]
     )
     const pegaDados = async () => {
-        const product = firebase.db.collection("prod");
+        const product = firebase.db.collection("produtos");
         const resposta = await product.get();
         const listProdutos = [];
         resposta.forEach(
@@ -86,8 +86,11 @@ export default function ListarProdutos({navigation}){
                     onChangeText={(valor)=> handleInputChange2((valor))}
                 />
             <Text> </Text>
-            <Button title="Adicionar" onPress={()=>{setLoading(true); navigation.navigate('CadastroProdutos')}}/>
-          
+            {/* <Button title="Adicionar" onPress={()=>{setLoading(true); navigation.navigate('CadastroProdutos')}}/> */}
+            <TouchableOpacity style={styles.botao} onPress={()=>{setLoading(true); navigation.navigate('CadastroProdutos')}}><Text style={styles.textoBotao}>Adicionar Produtos</Text></TouchableOpacity>
+
+
+
             <FlatList data={dados} renderItem={({item}) => (<View style={styles.container}>
                
                 <Text>{item.Codigo} - {item.Nome}</Text>
@@ -100,12 +103,21 @@ export default function ListarProdutos({navigation}){
                 </Text>
                
                 <Text>{item.Quantidade}</Text>
+               
                 <View style={ {flex: 1, flexDirection:'row'}}>
-                    <Button title="editar"  onPress={()=>{navigation.navigate("EditProdutos", item.key)}}/>
+                   
+                    {/* <Button title="editar"  onPress={()=>{navigation.navigate("EditProdutos", item.key)}}/> */}
+                    <TouchableOpacity style={styles.botao} onPress={()=>{navigation.navigate("EditProdutos", item.key)}}><Text style={styles.textoBotao}>Editar</Text></TouchableOpacity>                  
+                  
                     <Text>{console.log(item.key, typeof(item.key))}</Text>
-                    <Button title=" X " color="red" onPress={()=>{navigation.navigate("DeleteProdutos", item.key)}}/>
+                  
+                    {/* <Button title=" X " color="red" onPress={()=>{navigation.navigate("DeleteProdutos", item.key)}}/> */}
+    
+                    <TouchableOpacity style={styles.botaoDeletar} onPress={()=>{navigation.navigate("DeleteProdutos", item.key)}}><Text style={styles.textoBotao}>Deletar</Text></TouchableOpacity>   
+             
                 </View>
-                
+
+
 
             </View>)}/>
         </View>
@@ -134,5 +146,27 @@ const styles = StyleSheet.create({
     },
     alert:{
         backgroundColor:'red',
-    }
+    },
+
+    botaoDeletar:{
+        backgroundColor:'red',
+        margin:10,
+        padding: 10,
+        borderRadius: 10,
+
+    },
+
+    botao:{
+        backgroundColor:'#3bbdc2',
+        margin:10,
+        padding: 10,
+        borderRadius: 10,
+
+    },
+
+
+
+
+
+
 });
