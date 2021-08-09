@@ -139,7 +139,7 @@ export default function Principal() {
           }}
       />
 
-      <Drawer.Screen name="Promocoes" component={Promocoes}
+      {/* <Drawer.Screen name="Promocoes" component={Promocoes}
         options={{
           title: 'Promoções',
           drawerIcon: ({focused, size}) => (
@@ -157,7 +157,7 @@ export default function Principal() {
             fontWeight: 'bold',
           },
         }}
-      />
+      /> */}
 
 
 
