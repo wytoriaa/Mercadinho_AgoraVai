@@ -29,7 +29,7 @@ export default function HortiFruti({navigation}) {
       })    
       setHortiFruti(listHortiFruti);
   }
-
+  
   return(
     <View style={{backgroundColor: "#FFF"}}>
       <Header />
