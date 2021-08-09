@@ -94,9 +94,9 @@ export default function Login({navigation}) {
                 />
 
                 {newUser ? 
-                  <Button title="Cadastrar"
+                  <Button color='#2E3192' title="Cadastrar"
                   onPress={cadastrar}/> 
-                  : <Button title="Login"
+                  : <Button color='#2E3192' title="Login"
                   onPress={login}/>
                 }
 

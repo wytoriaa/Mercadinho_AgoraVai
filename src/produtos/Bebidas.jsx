@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
   },
   bgtitulo:{
     width: Dimensions.get('window').width,
-    backgroundColor: "#ED1C2422",
+    backgroundColor: "#CCC",
     justifyContent: 'center',
     alignItems: 'center',
     marginVertical: 10,
