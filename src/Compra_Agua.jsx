@@ -24,7 +24,7 @@ export default function AddUsers({navigation}){
     });
 
     const handleWhatsAppPress = async () => {
-        let mensagem = "?text=* Olá Sr. Santana, segue os dados do cliente para venda %0A Nome: %0A " + nome +  " %0A E-mail: %0A " + state.email + " %0A Endereço: %0A " + state.endereco + " %0A Número: %0A " + state.número + " %0A Cep: %0A " + state.cep + " %0A Complemento: %0A " + state.complemento + " %0A Quantidade: %0A " + state.quantidade;
+        let mensagem = "?text=* Olá Sr. Santana, segue os dados do cliente para venda %0A Nome: %0A " + state.nome +  " %0A E-mail: %0A " + state.email + " %0A Endereço: %0A " + state.endereco + " %0A Número: %0A " + state.número + " %0A Cep: %0A " + state.cep + " %0A Complemento: %0A " + state.complemento + " %0A Quantidade: %0A " + state.quantidade;
 
         await Linking.openURL("https://wa.me/+5511960232774/" + mensagem)
         
