@@ -33,14 +33,14 @@ export default function ListarProdutos({navigation}){
             <Button title="Adicionar" onPress={()=>{setLoading(true); navigation.navigate('CadastroProdutos')}}/>
           
             <FlatList data={state} renderItem={({item}) => (<View style={styles.container}>
-                <Text>{item.codigo}</Text>
-                <Text>{item.nome}</Text>
-                <Text>{item.preco}</Text>
-                <Text>{item.grupo}</Text>
-                <Text>{item.descricao}</Text>
-                <Text>{item.quantidade}</Text>
-                <Text>{item.status.promocao}</Text>
-                <Text>{item.status.porcentagem}</Text>
+               
+                <Text>{item.Nome}</Text>
+                <Text>{item.Preço}</Text>
+                <Text>{item.Departamento}</Text>
+                <Text>{item.Descriçao}</Text>
+                <Text>{item.Quantidade}</Text>
+                <Text>{item.Promoção}</Text>
+               
                 <Button title="editar" onPress={()=>navigation.navigate("EditProdutos", item.key)}/>
                 <Button title="X" color="red" onPress={()=>navigation.navigate("DeleteProdutos", item.key)}/>
             </View>)}/>

@@ -10,6 +10,7 @@ import { UserContext } from './src/UserContext';
 import ListarProdutos from './src/ListarProdutos';
 import EditProdutos from './src/EditProdutos';
 import CadastroProdutos from './src/CadastroProdutos';
+import DeleteProdutos from  "./src/DeleteProdutos" 
 import Principal2 from './src/Principal2';
 import Login_Clientes from './src/Login_Clientes';
 import Cadastro_Clientes from './src/Cadastro_Clientes';
@@ -54,6 +55,7 @@ export default function App() {
       <Stack.Screen name="EditProdutos" component={EditProdutos} />
       <Stack.Screen name="CadastroProdutos" component={CadastroProdutos} />
       
+      <Stack.Screen name="DeleteProdutos" component={DeleteProdutos} />
       <Stack.Screen name="Login_Clientes" component={Login_Clientes} />
       <Stack.Screen name="Cadastro_Clientes" component={Cadastro_Clientes} />
     </Stack.Navigator>

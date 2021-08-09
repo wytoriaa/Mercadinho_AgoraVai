@@ -12,7 +12,7 @@ export default function DeleteProdutos({route, navigation}){
     
     const deleteProdutos = async () =>{
    
-    const produtos = firebase.db.collection('prod');
+    const produtos = firebase.db.collection('produtos');
     
     await produtos.doc(key).delete()
     .then(
@@ -38,7 +38,7 @@ export default function DeleteProdutos({route, navigation}){
             {/**o botão abaixo aciona a função de exclusão */}
             <Button
                 title="Sim"
-                onPress={deleteUser}
+                onPress={deleteProdutos}
             />
             {/**o botão abaixo aciona a função de remover todos da pilha */}
             <Button
