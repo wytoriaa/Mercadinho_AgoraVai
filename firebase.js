@@ -73,8 +73,6 @@ import "firebase/auth";
 
 
 
-
-
 // //----------- BANCO ORIGINAL ------------------
 var firebaseConfig = {
   apiKey: "AIzaSyC2BRtP6nAlxdb4KypnEGgaLhjqEzPLRgM",
