@@ -7,7 +7,8 @@ import Icons from 'react-native-vector-icons/MaterialIcons';
 import Login from './Login';
 import Home from './Home';
 import Mapa from './Mapa';
-import Login_Clientes from './Login_Clientes'
+import Login_Clientes from './Login_Clientes';
+import Login_Compra_Agua from './Login_Compra_Agua';
 // import Carrossel from './Carrossel'
 //--------------------------------------------
 import Acougue from './produtos/Acougue';
@@ -29,6 +30,7 @@ import Geral from './produtos/Geral';
 import Pet from './produtos/Pet';
 import Promocoes from "./produtos/Promocoes";
 import LIstarProdutos from "./ListarProdutos"
+
 
 
 //criar uma funçao para os icones aparecerem na barra de navegação do app
@@ -112,6 +114,48 @@ export default function Principal() {
             drawerItemStyle: {borderBottomWidth: 1, borderBottomColor: "#aaa"}
           }}
       />
+
+
+<Drawer.Screen name="Login_Compra_Agua" component={Login_Compra_Agua}
+            options={{
+            title: 'Comprar Água',
+            drawerIcon: ({focused, size}) => (
+                <Icons
+                name="login"
+                size={size}
+                color={focused ? '#2E3192' : '#ED1C24'}
+                />
+            ),
+            headerStyle: {
+              backgroundColor: '#2E3192',
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+              fontWeight: 'bold',
+            },
+          }}
+      />
+
+      <Drawer.Screen name="Promocoes" component={Promocoes}
+        options={{
+          title: 'Promoções',
+          drawerIcon: ({focused, size}) => (
+            <Icons
+              name="shopping-cart"
+              size={size}
+              color={focused ? '#2E3192' : '#ED1C24'}
+            />
+          ),
+          headerStyle: {
+            backgroundColor: '#2E3192',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
+        }}
+      />
+
 
 
 

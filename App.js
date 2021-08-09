@@ -14,6 +14,8 @@ import DeleteProdutos from  "./src/DeleteProdutos"
 import Principal2 from './src/Principal2';
 import Login_Clientes from './src/Login_Clientes';
 import Cadastro_Clientes from './src/Cadastro_Clientes';
+import Login_Compra_Agua from './src/Login_Compra_Agua';
+import Compra_Agua from './src/Compra_Agua';
 //criar uma funçao para os icones aparecerem na barra de navegação do app
 //function escolhendoIcone({color, size}){
 
@@ -58,6 +60,8 @@ export default function App() {
       <Stack.Screen name="DeleteProdutos" component={DeleteProdutos} />
       <Stack.Screen name="Login_Clientes" component={Login_Clientes} />
       <Stack.Screen name="Cadastro_Clientes" component={Cadastro_Clientes} />
+      <Stack.Screen name="Login_Compra_Agua" component={Login_Compra_Agua} />
+      <Stack.Screen name="Compra_Agua" component={Compra_Agua} />
     </Stack.Navigator>
 
     {/* <Stack.Navigator initialRouteName={Principal}

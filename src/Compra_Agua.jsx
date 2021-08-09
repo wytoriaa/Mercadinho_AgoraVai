@@ -21,11 +21,22 @@ export default function AddUsers({navigation}){
         
     });
 
+    // const useState = ({ bairro }) => {
+    //     if (bairro == 'Cruzeiro') {
+    //       return alert ('Sua água chegara em breve!')
+    //     }
+    //     else {
+    //        return alert ('Não entregamos nesse bairro!')
+    //     }
+
+    //   }
+
     
     const handleInputChange = (name, value) =>{
         setState({
             ...state, [name]: value
         })
+        
     }
 
  
@@ -48,12 +59,13 @@ export default function AddUsers({navigation}){
         navigation.popToTop();
     }
 
+   
     console.log(state);
     return(
         
         <ScrollView >
             <View style={styles.container}>
-                <Text style={styles.h1}>Cadastro</Text>
+                <Text style={styles.h1}>Pedido Água</Text>
                
                 <TextInput
                     style={styles.input}
@@ -105,6 +117,8 @@ export default function AddUsers({navigation}){
                     defaultValue={state.bairro}
                     onChangeText={
                         (value)=>handleInputChange('bairro', value)
+                        
+                        
                     }
                 />
                 <TextInput
@@ -131,12 +145,28 @@ export default function AddUsers({navigation}){
                         (value)=>handleInputChange('telefone', value)
                     }
                 />
-               
+                <TextInput
+                    style={styles.input}
+                    placeholder='Pedido'
+                    defaultValue={state.pedido}
+                    onChangeText={
+                        (value)=>handleInputChange('pedido', value)
+                    }
+                />
+                <TextInput
+                    style={styles.input}
+                    placeholder='Quantidade'
+                    keyboardType='numeric'
+                    defaultValue={state.quantidade}
+                    onChangeText={
+                        (value)=>handleInputChange('quantidade', value)
+                    }
+                />
                 
 
                 <Button
                     style={styles.input}
-                    title="Cadastrar"
+                    title="Realizar Pedido"
                     onPress={addUser}
                 />
             </View>
@@ -147,22 +177,22 @@ export default function AddUsers({navigation}){
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems:'center',
-    padding:12
-  },
-  h1:{
-      fontSize:20,
-      fontWeight:'bold',
-      padding:12
-  }, 
-  input:{
-    height:50, 
-    width:'90%',
-    borderWidth:1, 
-    padding:10,
-    marginTop:5
-  }
+    container: {
+        flex: 1,
+        backgroundColor: '#fff',
+        alignItems:'center',
+        padding:12
+      },
+      h1:{
+          fontSize:20,
+          fontWeight:'bold',
+          padding:12
+      }, 
+      input:{
+        height:50, 
+        width:'90%',
+        borderWidth:1, 
+        padding:10,
+        marginTop:5
+      }
 });
