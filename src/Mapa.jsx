@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Text, Dimensions, Button, ScrollView } from 'react-native';
+import { StyleSheet, View, Text, Dimensions, Image, ScrollView } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
 import customStyle from '../customStyle';
 import Header from './Header';
@@ -32,6 +32,9 @@ export default function Mapa({ navigation }) {
 
                     />
                 </MapView>
+            </View>
+            <View style={{display: "flex", justifyContent: "center", alignSelf: "center", paddingVertical: 15,}}>
+                <Image source={require("./assets/imagens/layout/frente.jpg")} />
             </View>
             <View style={styles.ViewText}>
                 <Text style={{fontSize: 20, fontFamily: "sans-serif-medium", color: "#2E3192", fontWeight: "bold",}}>Mercantil Cruzeiro Frios</Text>
